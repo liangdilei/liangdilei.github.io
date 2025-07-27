@@ -15,7 +15,7 @@
           
           <category> 生活 </category>
           
-          <category> OI </category>
+          <category> 技术 </category>
           
       </categories>
       
@@ -40,7 +40,9 @@
       
       <categories>
           
-          <category> 单片机 </category>
+          <category> 生活 </category>
+          
+          <category> 技术 </category>
           
       </categories>
       
@@ -92,14 +94,16 @@
       
       <categories>
           
-          <category> 文化课 </category>
+          <category> 生活 </category>
+          
+          <category> 闲谈 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 闲谈 </tag>
+            <tag> 文化课 </tag>
             
         </tags>
       
@@ -247,6 +251,8 @@
       
       
       <categories>
+          
+          <category> 生活 </category>
           
           <category> 闲谈 </category>
           
