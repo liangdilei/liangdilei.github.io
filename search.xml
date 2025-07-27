@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>linux命令行常用命令</title>
+      <link href="/2025/07/27/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+      <url>/2025/07/27/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="linux命令行常用命令"><a href="#linux命令行常用命令" class="headerlink" title="linux命令行常用命令"></a>linux命令行常用命令</h1><h2 id="常规"><a href="#常规" class="headerlink" title="常规"></a>常规</h2><ol><li><p>pwd：输出工作目录</p></li><li><p>ls：列出文件夹中的文件</p></li><li><p>cd 目录名：切换工作目录</p></li><li><p>cp 文件1 文件2：将文件1复制到文件2</p></li><li><p>mv 文件1 文件2：剪切文件1到文件2</p></li><li><p>mkdir 文件夹名：创建文件夹</p></li><li><p>touch 文件名：创建文件</p></li><li><p>rm 文件名：删除文件</p></li><li><p>rmdir 文件夹：删除空文件夹</p></li><li><p>rm -r 文件夹：删除文件夹</p></li><li><p>diff 文件1 文件2：比较文件1与文件2</p><p>如果相同则无输出，否则将给出</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数字1，数字2+a/c+数字3,数字4</span><br><span class="line">&gt;字符串</span><br><span class="line">数字1，数字2+d+数字3,数字4</span><br><span class="line">&lt;字符串</span><br></pre></td></tr></table></figure><p>字母表示的意思如下</p><p>a：add </p><p>c：change</p><p>d：delete</p><p>数字1,2 表示在文件一的 ‘数字1’ 到 ‘数字2’ 行。</p><p>数字3,4 表示在文件二的 ‘数字3’ 到 ‘数字4’ 行。</p><p>‘&gt;’ 在a时表示要添加的字符串；在c时表示文件一和文件二的内容，以分隔线隔开。</p><p>‘&lt;’ 表示要删除的字符串。</p></li></ol><h2 id="vi-vim中常用命令："><a href="#vi-vim中常用命令：" class="headerlink" title="vi/vim中常用命令："></a>vi/vim中常用命令：</h2><ol><li><p>vi/vim 文件名：用vi/vim打开文件</p></li><li><p>esc：回到一般模式</p></li><li><p>i：在光标处输入文字</p></li><li><p>x：删除光标处文字</p></li></ol><h2 id="OI"><a href="#OI" class="headerlink" title="OI"></a>OI</h2><h3 id="编译与运行"><a href="#编译与运行" class="headerlink" title="编译与运行"></a>编译与运行</h3><ol><li><p>g++ 文件名1.cpp -o 文件名2：编译cpp文件并生成文件名2的exe文件</p></li><li><p>./文件名：执行 文件名.exe</p></li></ol><h3 id="GDB调试"><a href="#GDB调试" class="headerlink" title="GDB调试"></a>GDB调试</h3><h2 id="manjaro-发行版中的一些常用命令"><a href="#manjaro-发行版中的一些常用命令" class="headerlink" title="manjaro 发行版中的一些常用命令"></a>manjaro 发行版中的一些常用命令</h2><ol><li><p>sudo pacman -Syu：系统更新</p></li><li><p>sudo pacman -S 包名：下载包（可能不是最新版）</p></li><li><p>sudo pacman -Sy 包名：下载包（从服务器下载最新版）</p></li><li><p>sudo pacman -Scc：清空包缓存</p></li><li><p>sudo pacman -Rs 包名：删除包并删除为使用的依赖</p></li><li><p>sudo pacman -Rns 包名：删除包并删除用户配置文件（彻底删除）</p></li><li><p>sudo pacman -Rns $(pacman -Qdtq)：删除未使用的依赖</p></li><li><p>df -h：查看磁盘空间</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+          <category> OI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>GPIO学习笔记</title>
       <link href="/2025/07/18/GPIO%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
       <url>/2025/07/18/GPIO%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
