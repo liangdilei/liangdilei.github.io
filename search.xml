@@ -4,29 +4,23 @@
   
     
     <entry>
-      <title>程序异闻录：终端输出被吞噬之谜</title>
-      <link href="/2025/07/29/%E7%A8%8B%E5%BA%8F%E5%BC%82%E9%97%BB%E5%BD%95%EF%BC%9A%E7%BB%88%E7%AB%AF%E8%BE%93%E5%87%BA%E8%A2%AB%E5%90%9E%E5%99%AC%E4%B9%8B%E8%B0%9C/"/>
-      <url>/2025/07/29/%E7%A8%8B%E5%BA%8F%E5%BC%82%E9%97%BB%E5%BD%95%EF%BC%9A%E7%BB%88%E7%AB%AF%E8%BE%93%E5%87%BA%E8%A2%AB%E5%90%9E%E5%99%AC%E4%B9%8B%E8%B0%9C/</url>
+      <title>积累的一些OI做题技巧，收录一些杂的OI知识</title>
+      <link href="/2025/07/31/%E7%A8%8B%E5%BA%8F%E5%BC%82%E9%97%BB%E5%BD%95%EF%BC%9A%E7%BB%88%E7%AB%AF%E8%BE%93%E5%87%BA%E8%A2%AB%E5%90%9E%E5%99%AC%E4%B9%8B%E8%B0%9C/"/>
+      <url>/2025/07/31/%E7%A8%8B%E5%BA%8F%E5%BC%82%E9%97%BB%E5%BD%95%EF%BC%9A%E7%BB%88%E7%AB%AF%E8%BE%93%E5%87%BA%E8%A2%AB%E5%90%9E%E5%99%AC%E4%B9%8B%E8%B0%9C/</url>
       
-        <content type="html"><![CDATA[<h1 id="程序异闻录：终端输出被吞噬之谜"><a href="#程序异闻录：终端输出被吞噬之谜" class="headerlink" title="程序异闻录：终端输出被吞噬之谜"></a>程序异闻录：终端输出被吞噬之谜</h1>]]></content>
+        <content type="html"><![CDATA[<h1 id="积累的一些OI做题技巧-，收录一些杂的OI知识"><a href="#积累的一些OI做题技巧-，收录一些杂的OI知识" class="headerlink" title="积累的一些OI做题技巧 ，收录一些杂的OI知识"></a>积累的一些OI做题技巧 ，收录一些杂的OI知识</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ol><li><p>理解题意后，如果毫无思路，可以先模拟一下样例，一般来说都可以摸到一些性质。一道题一旦摸到了正确的性质，那就离想到正解不远了。</p></li><li><p>对一道题有了模糊的思路后，不要急着开始写。把每一个步骤在纸上写下来，想一想每个步骤用什么算法，契不契合题意，能否正确实现。</p></li><li><p>写代码的时候千万记住“kiss”原则，谨慎，谨慎，再谨慎！可以写的慢一点，但脑子一定要在线，知道自己每一行代码在干什么。</p></li><li><p>如果交上去没过，好好再看一遍题目。</p></li></ol><h2 id="技巧-amp-知识"><a href="#技巧-amp-知识" class="headerlink" title="技巧&amp;知识"></a>技巧&amp;知识</h2><ol><li>正难则反：</li></ol><p>如果一道题“正”着做很难，可以试试“反”着来。</p><p>比如从起点开始dp很难，那就试试从终点开始dp：<a href="https://www.luogu.com.cn/problem/AT_abc415_e">[ABC415E] Hungry Takahashi</a> 。</p><p>比如找多个起点到一个终点的距离很难，但从一个终点到多个起点就很容易(bfs，dij)：<a href="https://www.luogu.com.cn/problem/AT_abc405_d">[ABC405D] Escape Route</a> 。</p><p>比如判断网格图上[1,1]能否到达[n,m]，可以反过来想障碍物有没有连成一条线把两个点分开在独立的两部分：<a href="https://www.luogu.com.cn/problem/AT_abc413_g">[ABC413G] Big Banned Grid</a> 。</p><ol><li>对于那些有多个变量互相牵制的数学题：</li></ol><p>如：<a href="https://www.luogu.com.cn/problem/AT_abc414_e">[ABC414E] Count A%B=C </a>，<a href="https://www.luogu.com.cn/problem/AT_abc405_e">[ABC405E] Fruit Lineup</a></p><p>首先根据其他变量可以确定另一个变量，然后选择一个好枚举的变量作为突破口。</p><ol><li><p>虚点：</p></li><li><p>分层图：</p></li><li><p>翻转与交换的互换：</p></li></ol><p>翻转[a,b]，翻转[b+1,c]，翻转[a,c] = 交换[a,b]，[b+1,c]的位置：<a href="https://www.luogu.com.cn/problem/AT_abc413_e">[ABC413E] Reverse 2^i</a> 。</p><ol><li>搜索时的vis标签可以充分发挥想象：</li></ol><p>不要拘泥于0/1的形式：<a href="https://www.luogu.com.cn/problem/AT_abc410_d">[ABC410D] XOR Shortest Walk </a> 。</p><ol><li>关于dp降维：</li></ol><p>滚动数组就不说了。</p><p>把其中一个dp参数作为结果达成降维：<a href="https://www.luogu.com.cn/problem/AT_abc410_e">[ABC410E] Battles in a Row</a> 。</p><ol><li>涉及到状态之间的转移与可达性时：</li></ol><p>考虑dp。</p><p>考虑建图：<a href="https://www.luogu.com.cn/problem/AT_abc412_c">[ABC412C] Giant Domino</a> 。</p>]]></content>
       
       
       <categories>
           
-          <category> 生活 </category>
-          
-          <category> 技术 </category>
+          <category> OI </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> GDB </tag>
-            
-            <tag> 异闻录 </tag>
-            
-            <tag> 输出缓冲机制 </tag>
+            <tag> 做题技巧 </tag>
             
         </tags>
       
