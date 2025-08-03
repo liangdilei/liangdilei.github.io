@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>WA题铭</title>
+      <link href="/2025/08/03/WA%E9%A2%98%E9%93%AD/"/>
+      <url>/2025/08/03/WA%E9%A2%98%E9%93%AD/</url>
+      
+        <content type="html"><![CDATA[<h1 id="WA题铭"><a href="#WA题铭" class="headerlink" title="WA题铭"></a>WA题铭</h1><ol><li><a href="https://www.luogu.com.cn/problem/AT_abc416_e">[ABC416E] Development</a> 。输入的时候没有取边的min值，而是直接覆盖。以后用邻接表记录图的时候一定要注意！</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> OI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 错题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>过题记录(25年8月)</title>
       <link href="/2025/08/03/%E8%BF%87%E9%A2%98%E8%AE%B0%E5%BD%95(25%E5%B9%B48%E6%9C%88)/"/>
       <url>/2025/08/03/%E8%BF%87%E9%A2%98%E8%AE%B0%E5%BD%95(25%E5%B9%B48%E6%9C%88)/</url>
       
-        <content type="html"><![CDATA[<h1 id="过题记录-25年8月"><a href="#过题记录-25年8月" class="headerlink" title="过题记录(25年8月)"></a>过题记录(25年8月)</h1><ol><li><p>正难则反，从终点开始dp：<a href="https://www.luogu.com.cn/problem/AT_abc415_e">[ABC415E] Hungry Takahashi</a> 。</p></li><li><p>正难则反，判断网格图上[1,1]能否到达[n,m]，可以反过来想障碍物有没有连成一条线把两个点分开在独立的两部分：<a href="https://www.luogu.com.cn/problem/AT_abc413_g">[ABC413G] Big Banned Grid</a> 。</p></li><li><p>多个变量互相牵制的数学题，首先根据其他变量可以确定另一个变量，然后选择一个好枚举的变量作为突破口，这种题的核心不是<strong>怎么算</strong>，而是怎么<strong>加快算的速度</strong>：<a href="https://www.luogu.com.cn/problem/AT_abc414_e">[ABC414E] Count A%B=C </a></p></li><li><p>翻转[a,b]，翻转[b+1,c]，翻转[a,c] = 交换[a,b]，[b+1,c]的位置(a&lt;b&lt;c)：<a href="https://www.luogu.com.cn/problem/AT_abc413_e">[ABC413E] Reverse 2^i</a> 。</p></li><li><p>搜索时的vis标签可以充分发挥想象，要记住vis数组实际上是标记一种状态可不可行：<a href="https://www.luogu.com.cn/problem/AT_abc410_d">[ABC410D] XOR Shortest Walk</a> 。</p></li><li><p>涉及到状态之间的转移与可达性时，考虑建图：<a href="https://www.luogu.com.cn/problem/AT_abc412_c">[ABC412C] Giant Domino</a> 。</p></li><li><p>按值域分治的小trick，第一次见，很新颖：<a href="https://www.luogu.com.cn/problem/AT_abc417_d">[ABC417D] Takahashi’s Expectation</a> 。</p></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="过题记录-25年8月"><a href="#过题记录-25年8月" class="headerlink" title="过题记录(25年8月)"></a>过题记录(25年8月)</h1><ol><li><p>正难则反，从终点开始dp：<a href="https://www.luogu.com.cn/problem/AT_abc415_e">[ABC415E] Hungry Takahashi</a> 。</p></li><li><p>正难则反，判断网格图上[1,1]能否到达[n,m]，可以反过来想障碍物有没有连成一条线把两个点分开在独立的两部分：<a href="https://www.luogu.com.cn/problem/AT_abc413_g">[ABC413G] Big Banned Grid</a> 。</p></li><li><p>翻转[a,b]，翻转[b+1,c]，翻转[a,c] = 交换[a,b]，[b+1,c]的位置(a&lt;b&lt;c)：<a href="https://www.luogu.com.cn/problem/AT_abc413_e">[ABC413E] Reverse 2^i</a> 。</p></li><li><p>搜索时的vis标签可以充分发挥想象，要记住vis数组实际上是标记一种状态可不可行：<a href="https://www.luogu.com.cn/problem/AT_abc410_d">[ABC410D] XOR Shortest Walk</a> 。</p></li><li><p>涉及到状态之间的转移与可达性时，考虑建图：<a href="https://www.luogu.com.cn/problem/AT_abc412_c">[ABC412C] Giant Domino</a> 。</p></li><li><p>按值域分治的小trick，第一次见，很新颖：<a href="https://www.luogu.com.cn/problem/AT_abc417_d">[ABC417D] Takahashi’s Expectation</a> 。</p></li><li><p>floyd算法加边比加点简单；如果一个点要与多个点连接，且这几个点之间的距离都相同，我们可以考虑设置一个虚点，然后让所有这样的点与虚点连一条w/2的边，这等价于一个点要与多个点连接一条边权w的边：[[ABC416E] Development(<a href="https://www.luogu.com.cn/problem/AT_abc416_e">https://www.luogu.com.cn/problem/AT_abc416_e</a>)] 。</p></li><li><p>多个变量互相牵制的数学题，首先根据其他变量可以确定另一个变量，然后选择一个好枚举的变量作为突破口，这种题的核心不是<strong>怎么算</strong>，而是怎么<strong>加快算的速度</strong>；本题还用到了整数分块的方法优化：<a href="https://www.luogu.com.cn/problem/AT_abc414_e">[ABC414E] Count A%B=C </a></p></li></ol>]]></content>
       
       
       <categories>
