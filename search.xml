@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>模</title>
+      <link href="/2025/08/04/%E6%A8%A1/"/>
+      <url>/2025/08/04/%E6%A8%A1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="模"><a href="#模" class="headerlink" title="模"></a>模</h1><h2 id="模的定义"><a href="#模的定义" class="headerlink" title="模的定义"></a>模的定义</h2><p>事实上，模本身并不是一个精确的术语，它可以指代很多东西。</p><ul><li><p>$a\ mod{\ b}$ 和 $a \equiv b \pmod{m}$：此时的模是动词，意味 ‘取余数’。</p></li><li><p>模数：是一个正整数。模数m规定了运算结果中整数的范围为(0~m)。例如：<code>模是998244353</code> 中的模就是模数的意思。</p></li><li><p>模运算：这是一整套在<strong>给定模数下对整数进行计算的规则体系</strong>。例如：<code>学习有关模的知识</code> 此时的模就是模运算的意思。</p></li><li><p>模意义：一种抽象的概念。在模意义下，我们关注数的 ‘同余关系’，而不是观察这个数本身是多少。例如：<code>从模的角度看</code> 的模就是模领域的意思。</p></li></ul><h2 id="模运算"><a href="#模运算" class="headerlink" title="模运算"></a>模运算</h2><p>模运算中的加、减、乘都很简单。</p><ul><li><p>$(a+b)\ mod \ M = (a\ mod\ M+b\ mod\ M)\ mod\ M$</p></li><li><p>$(a-b)\ mod\ M=(a\ mod\ M-b\ mod\ M)\ mod\ M$</p></li><li><p>$(a\times b)\ mod\ M=(a\ mod\ M\times b\ mod\ M)\ mod\ M$ </p></li></ul><p>但是除法就有些特别。在模运算中<strong>不能</strong>直接除，而是要<strong>乘以除数的逆元</strong>。</p><p>所谓逆元，其实就是在模领域下的倒数，即<strong>一个数乘以它的逆元在模领域下等于1</strong>。</p><p>例如 $a$ 的逆元是 $a^{-1}\pmod{M}$ ，因为 $a\times a^{-1}\equiv1\pmod{M}$ </p><p>那么一个数的逆元怎么求呢？我们可以使用费马小定理。</p><p>费马小定理：若 $p$ 是质数，且 $a$ 不是 $p$ 的倍数，那么可得 $a^{p-1}\equiv1\pmod{p}$</p><p>$\because a^{p-1} \equiv 1\pmod{p} \\\therefore a\times a^{p-2} \equiv 1\pmod{p}$</p><p>根据逆元定义，可知 $a^{p-2}$ 就是 $a$ 的逆元，接下来再用快速幂求解一下就好了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> OI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数学，费马小定理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>WA题铭</title>
       <link href="/2025/08/03/WA%E9%A2%98%E9%93%AD/"/>
       <url>/2025/08/03/WA%E9%A2%98%E9%93%AD/</url>
       
-        <content type="html"><![CDATA[<h1 id="WA题铭"><a href="#WA题铭" class="headerlink" title="WA题铭"></a>WA题铭</h1><ol><li><a href="https://www.luogu.com.cn/problem/AT_abc416_e">[ABC416E] Development</a> 。输入的时候没有取边的min值，而是直接覆盖。以后用邻接表记录图的时候一定要注意！</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="WA题铭"><a href="#WA题铭" class="headerlink" title="WA题铭"></a>WA题铭</h1><ol><li><p><a href="https://www.luogu.com.cn/problem/AT_abc416_e">[ABC416E] Development</a>：输入的时候没有取边的min值，而是直接覆盖。以后用邻接表记录图的时候一定要注意！</p></li><li><p><a href="https://www.luogu.com.cn/problem/AT_abc414_e">[ABC414E] Count A%B=C</a>：在带有模的运算中，所有的除都应该变成乘逆元。</p></li><li><p><a href="https://www.luogu.com.cn/problem/AT_abc417_e">[ABC4173] A Path in A Dictionary</a>：多组数据输入时，在每次开始之前要初始化好要用到的东西，不要漏掉！！！</p></li></ol>]]></content>
       
       
       <categories>
@@ -33,7 +58,7 @@
       <link href="/2025/08/03/%E8%BF%87%E9%A2%98%E8%AE%B0%E5%BD%95(25%E5%B9%B48%E6%9C%88)/"/>
       <url>/2025/08/03/%E8%BF%87%E9%A2%98%E8%AE%B0%E5%BD%95(25%E5%B9%B48%E6%9C%88)/</url>
       
-        <content type="html"><![CDATA[<h1 id="过题记录-25年8月"><a href="#过题记录-25年8月" class="headerlink" title="过题记录(25年8月)"></a>过题记录(25年8月)</h1><ol><li><p>正难则反，从终点开始dp：<a href="https://www.luogu.com.cn/problem/AT_abc415_e">[ABC415E] Hungry Takahashi</a> 。</p></li><li><p>正难则反，判断网格图上[1,1]能否到达[n,m]，可以反过来想障碍物有没有连成一条线把两个点分开在独立的两部分：<a href="https://www.luogu.com.cn/problem/AT_abc413_g">[ABC413G] Big Banned Grid</a> 。</p></li><li><p>翻转[a,b]，翻转[b+1,c]，翻转[a,c] = 交换[a,b]，[b+1,c]的位置(a&lt;b&lt;c)：<a href="https://www.luogu.com.cn/problem/AT_abc413_e">[ABC413E] Reverse 2^i</a> 。</p></li><li><p>搜索时的vis标签可以充分发挥想象，要记住vis数组实际上是标记一种状态可不可行：<a href="https://www.luogu.com.cn/problem/AT_abc410_d">[ABC410D] XOR Shortest Walk</a> 。</p></li><li><p>涉及到状态之间的转移与可达性时，考虑建图：<a href="https://www.luogu.com.cn/problem/AT_abc412_c">[ABC412C] Giant Domino</a> 。</p></li><li><p>按值域分治的小trick，第一次见，很新颖：<a href="https://www.luogu.com.cn/problem/AT_abc417_d">[ABC417D] Takahashi’s Expectation</a> 。</p></li><li><p>floyd算法加边比加点简单；如果一个点要与多个点连接，且这几个点之间的距离都相同，我们可以考虑设置一个虚点，然后让所有这样的点与虚点连一条w/2的边，这等价于一个点要与多个点连接一条边权w的边：[[ABC416E] Development(<a href="https://www.luogu.com.cn/problem/AT_abc416_e">https://www.luogu.com.cn/problem/AT_abc416_e</a>)] 。</p></li><li><p>多个变量互相牵制的数学题，首先根据其他变量可以确定另一个变量，然后选择一个好枚举的变量作为突破口，这种题的核心不是<strong>怎么算</strong>，而是怎么<strong>加快算的速度</strong>；本题还用到了整数分块的方法优化：<a href="https://www.luogu.com.cn/problem/AT_abc414_e">[ABC414E] Count A%B=C </a></p></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="过题记录-25年8月"><a href="#过题记录-25年8月" class="headerlink" title="过题记录(25年8月)"></a>过题记录(25年8月)</h1><ol><li><p>正难则反，从终点开始dp：<a href="https://www.luogu.com.cn/problem/AT_abc415_e">[ABC415E] Hungry Takahashi</a> 。</p></li><li><p>正难则反，判断网格图上[1,1]能否到达[n,m]，可以反过来想障碍物有没有连成一条线把两个点分开在独立的两部分：<a href="https://www.luogu.com.cn/problem/AT_abc413_g">[ABC413G] Big Banned Grid</a> 。</p></li><li><p>翻转[a,b]，翻转[b+1,c]，翻转[a,c] = 交换[a,b]，[b+1,c]的位置(a&lt;b&lt;c)：<a href="https://www.luogu.com.cn/problem/AT_abc413_e">[ABC413E] Reverse 2^i</a> 。</p></li><li><p>搜索时的vis标签可以充分发挥想象，要记住vis数组实际上是标记一种状态可不可行：<a href="https://www.luogu.com.cn/problem/AT_abc410_d">[ABC410D] XOR Shortest Walk</a> 。</p></li><li><p>涉及到状态之间的转移与可达性时，考虑建图：<a href="https://www.luogu.com.cn/problem/AT_abc412_c">[ABC412C] Giant Domino</a> 。</p></li><li><p>按值域分治的小trick，第一次见，很新颖：<a href="https://www.luogu.com.cn/problem/AT_abc417_d">[ABC417D] Takahashi’s Expectation</a> 。</p></li><li><p>floyd算法加边比加点简单；如果一个点要与多个点连接，且这几个点之间的距离都相同，我们可以考虑设置一个虚点，然后让所有这样的点与虚点连一条w/2的边，这等价于一个点要与多个点连接一条边权w的边：[[ABC416E] Development(<a href="https://www.luogu.com.cn/problem/AT_abc416_e">https://www.luogu.com.cn/problem/AT_abc416_e</a>)] 。</p></li><li><p>多个变量互相牵制的数学题，首先根据其他变量可以确定另一个变量，然后选择一个好枚举的变量作为突破口，这种题的核心不是<strong>怎么算</strong>，而是怎么<strong>加快算的速度</strong>；本题还用到了整数分块的方法优化：<a href="https://www.luogu.com.cn/problem/AT_abc414_e">[ABC414E] Count A%B=C </a> 。</p></li><li><p>字典序的从小到大输出可以用贪心+深搜解决：<a href="https://www.luogu.com.cn/problem/AT_abc417_e">[ABC4173] A Path in A Dictionary</a> 。</p></li></ol>]]></content>
       
       
       <categories>
