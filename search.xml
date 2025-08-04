@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>对于题目 [ABC409E] Pair Annihilation 的思路梳理</title>
+      <link href="/2025/08/04/%E5%AF%B9%E4%BA%8E%E9%A2%98%E7%9B%AE%20%5BABC410E%5D%20Pair%20Annihilation%20%E7%9A%84%E6%80%9D%E8%B7%AF%E6%A2%B3%E7%90%86/"/>
+      <url>/2025/08/04/%E5%AF%B9%E4%BA%8E%E9%A2%98%E7%9B%AE%20%5BABC410E%5D%20Pair%20Annihilation%20%E7%9A%84%E6%80%9D%E8%B7%AF%E6%A2%B3%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="对于题目-ABC409E-Pair-Annihilation-的思路梳理"><a href="#对于题目-ABC409E-Pair-Annihilation-的思路梳理" class="headerlink" title="对于题目 [ABC409E] Pair Annihilation 的思路梳理"></a>对于题目 [ABC409E] Pair Annihilation 的思路梳理</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>有一颗 $N$ 个顶点的树，每个顶点上都有一个点权 $P$，保证树上所有点权和为 $0$ 。有 $N-1$ 条边，每条边都有一个边权 $W$。在边上，可以花费 $P\times W$ 个能量使得点权 $P$ 从一个点转移到另一个点，求当所有点上的点权都为 $0$ 时，所花费的最小能量值。</p><h2 id="思路梳理"><a href="#思路梳理" class="headerlink" title="思路梳理"></a>思路梳理</h2><p>我们枚举一个点，将它作为所有点权的终点——每个点权都必须转移到这个地方。</p><p>如何计算转移的总和？设 $P[i]$ 为以 $i$ 为根的树的点权总和(包括根)，设 $dp[i]$ 为：以 $i$ 为根的树上的所有点到达点 $i$ 所花费的能量值。动态规划的转移方程就是：</p><p>$P[u]=\sum{P[v]}$</p><p> $dp[u]= \sum{dp[v]+P[v]\times W}$</p><p>其中，$v$ 表示节点 $u$ 的孩子节点。</p><p>那么我们换一下根，每次的花费就是 $dp[root]$，取其中的最小值就可以得到答案了。</p><p>如何证明其正确性？</p><p>疑惑点就在于，如何保证在以 $i$ 为根的树下，$dp[i]$ 一定是最小花费？</p><p>使用反证法。</p><p>假设那个最小花费的点不在 </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> OI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Atcoder </tag>
+            
+            <tag> ABC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>模</title>
       <link href="/2025/08/04/%E6%A8%A1/"/>
       <url>/2025/08/04/%E6%A8%A1/</url>
@@ -33,7 +60,7 @@
       <link href="/2025/08/03/WA%E9%A2%98%E9%93%AD/"/>
       <url>/2025/08/03/WA%E9%A2%98%E9%93%AD/</url>
       
-        <content type="html"><![CDATA[<h1 id="WA题铭"><a href="#WA题铭" class="headerlink" title="WA题铭"></a>WA题铭</h1><ol><li><p><a href="https://www.luogu.com.cn/problem/AT_abc416_e">[ABC416E] Development</a>：输入的时候没有取边的min值，而是直接覆盖。以后用邻接表记录图的时候一定要注意！</p></li><li><p><a href="https://www.luogu.com.cn/problem/AT_abc414_e">[ABC414E] Count A%B=C</a>：在带有模的运算中，所有的除都应该变成乘逆元。</p></li><li><p><a href="https://www.luogu.com.cn/problem/AT_abc417_e">[ABC4173] A Path in A Dictionary</a>：多组数据输入时，在每次开始之前要初始化好要用到的东西，不要漏掉！！！</p></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="WA题铭"><a href="#WA题铭" class="headerlink" title="WA题铭"></a>WA题铭</h1><ol><li><p><a href="https://www.luogu.com.cn/problem/AT_abc416_e">[ABC416E] Development</a>：输入的时候没有取边的min值，而是直接覆盖。以后用邻接表记录图的时候一定要注意！</p></li><li><p><a href="https://www.luogu.com.cn/problem/AT_abc414_e">[ABC414E] Count A%B=C</a>：在带有模的运算中，所有的除都应该变成乘逆元。</p></li><li><p><a href="https://www.luogu.com.cn/problem/AT_abc417_e">[ABC4173] A Path in A Dictionary</a>：多组数据输入时，在每次开始之前要初始化好要用到的东西，不要漏掉！！！</p></li><li><p><a href="https://www.luogu.com.cn/problem/AT_abc409_e">[ABC409E] Pair Annihilation</a>：要注意int类型数据运算时，可能超过int上限，如果不乘1ll,就算记录结果的变量是long long,系统也不会帮你隐式转换！还有就是记清楚自己用的数据是什么类型的，不要犯把long long当成int记的低级错误！</p></li></ol>]]></content>
       
       
       <categories>
@@ -58,7 +85,7 @@
       <link href="/2025/08/03/%E8%BF%87%E9%A2%98%E8%AE%B0%E5%BD%95(25%E5%B9%B48%E6%9C%88)/"/>
       <url>/2025/08/03/%E8%BF%87%E9%A2%98%E8%AE%B0%E5%BD%95(25%E5%B9%B48%E6%9C%88)/</url>
       
-        <content type="html"><![CDATA[<h1 id="过题记录-25年8月"><a href="#过题记录-25年8月" class="headerlink" title="过题记录(25年8月)"></a>过题记录(25年8月)</h1><ol><li><p>正难则反，从终点开始dp：<a href="https://www.luogu.com.cn/problem/AT_abc415_e">[ABC415E] Hungry Takahashi</a> 。</p></li><li><p>正难则反，判断网格图上[1,1]能否到达[n,m]，可以反过来想障碍物有没有连成一条线把两个点分开在独立的两部分：<a href="https://www.luogu.com.cn/problem/AT_abc413_g">[ABC413G] Big Banned Grid</a> 。</p></li><li><p>翻转[a,b]，翻转[b+1,c]，翻转[a,c] = 交换[a,b]，[b+1,c]的位置(a&lt;b&lt;c)：<a href="https://www.luogu.com.cn/problem/AT_abc413_e">[ABC413E] Reverse 2^i</a> 。</p></li><li><p>搜索时的vis标签可以充分发挥想象，要记住vis数组实际上是标记一种状态可不可行：<a href="https://www.luogu.com.cn/problem/AT_abc410_d">[ABC410D] XOR Shortest Walk</a> 。</p></li><li><p>涉及到状态之间的转移与可达性时，考虑建图：<a href="https://www.luogu.com.cn/problem/AT_abc412_c">[ABC412C] Giant Domino</a> 。</p></li><li><p>按值域分治的小trick，第一次见，很新颖：<a href="https://www.luogu.com.cn/problem/AT_abc417_d">[ABC417D] Takahashi’s Expectation</a> 。</p></li><li><p>floyd算法加边比加点简单；如果一个点要与多个点连接，且这几个点之间的距离都相同，我们可以考虑设置一个虚点，然后让所有这样的点与虚点连一条w/2的边，这等价于一个点要与多个点连接一条边权w的边：[[ABC416E] Development(<a href="https://www.luogu.com.cn/problem/AT_abc416_e">https://www.luogu.com.cn/problem/AT_abc416_e</a>)] 。</p></li><li><p>多个变量互相牵制的数学题，首先根据其他变量可以确定另一个变量，然后选择一个好枚举的变量作为突破口，这种题的核心不是<strong>怎么算</strong>，而是怎么<strong>加快算的速度</strong>；本题还用到了整数分块的方法优化：<a href="https://www.luogu.com.cn/problem/AT_abc414_e">[ABC414E] Count A%B=C </a> 。</p></li><li><p>字典序的从小到大输出可以用贪心+深搜解决：<a href="https://www.luogu.com.cn/problem/AT_abc417_e">[ABC4173] A Path in A Dictionary</a> 。</p></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="过题记录-25年8月"><a href="#过题记录-25年8月" class="headerlink" title="过题记录(25年8月)"></a>过题记录(25年8月)</h1><ol><li><p>正难则反，从终点开始dp：<a href="https://www.luogu.com.cn/problem/AT_abc415_e">[ABC415E] Hungry Takahashi</a> 。</p></li><li><p>正难则反，判断网格图上[1,1]能否到达[n,m]，可以反过来想障碍物有没有连成一条线把两个点分开在独立的两部分：<a href="https://www.luogu.com.cn/problem/AT_abc413_g">[ABC413G] Big Banned Grid</a> 。</p></li><li><p>翻转[a,b]，翻转[b+1,c]，翻转[a,c] = 交换[a,b]，[b+1,c]的位置(a&lt;b&lt;c)：<a href="https://www.luogu.com.cn/problem/AT_abc413_e">[ABC413E] Reverse 2^i</a> 。</p></li><li><p>搜索时的vis标签可以充分发挥想象，要记住vis数组实际上是标记一种状态可不可行：<a href="https://www.luogu.com.cn/problem/AT_abc410_d">[ABC410D] XOR Shortest Walk</a> 。</p></li><li><p>涉及到状态之间的转移与可达性时，考虑建图：<a href="https://www.luogu.com.cn/problem/AT_abc412_c">[ABC412C] Giant Domino</a> 。</p></li><li><p>按值域分治的小trick，第一次见，很新颖：<a href="https://www.luogu.com.cn/problem/AT_abc417_d">[ABC417D] Takahashi’s Expectation</a> 。</p></li><li><p>floyd算法加边比加点简单；如果一个点要与多个点连接，且这几个点之间的距离都相同，我们可以考虑设置一个虚点，然后让所有这样的点与虚点连一条w/2的边，这等价于一个点要与多个点连接一条边权w的边：[[ABC416E] Development(<a href="https://www.luogu.com.cn/problem/AT_abc416_e">https://www.luogu.com.cn/problem/AT_abc416_e</a>)] 。</p></li><li><p>多个变量互相牵制的数学题，首先根据其他变量可以确定另一个变量，然后选择一个好枚举的变量作为突破口，这种题的核心不是<strong>怎么算</strong>，而是怎么<strong>加快算的速度</strong>；本题还用到了整数分块的方法优化：<a href="https://www.luogu.com.cn/problem/AT_abc414_e">[ABC414E] Count A%B=C </a> 。</p></li><li><p>字典序的从小到大输出可以用贪心+深搜解决：<a href="https://www.luogu.com.cn/problem/AT_abc417_e">[ABC4173] A Path in A Dictionary</a> 。</p></li><li><p>对题目无从下手的时候可以试试枚举一个量啊！树形dp+换根解决：<a href="https://www.luogu.com.cn/problem/AT_abc409_e">[ABC409E] Pair Annihilation</a> 。</p></li></ol>]]></content>
       
       
       <categories>
