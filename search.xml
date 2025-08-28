@@ -4,11 +4,42 @@
   
     
     <entry>
+      <title>[题解][ABC390E] Vitamin Balance</title>
+      <link href="/2025/08/28/%5B%E9%A2%98%E8%A7%A3%5D%5BABC390E%5D%20Vitamin%20Balance/"/>
+      <url>/2025/08/28/%5B%E9%A2%98%E8%A7%A3%5D%5BABC390E%5D%20Vitamin%20Balance/</url>
+      
+        <content type="html"><![CDATA[<h1 id="题解-ABC390E-Vitamin-Balance"><a href="#题解-ABC390E-Vitamin-Balance" class="headerlink" title="[题解][ABC390E] Vitamin Balance"></a>[题解][ABC390E] Vitamin Balance</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>有 $N$ 件商品和 $X$ 元钱。每件商品有三个属性：组别 $V_i$，价值 $A_i$，价格 $C_i$。</p><p>一共只有三种组别。可以选择若干件商品，求 “价值最小的组别 的 价值最大值”。</p><h2 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h2><ul><li><p>$1\leq N,X\leq5000$</p></li><li><p>$1\leq V_i\leq3$</p></li><li><p>$1\leq A_i\leq2 \times 10^5$</p></li></ul><p>输入均为整数。</p><p>应该是 $O(NX)$ 的时间复杂度。</p><h2 id="分析性质"><a href="#分析性质" class="headerlink" title="分析性质"></a>分析性质</h2><p>不难发现，在 $X$ 相同的情况下，每组的答案越大越好。</p><p>因此对每个组都 01背包 一下。时间复杂度大约 $O(NX)$。</p><p>然后枚举两个组别的花费，第三个组别的花费也能算出来。时间复杂度 $O(X^2)$。</p><h2 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">5010</span>;</span><br><span class="line"><span class="type">int</span> dp[<span class="number">4</span>][maxn];</span><br><span class="line"><span class="type">int</span> n,m,ans,cnt[<span class="number">4</span>];</span><br><span class="line"><span class="type">int</span> w[<span class="number">4</span>][maxn],v[<span class="number">4</span>][maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>),cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> op,x,y;</span><br><span class="line">        cin&gt;&gt;op&gt;&gt;x&gt;&gt;y;</span><br><span class="line">        <span class="keyword">if</span>(op==<span class="number">1</span>) ++cnt[<span class="number">1</span>],v[op][cnt[<span class="number">1</span>]]=x,w[op][cnt[<span class="number">1</span>]]=y;</span><br><span class="line">        <span class="keyword">if</span>(op==<span class="number">2</span>) ++cnt[<span class="number">2</span>],v[op][cnt[<span class="number">2</span>]]=x,w[op][cnt[<span class="number">2</span>]]=y;</span><br><span class="line">        <span class="keyword">if</span>(op==<span class="number">3</span>) ++cnt[<span class="number">3</span>],v[op][cnt[<span class="number">3</span>]]=x,w[op][cnt[<span class="number">3</span>]]=y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">1</span>;k&lt;=<span class="number">3</span>;k++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt[k];i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=m;j&gt;=w[k][i];j--)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[k][j]=<span class="built_in">max</span>(dp[k][j],dp[k][j-w[k][i]]+v[k][i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=m;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> k=m-i-j;</span><br><span class="line">            <span class="keyword">if</span>(k&lt;<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">            ans=<span class="built_in">max</span>(ans,<span class="built_in">min</span>(<span class="built_in">min</span>(dp[<span class="number">1</span>][i],dp[<span class="number">2</span>][j]),dp[<span class="number">3</span>][k]));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> OI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 题解 </tag>
+            
+            <tag> Atcoder </tag>
+            
+            <tag> ABC </tag>
+            
+            <tag> DP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>liangdl 的生活哲学</title>
       <link href="/2025/08/27/liangdl%20%E7%9A%84%E7%94%9F%E6%B4%BB%E5%93%B2%E5%AD%A6/"/>
       <url>/2025/08/27/liangdl%20%E7%9A%84%E7%94%9F%E6%B4%BB%E5%93%B2%E5%AD%A6/</url>
       
-        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>生活哲学，也可以说是一种生活模式，策略。我按照这个生活模式行动，来解决生活中会遇到的问题，以便达到我的目的。</p><h1 id="liangdl-的生活哲学"><a href="#liangdl-的生活哲学" class="headerlink" title="liangdl 的生活哲学"></a>liangdl 的生活哲学</h1><h2 id="核心目标"><a href="#核心目标" class="headerlink" title="核心目标"></a>核心目标</h2><p><strong>长期且平稳</strong>地体验积极情绪，在消极情绪来到时，可以<strong>及时调整</strong>并从中学习。</p><h2 id="一、长期且平稳地体验积极情绪"><a href="#一、长期且平稳地体验积极情绪" class="headerlink" title="一、长期且平稳地体验积极情绪"></a>一、长期且平稳地体验积极情绪</h2><p>想要拥有这种生活，关键在于：<strong>把握生活的节奏</strong>。做好学习与娱乐的平衡，是体验积极情绪的重中之重。</p><h3 id="我将生活中会进行的活动分为三个类型："><a href="#我将生活中会进行的活动分为三个类型：" class="headerlink" title="我将生活中会进行的活动分为三个类型："></a>我将生活中会进行的活动分为三个类型：</h3><ul><li><p><strong>收敛性活动</strong>：进行活动时专注、集中、思维是定向的。表现为：寻找一个标准答案或固定解法。<strong>作用</strong>：学习某项技能或知识，寻找某个确定答案，得到能力上的提升。（写OI题，写数学题，写博客，文化课）</p></li><li><p><strong>发散性活动</strong>：进行活动时放松、散漫、思维是发散的。表现为：产生尽可能多的想法和可能性。<strong>作用</strong>：获得高质量的休息。锻炼不同脑区，连接不同知识，打破常规。（画画，给题目想一道非常规解，写博客）</p></li><li><p><strong>无目的的娱乐活动</strong>：进行活动时<strong>完全放松</strong>。表现为：没有目的的被动行为。<strong>作用</strong>：给自己充电，是一种纯粹的享受。（看番，听歌）</p></li></ul><p>这三种类型的活动，虽然在生活上的权重不同，但都<strong>必须</strong>存在。</p><h3 id="如何分配三种类型活动的权重？"><a href="#如何分配三种类型活动的权重？" class="headerlink" title="如何分配三种类型活动的权重？"></a>如何分配三种类型活动的权重？</h3><p>我们在不同<strong>状态</strong>、<strong>时间</strong>下都有着不同的答案。</p><div class="mermaid-wrap"><pre class="mermaid-src" hidden>    flowchart TD    A[每日开始] --&gt; B[评估当日核心能量状态]    B -- 能量高涨 --&gt; C[&quot;执行计划: 70%收敛性活动&lt;br&gt;（攻坚、学习新知）&quot;]    B -- 能量一般 --&gt; D[&quot;执行计划: 50%收敛性活动&lt;br&gt;（复习、常规练习）&quot;]    B -- 能量低迷 --&gt; E[&quot;启动恢复计划: 30%收敛性活动&lt;br&gt;（简单任务、整理）&quot;]    C &amp; D &amp; E --&gt; F    subgraph F [根据执行感受动态调试]        direction LR        G[&quot;感觉疲惫、效率下降?&quot;]        H[&quot;感觉平稳、按部就班?&quot;]        I[&quot;感觉有余力、渴望创造?&quot;]        G --&gt; J[&quot;增加“纯粹娱乐”&lt;br&gt;或“创造性休息”&quot;]        H --&gt; K[&quot;保持当前节奏&quot;]        I --&gt; L[&quot;增加“创造性休息”&quot;]    end    F --&gt; M[睡前简短复盘&lt;br&gt;为明天规划大致方向]  </pre></div><p>给定一些参考范围：</p><ul><li><p>收敛性活动：50%~70%</p></li><li><p>发散性活动：10%~25%</p></li><li><p>无目的的娱乐活动：15%~25%</p></li></ul><p>比重受到时间的影响：</p><ul><li><p><strong>赛前</strong>收敛性活动为 70%</p></li><li><p><strong>赛后</strong>的收敛性活动为 40%</p></li></ul><p>总之，不要拘泥于比重的形式，要<strong>找到适合自己的比重，并实时调整。</strong></p><h3 id="每日三问："><a href="#每日三问：" class="headerlink" title="每日三问："></a>每日三问：</h3><ol><li><p>我今天的 “收敛-发散-娱乐” 活动平衡吗？</p></li><li><p>我是否有在战略性的分配自己的精力，还是盲目消耗？</p></li><li><p>我是否给予了自己 “无目的娱乐” 的权利，有没有罪恶感？</p></li></ol><h2 id="及时调整消极情绪"><a href="#及时调整消极情绪" class="headerlink" title="及时调整消极情绪"></a>及时调整消极情绪</h2>]]></content>
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>生活哲学，也可以说是一种生活模式，策略。我按照这个生活模式行动，来解决生活中会遇到的问题，以便达到我的目的。</p><h1 id="liangdl-的生活哲学"><a href="#liangdl-的生活哲学" class="headerlink" title="liangdl 的生活哲学"></a>liangdl 的生活哲学</h1><h2 id="核心目标"><a href="#核心目标" class="headerlink" title="核心目标"></a>核心目标</h2><p><strong>长期且平稳</strong>地体验积极情绪，在消极情绪来到时，可以<strong>及时调整</strong>并从中学习。</p><h2 id="一、长期且平稳地体验积极情绪"><a href="#一、长期且平稳地体验积极情绪" class="headerlink" title="一、长期且平稳地体验积极情绪"></a>一、长期且平稳地体验积极情绪</h2><p>想要拥有这种生活，关键在于：<strong>把握生活的节奏</strong>。做好学习与放松的平衡，是体验积极情绪的重中之重。</p><h3 id="我将生活中会进行的活动分为三个类型："><a href="#我将生活中会进行的活动分为三个类型：" class="headerlink" title="我将生活中会进行的活动分为三个类型："></a>我将生活中会进行的活动分为三个类型：</h3><ul><li><p><strong>收敛性活动</strong>：进行活动时专注、集中、思维是定向的。表现为：寻找一个标准答案或固定解法。<strong>作用</strong>：学习某项技能或知识，寻找某个确定答案，得到能力上的提升。（写OI题，写数学题，写博客，文化课）</p></li><li><p><strong>发散性活动</strong>：进行活动时放松、散漫、思维是发散的。表现为：产生尽可能多的想法和可能性。<strong>作用</strong>：获得高质量的休息。锻炼不同脑区，连接不同知识，打破常规。（画画，给题目想一道非常规解）</p></li><li><p><strong>放松性活动</strong>：进行活动时<strong>完全</strong>放松。什么都不用在意，不需要投入精力，而是<strong>恢复精力</strong>。（看白云，听歌，小憩一会，看看风景，收拾桌面，伸展身体，吃东西）</p></li></ul><p>这三种类型的活动，虽然在生活上的权重不同，但都<strong>必须</strong>存在。</p><h3 id="如何分配三种类型活动的权重？"><a href="#如何分配三种类型活动的权重？" class="headerlink" title="如何分配三种类型活动的权重？"></a>如何分配三种类型活动的权重？</h3><p>我们在不同<strong>状态</strong>、<strong>时间</strong>下都有着不同的答案。</p><div class="mermaid-wrap"><pre class="mermaid-src" hidden>    flowchart TD    A[每日开始] --&gt; B[评估当日核心能量状态]    B -- 能量高涨 --&gt; C[&quot;执行计划: 70%收敛性活动&lt;br&gt;（攻坚、学习新知）&quot;]    B -- 能量一般 --&gt; D[&quot;执行计划: 50%收敛性活动&lt;br&gt;（复习、常规练习）&quot;]    B -- 能量低迷 --&gt; E[&quot;启动恢复计划: 30%收敛性活动&lt;br&gt;（简单任务、整理）&quot;]        C &amp; D &amp; E --&gt; F        subgraph F [根据执行感受动态调试]        direction LR        G[&quot;感觉疲惫、效率下降?&quot;]        H[&quot;感觉平稳、按部就班?&quot;]        I[&quot;感觉有余力、渴望创造?&quot;]            G --&gt; J[&quot;增加“放松性活动”&quot;]        H --&gt; K[&quot;保持当前节奏&quot;]        I --&gt; L[&quot;增加“收敛性活动”&quot;]    end        F --&gt; M[睡前简短复盘&lt;br&gt;为明天规划大致方向]  </pre></div><p>给定一些参考范围：</p><ul><li><p>收敛性活动：50%~70%</p></li><li><p>发散性活动：10%~25%</p></li><li><p>放松性活动：15%~25%</p></li></ul><p>比重受到时间的影响：</p><ul><li><p><strong>赛前</strong>收敛性活动为 70%</p></li><li><p><strong>赛后</strong>的收敛性活动为 40%</p></li></ul><p>总之，不要拘泥于比重的形式，要<strong>找到适合自己的比重，并实时调整。</strong></p><p>另外，你会发现我没有 “娱乐活动” 这一项，因为学习对于我来说就是一种娱乐。需要投入精力的娱乐方式，是不值得且不被我肯定的。</p><h3 id="每日三问："><a href="#每日三问：" class="headerlink" title="每日三问："></a>每日三问：</h3><ol><li><p>我今天的 “收敛-发散-放松” 活动平衡吗？</p></li><li><p>我是否有在战略性的分配自己的精力，还是盲目消耗？</p></li><li><p>我是否有在活动之后休息足够，有没有感到特别疲惫？</p></li></ol><h2 id="及时调整消极情绪"><a href="#及时调整消极情绪" class="headerlink" title="及时调整消极情绪"></a>及时调整消极情绪</h2>]]></content>
       
       
       <categories>
@@ -52,6 +83,8 @@
             <tag> Atcoder </tag>
             
             <tag> ABC </tag>
+            
+            <tag> DP </tag>
             
         </tags>
       
@@ -140,6 +173,8 @@
             
             <tag> ABC </tag>
             
+            <tag> 数学 </tag>
+            
         </tags>
       
     </entry>
@@ -169,6 +204,8 @@
             
             <tag> ABC </tag>
             
+            <tag> 分治 </tag>
+            
         </tags>
       
     </entry>
@@ -192,6 +229,8 @@
       
         <tags>
             
+            <tag> 数学 </tag>
+            
             <tag> 算法 </tag>
             
             <tag> 学习笔记 </tag>
@@ -199,8 +238,6 @@
             <tag> 欧几里得算法 </tag>
             
             <tag> 逆元 </tag>
-            
-            <tag> 数学 </tag>
             
         </tags>
       
@@ -260,6 +297,8 @@
             
             <tag> ABC </tag>
             
+            <tag> 枚举 </tag>
+            
         </tags>
       
     </entry>
@@ -271,7 +310,7 @@
       <link href="/2025/08/05/%E5%A6%82%E4%BD%95%E5%AE%8C%E7%BE%8E%E5%9C%B0AC%E4%B8%80%E9%81%93%E9%A2%98/"/>
       <url>/2025/08/05/%E5%A6%82%E4%BD%95%E5%AE%8C%E7%BE%8E%E5%9C%B0AC%E4%B8%80%E9%81%93%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<h1 id="如何完美地AC一道题"><a href="#如何完美地AC一道题" class="headerlink" title="如何完美地AC一道题"></a>如何完美地AC一道题</h1><h2 id="做题步骤"><a href="#做题步骤" class="headerlink" title="做题步骤"></a>做题步骤</h2><ol><li><p>读题目，用自己的话概括题意。</p></li><li><p><strong>分析数据范围，看看有没有奇怪的范围，并推出正解的时间复杂度。</strong></p></li><li><p><strong>分析题目性质，找到题目的突破口。</strong></p></li><li><p><strong>设计算法，用纸和笔写出算法流程。</strong></p></li><li><p>写代码，调代码，提交。</p></li></ol><p>其中第 $4$ 步可以循环，其他部分需要保证<strong>一遍过</strong>！</p><h2 id="分析不出题目性质怎么办？"><a href="#分析不出题目性质怎么办？" class="headerlink" title="分析不出题目性质怎么办？"></a>分析不出题目性质怎么办？</h2><p>以下方法按照<strong>实用性从大到小排序</strong>：</p><ol><li><p>设出题目的答案，根据答案性质<strong>反推</strong>答案（正难则反）。</p></li><li><p>善于发现题目的<strong>隐含条件</strong>，如大小关系，单调性。</p></li><li><p>从问题<strong>最简单</strong>的情况出发，一步步<strong>扩展</strong>到原问题。</p></li><li><p>想想能否根据数据的特殊性<strong>分治</strong>？也许不同数据有不同性质。</p></li><li><p>带着摆烂的心态<strong>把玩样例</strong>，说不定就找到性质了呢？</p></li></ol><h2 id="知道了性质，但无法设计出算法怎么办？"><a href="#知道了性质，但无法设计出算法怎么办？" class="headerlink" title="知道了性质，但无法设计出算法怎么办？"></a>知道了性质，但无法设计出算法怎么办？</h2><p>以下方法按照<strong>实用性从大到小排序</strong>：</p><ol><li><p>根据题目的<strong>关键词</strong>，来<strong>大致</strong>确定算法：</p><ul><li><p>最值问题：贪心、动态规划、二分、ST表、线段树。</p></li><li><p>图：最短路、并查集(连通性)、最小生成树。</p></li><li><p>树：树形DP、贪心。</p></li></ul></li><li><p>尝试<strong>枚举</strong>一些变量，将问题拆解。</p></li></ol><h2 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h2><p>尽管我们有很多种方法来推出题目的性质与算法，但是OI的题目如此之多，难免会有一些题目<strong>想不出性质，写不出算法</strong>。这种题目往往有着<strong>固定的技巧或思想</strong>，对此，我们只能多刷题，多<strong>积累</strong>这些技巧：</p><h3 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h3><ol><li>虚点：当多个点之间相互连接，且边权相同时，可以将它们都连向一个虚点，边权为原边权/2。这样就可以以 O(1) 的时间复杂添加或删除一个点啦。</li></ol><h3 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h3><ol><li>当数学公式里出现 $\max$ 或 $\min$ 时，可以想想对答案有贡献的成分是哪些。</li></ol><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ol><li>删除序列中的某个数，使得序列中不存在相邻的数，这个问题可以用dp求解。设 <code>dp[i][0/1]</code> 表示前 i 个数满足条件，且删或不删第 i 个数所需的最少操作数。</li></ol><h3 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h3><ol><li>当要判断一个字符串中两种字符数量是否相等时，可以把它们分别转化为 $1$ 和 $-1$，这样前缀和累加起来，结果是 $0$ 的话就相等。</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="如何完美地AC一道题"><a href="#如何完美地AC一道题" class="headerlink" title="如何完美地AC一道题"></a>如何完美地AC一道题</h1><h2 id="做题步骤"><a href="#做题步骤" class="headerlink" title="做题步骤"></a>做题步骤</h2><ol><li><p>读题目，分析样例，用自己的话概括题意。</p></li><li><p><strong>分析数据范围，看看有没有奇怪的范围，并推出正解的时间复杂度。</strong></p></li><li><p><strong>分析题目性质，找到题目的突破口。</strong></p></li><li><p><strong>设计算法，用纸和笔写出算法流程。</strong></p></li><li><p>写代码，调代码，提交。</p></li></ol><p>其中第 $4$ 步可以循环，其他部分需要保证<strong>一遍过</strong>！</p><h2 id="分析不出题目性质怎么办？"><a href="#分析不出题目性质怎么办？" class="headerlink" title="分析不出题目性质怎么办？"></a>分析不出题目性质怎么办？</h2><p>以下方法按照<strong>实用性从大到小排序</strong>：</p><ol><li><p>设出题目的答案，根据答案性质<strong>反推</strong>答案（正难则反）。</p></li><li><p>善于发现题目的<strong>隐含条件</strong>，如大小关系，单调性。</p></li><li><p>从问题<strong>最简单</strong>的情况出发，一步步<strong>扩展</strong>到原问题。</p></li><li><p>想想能否根据数据的特殊性<strong>分治</strong>？也许不同数据有不同性质。</p></li><li><p>带着摆烂的心态<strong>把玩样例</strong>，说不定就找到性质了呢？</p></li></ol><h2 id="知道了性质，但无法设计出算法怎么办？"><a href="#知道了性质，但无法设计出算法怎么办？" class="headerlink" title="知道了性质，但无法设计出算法怎么办？"></a>知道了性质，但无法设计出算法怎么办？</h2><p>以下方法按照<strong>实用性从大到小排序</strong>：</p><ol><li><p>根据题目的<strong>关键词</strong>，来<strong>大致</strong>确定算法：</p><ul><li><p>最值问题：贪心、动态规划、二分、ST表、线段树。</p></li><li><p>图：最短路、并查集(连通性)、最小生成树。</p></li><li><p>树：树形DP、贪心。</p></li></ul></li><li><p>尝试<strong>枚举</strong>一些变量，将问题拆解。</p></li></ol><h2 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h2><p>尽管我们有很多种方法来推出题目的性质与算法，但是OI的题目如此之多，难免会有一些题目<strong>想不出性质，写不出算法</strong>。这种题目往往有着<strong>固定的技巧或思想</strong>，对此，我们只能多刷题，多<strong>积累</strong>这些技巧：</p><h3 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h3><ol><li>虚点：当多个点之间相互连接，且边权相同时，可以将它们都连向一个虚点，边权为原边权/2。这样就可以以 O(1) 的时间复杂添加或删除一个点啦。</li></ol><h3 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h3><ol><li>当数学公式里出现 $\max$ 或 $\min$ 时，可以想想对答案有贡献的成分是哪些。</li></ol><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ol><li>删除序列中的某个数，使得序列中不存在相邻的数，这个问题可以用dp求解。设 <code>dp[i][0/1]</code> 表示前 i 个数满足条件，且删或不删第 i 个数所需的最少操作数。</li></ol><h3 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h3><ol><li>当要判断一个字符串中两种字符数量是否相等时，可以把它们分别转化为 $1$ 和 $-1$，这样前缀和累加起来，结果是 $0$ 的话就相等。</li></ol>]]></content>
       
       
       <categories>
@@ -335,9 +374,9 @@
       
         <tags>
             
-            <tag> 逆元 </tag>
-            
             <tag> 数学 </tag>
+            
+            <tag> 逆元 </tag>
             
             <tag> 费马小定理 </tag>
             
@@ -352,7 +391,7 @@
       <link href="/2025/08/03/WA%E9%A2%98%E9%93%AD/"/>
       <url>/2025/08/03/WA%E9%A2%98%E9%93%AD/</url>
       
-        <content type="html"><![CDATA[<h1 id="WA题铭"><a href="#WA题铭" class="headerlink" title="WA题铭"></a>WA题铭</h1><ol><li><p><a href="https://atcoder.jp/contests/abc416/tasks/abc416_e">E - Development</a>：输入的时候没有取边的min值，而是直接覆盖。以后用邻接表记录图的时候一定要注意！</p></li><li><p><a href="https://atcoder.jp/contests/abc414/tasks/abc414_e">E - Count A%B=C</a>：在带有模的运算中，所有的除都应该变成乘逆元。</p></li><li><p><a href="https://atcoder.jp/contests/abc417/tasks/abc417_e">E - A Path in A Dictionary</a>：多组数据输入时，在每次开始之前要初始化好要用到的东西，不要漏掉！！！</p></li><li><p><a href="https://atcoder.jp/contests/abc409/tasks/abc409_e">E - Pair Annihilation</a>：要注意int类型数据运算时，可能超过int上限，如果不乘1ll,就算记录结果的变量是long long,系统也不会帮你隐式转换！还有就是记清楚自己用的数据是什么类型的，不要犯把long long当成int记的低级错误！还有就是写代码之前一定要把思路证明清楚，不要在模糊的情况下开始写代码！</p></li><li><p><a href="https://atcoder.jp/contests/abc409/tasks/abc409_f">F - Connecting Points</a>：不要在没想清楚的时候写代码！写之前把需要的数据结构、算法都想清楚先，急着写只会损失更多时间；想清楚每个变量，数组的定义，执行完每一步后确保满足定义，不要有模糊的地方，这种地方最容易出错了；代码越长，写的就要越细心！</p></li><li><p><a href="https://www.luogu.com.cn/problem/P2602">P2602 [ZJOI2010] 数字计数</a>：写变量的数据类型时要小心，注意赋的值的类型。</p></li><li><p><a href="https://www.luogu.com.cn/problem/P2657?contestId=249020">P2657 [SCOI2009] windy 数</a>：如果满足了递归退出条件就一定要退出！</p></li><li><p><a href="https://atcoder.jp/contests/abc410/tasks/abc410_f">F - Balanced Rectangles</a>：数组开小了是真难蚌。</p></li><li><p><a href="https://www.luogu.com.cn/problem/P9245">P9245 [蓝桥杯 2023 省 B] 景区导游</a>：求LCA的第二个循环需要从大到小遍历i。</p></li><li><p><a href="https://atcoder.jp/contests/abc420/tasks/abc420_d">D - Toggle Maze</a>：广搜模板打错了。。。边界条件太多了，写 <code>continue</code> 会好点。一定要在结点 <code>push</code> 前打标签啊！否则会多次入队。</p></li><li><p><a href="https://atcoder.jp/contests/abc375/tasks/abc375_e">E - 3 Team Division</a>：数组最多开到 $3\times 10^7$。</p></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="WA题铭"><a href="#WA题铭" class="headerlink" title="WA题铭"></a>WA题铭</h1><ol><li><p><a href="https://atcoder.jp/contests/abc416/tasks/abc416_e">E - Development</a>：输入的时候没有取边的min值，而是直接覆盖。以后用邻接表记录图的时候一定要注意！</p></li><li><p><a href="https://atcoder.jp/contests/abc414/tasks/abc414_e">E - Count A%B=C</a>：在带有模的运算中，所有的除都应该变成乘逆元。</p></li><li><p><a href="https://atcoder.jp/contests/abc417/tasks/abc417_e">E - A Path in A Dictionary</a>：多组数据输入时，在每次开始之前要初始化好要用到的东西，不要漏掉！！！</p></li><li><p><a href="https://atcoder.jp/contests/abc409/tasks/abc409_e">E - Pair Annihilation</a>：要注意int类型数据运算时，可能超过int上限，如果不乘1ll,就算记录结果的变量是long long,系统也不会帮你隐式转换！还有就是记清楚自己用的数据是什么类型的，不要犯把long long当成int记的低级错误！还有就是写代码之前一定要把思路证明清楚，不要在模糊的情况下开始写代码！</p></li><li><p><a href="https://atcoder.jp/contests/abc409/tasks/abc409_f">F - Connecting Points</a>：不要在没想清楚的时候写代码！写之前把需要的数据结构、算法都想清楚先，急着写只会损失更多时间；想清楚每个变量，数组的定义，执行完每一步后确保满足定义，不要有模糊的地方，这种地方最容易出错了；代码越长，写的就要越细心！</p></li><li><p><a href="https://www.luogu.com.cn/problem/P2602">P2602 [ZJOI2010] 数字计数</a>：写变量的数据类型时要小心，注意赋的值的类型。</p></li><li><p><a href="https://www.luogu.com.cn/problem/P2657?contestId=249020">P2657 [SCOI2009] windy 数</a>：如果满足了递归退出条件就一定要退出！</p></li><li><p><a href="https://atcoder.jp/contests/abc410/tasks/abc410_f">F - Balanced Rectangles</a>：数组开小了是真难蚌。</p></li><li><p><a href="https://www.luogu.com.cn/problem/P9245">P9245 [蓝桥杯 2023 省 B] 景区导游</a>：求LCA的第二个循环需要从大到小遍历i。</p></li><li><p><a href="https://atcoder.jp/contests/abc420/tasks/abc420_d">D - Toggle Maze</a>：广搜模板打错了。。。边界条件太多了，写 <code>continue</code> 会好点。一定要在结点 <code>push</code> 前打标签啊！否则会多次入队。</p></li><li><p><a href="https://atcoder.jp/contests/abc375/tasks/abc375_e">E - 3 Team Division</a>：数组最多开到 $3\times 10^7$。</p></li><li><p><a href="https://atcoder.jp/contests/abc392/tasks/abc392_d">D - Doubles</a>：请检查数组范围。</p></li></ol>]]></content>
       
       
       <categories>
@@ -377,7 +416,7 @@
       <link href="/2025/08/03/%E8%BF%87%E9%A2%98%E8%AE%B0%E5%BD%95(25%E5%B9%B48%E6%9C%88)%20/"/>
       <url>/2025/08/03/%E8%BF%87%E9%A2%98%E8%AE%B0%E5%BD%95(25%E5%B9%B48%E6%9C%88)%20/</url>
       
-        <content type="html"><![CDATA[<h1 id="过题记录-25年8月"><a href="#过题记录-25年8月" class="headerlink" title="过题记录(25年8月)"></a>过题记录(25年8月)</h1><ol><li><p>正难则反，从终点开始dp：<a href="https://atcoder.jp/contests/abc415/tasks/abc415_e">E - Hungry Takahashi</a> 。</p></li><li><p>正难则反，判断网格图上[1,1]能否到达[n,m]，可以反过来想障碍物有没有连成一条线把两个点分开在独立的两部分：<a href="https://atcoder.jp/contests/abc413/tasks/abc413_g">G - Big Banned Grid</a> 。</p></li><li><p>翻转[a,b]，翻转[b+1,c]，翻转[a,c] = 交换[a,b]，[b+1,c]的位置(a&lt;b&lt;c)：<a href="https://atcoder.jp/contests/abc413/tasks/abc413_e">E - Reverse 2^i</a></p></li><li><p>搜索时的vis标签可以充分发挥想象，要记住vis数组实际上是标记一种状态可不可行：<a href="https://atcoder.jp/contests/abc410/tasks/abc410_d">D - XOR Shortest Walk</a>。</p></li><li><p>涉及到状态之间的转移与可达性时，考虑建图：<a href="https://atcoder.jp/contests/abc412/tasks/abc412_c">C - Giant Domino</a> 。</p></li><li><p>按值域分治的小trick，第一次见，很新颖：<a href="https://atcoder.jp/contests/abc417/tasks/abc417_d">D - Takahashi&#39;s Expectation</a> 。</p></li><li><p>floyd算法加边比加点简单；如果一个点要与多个点连接，且这几个点之间的距离都相同，我们可以考虑设置一个虚点，然后让所有这样的点与虚点连一条w/2的边，这等价于一个点要与多个点连接一条边权w的边：<a href="https://atcoder.jp/contests/abc416/tasks/abc416_e">E - Development</a> 。</p></li><li><p>多个变量互相牵制的数学题，首先根据其他变量可以确定另一个变量，然后选择一个好枚举的变量作为突破口，这种题的核心不是<strong>怎么算</strong>，而是怎么<strong>加快算的速度</strong>；本题还用到了整数分块的方法优化：<a href="https://atcoder.jp/contests/abc414/tasks/abc414_e">E - Count A%B=C</a> 。</p></li><li><p>字典序的从小到大输出可以用贪心+深搜解决：<a href="https://atcoder.jp/contests/abc417/tasks/abc417_e">E - A Path in A Dictionary</a> 。</p></li><li><p>对题目无从下手的时候可以试试枚举一个量啊！对题目无从下手的时候可以试着研究一下最简单情况啊！：<a href="https://atcoder.jp/contests/abc409/tasks/abc409_e">E - Pair Annihilation</a> 。</p></li><li><p>要善用数据结构，在以后碰到最大最小值的时候优先考虑优先队列，还有并查集不要再给我写错了：<a href="https://atcoder.jp/contests/abc409/tasks/abc409_f">F - Connecting Points</a> 。</p></li><li><p>[数位dp专题]首次尝试数位dp的记搜写法，超级好用，强推：<a href="https://www.luogu.com.cn/problem/P4999?contestId=249020">P4999 烦人的数学作业</a> 。</p></li><li><p>[数位dp专题]注意是刚好满足：<a href="https://www.luogu.com.cn/problem/P8764?contestId=249020">P8764 [蓝桥杯 2021 国 BC] 二进制问题</a> 。</p></li><li><p>[数位dp专题]有前导零和无前导零的状态要分开算，dp值也要分开记录：<a href="https://www.luogu.com.cn/problem/P2602?contestId=249020">P2602 [ZJOI2010] 数字计数</a> 。</p></li><li><p>[数位dp专题]考察对数位dp的掌握程度：<a href="https://www.luogu.com.cn/problem/P2657?contestId=249020">P2657 [SCOI2009] windy 数</a> 。</p></li><li><p>一道枚举好题；没思路可以先推出正解时间复杂度，然后尝试枚举方案；可以把字符转换成数字，来判断字符数量相等；在枚举某个维度的情况下，每个case里不需要考虑枚举的那个维度：<a href="https://atcoder.jp/contests/abc410/tasks/abc410_f">F - Balanced Rectangles</a> 。</p></li><li><p>在数学式子中带有 $max$ 与 $min$ 时，可以想想哪些点对答案有贡献：<a href="https://atcoder.jp/contests/abc419/tasks/abc419_c">C - King’s Summit</a> 。</p></li><li><p>分治思想。分成几组互不影响的组，并分别求解计算：<a href="https://atcoder.jp/contests/abc403/tasks/abc403_d">D - Forbidden Difference</a> 。</p></li><li><p>善于发现隐含条件：<a href="https://atcoder.jp/contests/abc420/tasks/abc420_d">D - Toggle Maze</a>。</p></li><li><p>设出答案，推出答案性质，利用性质反推答案：<a href="https://atcoder.jp/contests/abc393/tasks/abc393_e">E - GCD of Subset</a>。</p></li><li><p>大胆设状态：<a href="https://atcoder.jp/contests/abc375/tasks/abc375_e">E - 3 Team Division</a>。</p></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="过题记录-25年8月"><a href="#过题记录-25年8月" class="headerlink" title="过题记录(25年8月)"></a>过题记录(25年8月)</h1><ol><li><p>正难则反，从终点开始dp：<a href="https://atcoder.jp/contests/abc415/tasks/abc415_e">E - Hungry Takahashi</a> 。</p></li><li><p>正难则反，判断网格图上[1,1]能否到达[n,m]，可以反过来想障碍物有没有连成一条线把两个点分开在独立的两部分：<a href="https://atcoder.jp/contests/abc413/tasks/abc413_g">G - Big Banned Grid</a> 。</p></li><li><p>翻转[a,b]，翻转[b+1,c]，翻转[a,c] = 交换[a,b]，[b+1,c]的位置(a&lt;b&lt;c)：<a href="https://atcoder.jp/contests/abc413/tasks/abc413_e">E - Reverse 2^i</a></p></li><li><p>搜索时的vis标签可以充分发挥想象，要记住vis数组实际上是标记一种状态可不可行：<a href="https://atcoder.jp/contests/abc410/tasks/abc410_d">D - XOR Shortest Walk</a>。</p></li><li><p>涉及到状态之间的转移与可达性时，考虑建图：<a href="https://atcoder.jp/contests/abc412/tasks/abc412_c">C - Giant Domino</a> 。</p></li><li><p>按值域分治的小trick，第一次见，很新颖：<a href="https://atcoder.jp/contests/abc417/tasks/abc417_d">D - Takahashi&#39;s Expectation</a> 。</p></li><li><p>floyd算法加边比加点简单；如果一个点要与多个点连接，且这几个点之间的距离都相同，我们可以考虑设置一个虚点，然后让所有这样的点与虚点连一条w/2的边，这等价于一个点要与多个点连接一条边权w的边：<a href="https://atcoder.jp/contests/abc416/tasks/abc416_e">E - Development</a> 。</p></li><li><p>多个变量互相牵制的数学题，首先根据其他变量可以确定另一个变量，然后选择一个好枚举的变量作为突破口，这种题的核心不是<strong>怎么算</strong>，而是怎么<strong>加快算的速度</strong>；本题还用到了整数分块的方法优化：<a href="https://atcoder.jp/contests/abc414/tasks/abc414_e">E - Count A%B=C</a> 。</p></li><li><p>字典序的从小到大输出可以用贪心+深搜解决：<a href="https://atcoder.jp/contests/abc417/tasks/abc417_e">E - A Path in A Dictionary</a> 。</p></li><li><p>对题目无从下手的时候可以试试枚举一个量啊！对题目无从下手的时候可以试着研究一下最简单情况啊！：<a href="https://atcoder.jp/contests/abc409/tasks/abc409_e">E - Pair Annihilation</a> 。</p></li><li><p>要善用数据结构，在以后碰到最大最小值的时候优先考虑优先队列，还有并查集不要再给我写错了：<a href="https://atcoder.jp/contests/abc409/tasks/abc409_f">F - Connecting Points</a> 。</p></li><li><p>[数位dp专题]首次尝试数位dp的记搜写法，超级好用，强推：<a href="https://www.luogu.com.cn/problem/P4999?contestId=249020">P4999 烦人的数学作业</a> 。</p></li><li><p>[数位dp专题]注意是刚好满足：<a href="https://www.luogu.com.cn/problem/P8764?contestId=249020">P8764 [蓝桥杯 2021 国 BC] 二进制问题</a> 。</p></li><li><p>[数位dp专题]有前导零和无前导零的状态要分开算，dp值也要分开记录：<a href="https://www.luogu.com.cn/problem/P2602?contestId=249020">P2602 [ZJOI2010] 数字计数</a> 。</p></li><li><p>[数位dp专题]考察对数位dp的掌握程度：<a href="https://www.luogu.com.cn/problem/P2657?contestId=249020">P2657 [SCOI2009] windy 数</a> 。</p></li><li><p>一道枚举好题；没思路可以先推出正解时间复杂度，然后尝试枚举方案；可以把字符转换成数字，来判断字符数量相等；在枚举某个维度的情况下，每个case里不需要考虑枚举的那个维度：<a href="https://atcoder.jp/contests/abc410/tasks/abc410_f">F - Balanced Rectangles</a> 。</p></li><li><p>在数学式子中带有 $max$ 与 $min$ 时，可以想想哪些点对答案有贡献：<a href="https://atcoder.jp/contests/abc419/tasks/abc419_c">C - King’s Summit</a> 。</p></li><li><p>分治思想。分成几组互不影响的组，并分别求解计算：<a href="https://atcoder.jp/contests/abc403/tasks/abc403_d">D - Forbidden Difference</a> 。</p></li><li><p>善于发现隐含条件：<a href="https://atcoder.jp/contests/abc420/tasks/abc420_d">D - Toggle Maze</a>。</p></li><li><p>设出答案，推出答案性质，利用性质反推答案：<a href="https://atcoder.jp/contests/abc393/tasks/abc393_e">E - GCD of Subset</a>。</p></li><li><p>大胆设状态：<a href="https://atcoder.jp/contests/abc375/tasks/abc375_e">E - 3 Team Division</a>。</p></li><li><p>好好读题：<a href="https://atcoder.jp/contests/abc392/tasks/abc392_d">D - Doubles</a>。</p></li></ol>]]></content>
       
       
       <categories>
@@ -424,6 +463,8 @@
             
             <tag> ABC </tag>
             
+            <tag> 分治 </tag>
+            
         </tags>
       
     </entry>
@@ -452,6 +493,8 @@
             <tag> Atcoder </tag>
             
             <tag> ABC </tag>
+            
+            <tag> DP </tag>
             
         </tags>
       
@@ -482,6 +525,8 @@
             
             <tag> ABC </tag>
             
+            <tag> 贪心 </tag>
+            
         </tags>
       
     </entry>
@@ -510,6 +555,8 @@
             <tag> 算法 </tag>
             
             <tag> 学习笔记 </tag>
+            
+            <tag> LCA </tag>
             
         </tags>
       
