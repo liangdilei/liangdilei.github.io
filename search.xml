@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>并查集</title>
+      <link href="/2025/09/04/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+      <url>/2025/09/04/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h1><p>并查集是一种用于维护元素所属集合的数据结构。集合所代表的意义<strong>十分灵活</strong>，不仅仅局限于<strong>连通分量</strong>中，还可以代表<strong>逻辑关系</strong>。</p><p>思考并查集的集合维护什么，<strong>是非常关键的。</strong></p><p>一定要想好集合的含义再写题，就像写动态规划之前一定要明确好状态一样重要。</p><h2 id="普通并查集"><a href="#普通并查集" class="headerlink" title="普通并查集"></a>普通并查集</h2><h2 id="扩展域并查集"><a href="#扩展域并查集" class="headerlink" title="扩展域并查集"></a>扩展域并查集</h2><p>当并查集的集合维护的是一种逻辑关系时，普通并查集可能处理不了复杂的关系。</p><p>这个时候就需要<strong>扩展域并查集</strong>。</p><p>扩展域并查集是用于维护复杂的逻辑关系的。因此，扩展域并查集的集合所维护的内容大概率也是某种逻辑关系。</p><h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><ol><li><p><a href="https://www.luogu.com.cn/problem/P1892">P1892 [BalticOI 2003] 团伙 - 洛谷</a></p></li><li><p><a href="https://www.luogu.com.cn/problem/P1525">P1525 [NOIP 2010 提高组] 关押罪犯 - 洛谷</a></p></li><li><p><a href="https://www.luogu.com.cn/problem/CF776D">CF776D The Door Problem - 洛谷</a></p></li><li><p><a href="https://www.luogu.com.cn/problem/P2024">P2024 [NOI2001] 食物链 - 洛谷</a></p></li></ol><h2 id="带权并查集"><a href="#带权并查集" class="headerlink" title="带权并查集"></a>带权并查集</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> OI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 学习笔记 </tag>
+            
+            <tag> 并查集 </tag>
+            
+            <tag> 扩展域并查集 </tag>
+            
+            <tag> 带权并查集 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[题解][P1840] Color the Axis</title>
       <link href="/2025/08/31/%5B%E9%A2%98%E8%A7%A3%5D%5BP1840%5D%20Color%20the%20Axis/"/>
       <url>/2025/08/31/%5B%E9%A2%98%E8%A7%A3%5D%5BP1840%5D%20Color%20the%20Axis/</url>
@@ -262,9 +295,9 @@
             
             <tag> 学习笔记 </tag>
             
-            <tag> 欧几里得算法 </tag>
-            
             <tag> 逆元 </tag>
+            
+            <tag> 欧几里得算法 </tag>
             
         </tags>
       
@@ -403,9 +436,9 @@
             
             <tag> 数学 </tag>
             
-            <tag> 逆元 </tag>
-            
             <tag> 费马小定理 </tag>
+            
+            <tag> 逆元 </tag>
             
         </tags>
       
