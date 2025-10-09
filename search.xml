@@ -4,6 +4,57 @@
   
     
     <entry>
+      <title>OI trick 汇总</title>
+      <link href="/2025/10/09/OI%20trick%20%E6%B1%87%E6%80%BB/"/>
+      <url>/2025/10/09/OI%20trick%20%E6%B1%87%E6%80%BB/</url>
+      
+        <content type="html"><![CDATA[<h1 id="OI-trick-汇总"><a href="#OI-trick-汇总" class="headerlink" title="OI trick 汇总"></a>OI trick 汇总</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>OI 中的 trick 繁多，然而如果没有见过某个 trick 就很难切出那道题。因此，笔者收录了自己所见识到的 trick，方便自己查阅的同时方便大众。然而本人实力水平有限，必定会有遗漏，请见谅。</p><h2 id="trick"><a href="#trick" class="headerlink" title="trick"></a>trick</h2><ol><li><p>启发式合并：可用于解决多个不重集合的合并问题。时间复杂度是 $O(n\log{n}\times(数据结构插入复杂度)$ 的。例题：<a href="https://www.luogu.com.cn/problem/AT_abc372_e?contestId=281215">AT_abc372_e [ABC372E] K-th Largest Connected Components - 洛谷</a>，<a href="https://www.luogu.com.cn/problem/U41492?contestId=281215">U41492 树上数颜色 - 洛谷</a>，<a href="https://www.luogu.com.cn/problem/CF600E?contestId=281215">CF600E Lomsat gelral - 洛谷</a>，<a href="https://www.luogu.com.cn/problem/CF1009F?contestId=281215">CF1009F Dominant Indices - 洛谷</a>。</p></li><li><p>虚树。例题：<a href="https://www.luogu.com.cn/problem/P2495?contestId=281215">P2495 [SDOI2011] 消耗战 /【模板】虚树 - 洛谷</a>。</p></li><li><p>虚点。例题：<a href="https://www.luogu.com.cn/problem/AT_abc416_e">AT_abc416_e [ABC416E] Development - 洛谷</a>。</p></li><li><p>双向搜索。例题：<a href="https://www.luogu.com.cn/problem/P2962?contestId=281370">P2962 [USACO09NOV] Lights G - 洛谷</a>。</p></li><li><p>当你要进行一系列运算求最大值，并且运算中带有乘法时，既要维护最大值，也要维护最小值。例题：<a href="https://www.luogu.com.cn/problem/P4342?contestId=281695">P4342 [IOI 1998] Polygon - 洛谷</a>。</p></li><li><p>扩环成链。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> OI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OI trick </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2025/09/25/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+      <url>/2025/09/25/%E4%BD%8D%E8%BF%90%E7%AE%97/</url>
+      
+        <content type="html"><![CDATA[<h1 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h1><h2 id="常用运算优先级"><a href="#常用运算优先级" class="headerlink" title="常用运算优先级"></a>常用运算优先级</h2><p>(按由高到低排序，编号越小优先级越高)</p><ol><li><p><code>!,~</code></p></li><li><p><code>+,-</code></p></li><li><p><code>&lt;&lt;,&gt;&gt;</code></p></li><li><p><code>&lt;,&lt;=,&gt;,&gt;=,==,!=</code></p></li><li><p><code>&amp;</code></p></li><li><p><code>^</code></p></li><li><p><code>|</code></p></li><li><p><code>&amp;&amp;</code></p></li><li><p><code>||</code></p></li><li><p>赋值运算符</p></li></ol><h2 id="神秘位运算"><a href="#神秘位运算" class="headerlink" title="神秘位运算"></a>神秘位运算</h2><ul><li><p>将某一位设置为 1：<code>u|=1&lt;&lt;x;</code></p></li><li><p>将某一位设置为 0：<code>u&amp;=~(1&lt;&lt;x);</code></p></li><li><p>取出某一位的值：<code>u&gt;&gt;x&amp;1</code></p></li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2025/09/25/%E7%8A%B6%E5%8E%8Bdp/"/>
+      <url>/2025/09/25/%E7%8A%B6%E5%8E%8Bdp/</url>
+      
+        <content type="html"><![CDATA[<h1 id="状压dp"><a href="#状压dp" class="headerlink" title="状压dp"></a>状压dp</h1><p>前置知识：位运算。</p><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>使用二进制来表示状态的dp，就是状压dp。</p><p>这就是状压dp的全部了，现在可以开始愉快地切题啦！</p><h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p><a href="https://www.luogu.com.cn/problem/P10447?contestId=250215">P10447 最短 Hamilton 路径 - 洛谷</a>。</p><h3 id="最短-Hamilton-路径"><a href="#最短-Hamilton-路径" class="headerlink" title="最短 Hamilton 路径"></a>最短 Hamilton 路径</h3><h4 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h4><p>连通带权无向图，求不重不漏经过每个点，从顶点 $0$ 到顶点 $n-1$，最少花费。</p><h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><ul><li>$1\leq N \leq 20$</li></ul><h4 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h4><p>图上求最少花费，首先想到最短路。</p><p>然而最短路无法</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>并查集</title>
       <link href="/2025/09/04/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
       <url>/2025/09/04/%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
@@ -87,33 +138,6 @@
             <tag> ABC </tag>
             
             <tag> DP </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>liangdl 的生活哲学</title>
-      <link href="/2025/08/27/liangdl%20%E7%9A%84%E7%94%9F%E6%B4%BB%E5%93%B2%E5%AD%A6/"/>
-      <url>/2025/08/27/liangdl%20%E7%9A%84%E7%94%9F%E6%B4%BB%E5%93%B2%E5%AD%A6/</url>
-      
-        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>生活哲学，也可以说是一种生活模式，策略。我按照这个生活模式行动，来解决生活中会遇到的问题，以便达到我的目的。</p><h1 id="liangdl-的生活哲学"><a href="#liangdl-的生活哲学" class="headerlink" title="liangdl 的生活哲学"></a>liangdl 的生活哲学</h1><h2 id="核心目标"><a href="#核心目标" class="headerlink" title="核心目标"></a>核心目标</h2><p><strong>长期且平稳</strong>地体验积极情绪，在消极情绪来到时，可以<strong>及时调整</strong>并从中学习。</p><h2 id="一、长期且平稳地体验积极情绪"><a href="#一、长期且平稳地体验积极情绪" class="headerlink" title="一、长期且平稳地体验积极情绪"></a>一、长期且平稳地体验积极情绪</h2><p>想要拥有这种生活，关键在于：<strong>把握生活的节奏</strong>。做好学习与放松的平衡，是体验积极情绪的重中之重。</p><h3 id="我将生活中会进行的活动分为三个类型："><a href="#我将生活中会进行的活动分为三个类型：" class="headerlink" title="我将生活中会进行的活动分为三个类型："></a>我将生活中会进行的活动分为三个类型：</h3><ul><li><p><strong>收敛性活动</strong>：进行活动时专注、集中、思维是定向的。表现为：寻找一个标准答案或固定解法。<strong>作用</strong>：学习某项技能或知识，寻找某个确定答案，得到能力上的提升。（写OI题，写数学题，写博客，文化课）</p></li><li><p><strong>发散性活动</strong>：进行活动时放松、散漫、思维是发散的。表现为：产生尽可能多的想法和可能性。<strong>作用</strong>：获得高质量的休息。锻炼不同脑区，连接不同知识，打破常规。（画画，给题目想一道非常规解）</p></li><li><p><strong>放松性活动</strong>：进行活动时<strong>完全</strong>放松。什么都不用在意，不需要投入精力，而是<strong>恢复精力</strong>。（看白云，听歌，小憩一会，看看风景，收拾桌面，伸展身体，吃东西）</p></li></ul><p>这三种类型的活动，虽然在生活上的权重不同，但都<strong>必须</strong>存在。</p><h3 id="如何分配三种类型活动的权重？"><a href="#如何分配三种类型活动的权重？" class="headerlink" title="如何分配三种类型活动的权重？"></a>如何分配三种类型活动的权重？</h3><p>我们在不同<strong>状态</strong>、<strong>时间</strong>下都有着不同的答案。</p><div class="mermaid-wrap"><pre class="mermaid-src" hidden>    flowchart TD    A[每日开始] --&gt; B[评估当日核心能量状态]    B -- 能量高涨 --&gt; C[&quot;执行计划: 70%收敛性活动&lt;br&gt;（攻坚、学习新知）&quot;]    B -- 能量一般 --&gt; D[&quot;执行计划: 50%收敛性活动&lt;br&gt;（复习、常规练习）&quot;]    B -- 能量低迷 --&gt; E[&quot;启动恢复计划: 30%收敛性活动&lt;br&gt;（简单任务、整理）&quot;]        C &amp; D &amp; E --&gt; F        subgraph F [根据执行感受动态调试]        direction LR        G[&quot;感觉疲惫、效率下降?&quot;]        H[&quot;感觉平稳、按部就班?&quot;]        I[&quot;感觉有余力、渴望创造?&quot;]            G --&gt; J[&quot;增加“放松性活动”&quot;]        H --&gt; K[&quot;保持当前节奏&quot;]        I --&gt; L[&quot;增加“收敛性活动”&quot;]    end        F --&gt; M[睡前简短复盘&lt;br&gt;为明天规划大致方向]  </pre></div><p>给定一些参考范围：</p><ul><li><p>收敛性活动：50%~70%</p></li><li><p>发散性活动：10%~25%</p></li><li><p>放松性活动：15%~25%</p></li></ul><p>比重受到时间的影响：</p><ul><li><p><strong>赛前</strong>收敛性活动为 70%</p></li><li><p><strong>赛后</strong>的收敛性活动为 40%</p></li></ul><p>总之，不要拘泥于比重的形式，要<strong>找到适合自己的比重，并实时调整。</strong></p><p>另外，你会发现我没有 “娱乐活动” 这一项，因为学习对于我来说就是一种娱乐。需要投入精力的娱乐方式，是不值得且不被我肯定的。</p><h3 id="每日三问："><a href="#每日三问：" class="headerlink" title="每日三问："></a>每日三问：</h3><ol><li><p>我今天的 “收敛-发散-放松” 活动平衡吗？</p></li><li><p>我是否有在战略性的分配自己的精力，还是盲目消耗？</p></li><li><p>我是否有在活动之后休息足够，有没有感到特别疲惫？</p></li></ol><h2 id="及时调整消极情绪"><a href="#及时调整消极情绪" class="headerlink" title="及时调整消极情绪"></a>及时调整消极情绪</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> 闲谈 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 生活 </tag>
-            
-            <tag> 时间管理 </tag>
             
         </tags>
       
