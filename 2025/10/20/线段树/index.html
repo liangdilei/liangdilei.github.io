@@ -1,0 +1,334 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>线段树 | 白日梦与柠檬水小屋</title><meta name="author" content="liangdl"><meta name="copyright" content="liangdl"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="线段树。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线段树">
+<meta property="og:url" content="http://example.com/2025/10/20/%E7%BA%BF%E6%AE%B5%E6%A0%91/index.html">
+<meta property="og:site_name" content="白日梦与柠檬水小屋">
+<meta property="og:description" content="线段树。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/image/55.webp">
+<meta property="article:published_time" content="2025-10-20T12:29:00.145Z">
+<meta property="article:modified_time" content="2025-10-21T12:25:52.691Z">
+<meta property="article:author" content="liangdl">
+<meta property="article:tag" content="算法笔记">
+<meta property="article:tag" content="线段树">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/55.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "线段树",
+  "url": "http://example.com/2025/10/20/%E7%BA%BF%E6%AE%B5%E6%A0%91/",
+  "image": "http://example.com/image/55.webp",
+  "datePublished": "2025-10-20T12:29:00.145Z",
+  "dateModified": "2025-10-21T12:25:52.691Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "liangdl",
+      "url": "http://example.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/image/fav.jpg"><link rel="canonical" href="http://example.com/2025/10/20/%E7%BA%BF%E6%AE%B5%E6%A0%91/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '线段树',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/image/head.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fa fa-comment"></i><span> 分享</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/image/54.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">白日梦与柠檬水小屋</span></a><a class="nav-page-title" href="/"><span class="site-name">线段树</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fa fa-comment"></i><span> 分享</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">线段树</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-20T12:29:00.145Z" title="发表于 2025-10-20 20:29:00">2025-10-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-10-21T12:25:52.691Z" title="更新于 2025-10-21 20:25:52">2025-10-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/OI/">OI</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">591</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h1><h2 id="用线段树来干什么？"><a href="#用线段树来干什么？" class="headerlink" title="用线段树来干什么？"></a>用线段树来干什么？</h2><p>线段树适用于维护<strong>区间信息</strong>。</p>
+<p>它可以在 $\log{n}$ 的时间内实现 <strong>单点修改、区间修改、区间查询</strong> 等操作。</p>
+<p>当题目出现区间时，应该想到线段树。</p>
+<h2 id="怎么用线段树？"><a href="#怎么用线段树？" class="headerlink" title="怎么用线段树？"></a>怎么用线段树？</h2><p>对于一个线段树，我们需要考虑的东西只有两个 —— <strong>元素</strong> 和 <strong>操作</strong>。</p>
+<h3 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h3><p>元素就是线段树上的 <strong>节点</strong>，一个节点可能有很多个信息。例如，一个线段树上的节点，可能存储着 左边界、右边界、区间长度、区间最大值、区间和 这样的信息。</p>
+<p>元素对应着线段树中的 $tr$ 数组。</p>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><p>操作涉及三个方面：<strong>元素与元素之间的合并、标记与元素直接的合并、标记与标记之间的合并。</strong></p>
+<p>标记就是指线段树中的 $tag$ 数组，即对<strong>子节点</strong>的延时操作，注意，是<strong>子节点</strong>。</p>
+<p>接下来介绍推导操作的方法。</p>
+<p>以 <a href="https://www.luogu.com.cn/problem/P3373">P3373 【模板】线段树 2 - 洛谷</a> 为例，我们设每个元素所代表的区间和值为 $x$，父亲的乘法标记为 $k$，父亲的加法标记为 $b$。于是，一个元素真正所代表的区间和的值就是：$kx+b$。</p>
+<h4 id="元素与元素之间应该如何合并呢？"><a href="#元素与元素之间应该如何合并呢？" class="headerlink" title="元素与元素之间应该如何合并呢？"></a>元素与元素之间应该如何合并呢？</h4><p>显然，$tr[u]=tr[lc]+tr[rc]$。</p>
+<h4 id="标记与元素之间应该如何合并呢？"><a href="#标记与元素之间应该如何合并呢？" class="headerlink" title="标记与元素之间应该如何合并呢？"></a>标记与元素之间应该如何合并呢？</h4><p>首先，对于一个元素值 $x$，我们想要把它变为它真正的样子，即 $kx+b$。</p>
+<p>我们需要先乘上 $k$，再加上 $b$。</p>
+<h4 id="标记与标记之间应该如何合并呢？"><a href="#标记与标记之间应该如何合并呢？" class="headerlink" title="标记与标记之间应该如何合并呢？"></a>标记与标记之间应该如何合并呢？</h4><p>标记与标记的合并 与 标记与元素的合并 是有关联的。</p>
+<p>因为，当一个元素与 父亲的标记 合并时，自己的标记也同时会受到影响。</p>
+<p>我们设元素值为 $kx+b$，现在它要与父亲的标记合并。</p>
+<p>根据刚才讲的顺序，我们先乘一个 $k’$，元素就变成了 $k’kx+k’b$。</p>
+<p>其中，$k’k$ 是新的乘法标签，$k’b$ 是新的加法标签。</p>
+<p>然后再加一个 $b’$，加法标签就变成了 $k’b+b’$。</p>
+<p>推导标记与标记之间的合并时，把当前标记所代表的元素表示出来后，再合并，就可以看出标记之间的变化了。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">liangdl</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/10/20/%E7%BA%BF%E6%AE%B5%E6%A0%91/">http://example.com/2025/10/20/%E7%BA%BF%E6%AE%B5%E6%A0%91/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">白日梦与柠檬水小屋</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">算法笔记</a><a class="post-meta__tags" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">线段树</a></div><div class="post-share"><div class="social-share" data-image="/image/55.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/10/19/CSP-S%20%E8%80%83%E5%89%8D%E5%A4%A7%E5%A4%8D%E4%B9%A0/" title=""><img class="cover" src="/image/48.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2"></div></div><div class="info-2"><div class="info-item-1">CSP-S 考前临时抱佛脚!</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/09/25/%E7%8A%B6%E5%8E%8Bdp/" title="状压dp"><img class="cover" src="/image/53.webp" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-25</div><div class="info-item-2">状压dp</div></div><div class="info-2"><div class="info-item-1">状压dp</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/image/head.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">liangdl</div><div class="author-info-description">珂朵莉是世界上最幸福的女孩。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" href="https://muyangyangli.github.io/"><i></i><span>友情链接</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="toc-number">1.</span> <span class="toc-text">线段树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%9D%A5%E5%B9%B2%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">用线段树来干什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8%E7%BA%BF%E6%AE%B5%E6%A0%91%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">怎么用线段树？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%B4%A0"><span class="toc-number">1.2.1.</span> <span class="toc-text">元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.2.</span> <span class="toc-text">操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E4%B8%8E%E5%85%83%E7%B4%A0%E4%B9%8B%E9%97%B4%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E5%90%88%E5%B9%B6%E5%91%A2%EF%BC%9F"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">元素与元素之间应该如何合并呢？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0%E4%B8%8E%E5%85%83%E7%B4%A0%E4%B9%8B%E9%97%B4%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E5%90%88%E5%B9%B6%E5%91%A2%EF%BC%9F"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">标记与元素之间应该如何合并呢？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0%E4%B8%8E%E6%A0%87%E8%AE%B0%E4%B9%8B%E9%97%B4%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E5%90%88%E5%B9%B6%E5%91%A2%EF%BC%9F"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">标记与标记之间应该如何合并呢？</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/10/20/%E7%BA%BF%E6%AE%B5%E6%A0%91/" title="线段树"><img src="/image/55.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="线段树"/></a><div class="content"><a class="title" href="/2025/10/20/%E7%BA%BF%E6%AE%B5%E6%A0%91/" title="线段树">线段树</a><time datetime="2025-10-20T12:29:00.145Z" title="发表于 2025-10-20 20:29:00">2025-10-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/19/CSP-S%20%E8%80%83%E5%89%8D%E5%A4%A7%E5%A4%8D%E4%B9%A0/" title="无标题"><img src="/image/48.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无标题"/></a><div class="content"><a class="title" href="/2025/10/19/CSP-S%20%E8%80%83%E5%89%8D%E5%A4%A7%E5%A4%8D%E4%B9%A0/" title="无标题">无标题</a><time datetime="2025-10-19T02:19:32.958Z" title="发表于 2025-10-19 10:19:32">2025-10-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/16/OI%20%E6%A8%A1%E6%9D%BF/" title="OI 模板"><img src="/image/50.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OI 模板"/></a><div class="content"><a class="title" href="/2025/10/16/OI%20%E6%A8%A1%E6%9D%BF/" title="OI 模板">OI 模板</a><time datetime="2025-10-16T11:47:37.416Z" title="发表于 2025-10-16 19:47:37">2025-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/13/%E6%A0%91%E4%B8%8A%E8%83%8C%E5%8C%85/" title="树上背包"><img src="/image/59.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="树上背包"/></a><div class="content"><a class="title" href="/2025/10/13/%E6%A0%91%E4%B8%8A%E8%83%8C%E5%8C%85/" title="树上背包">树上背包</a><time datetime="2025-10-13T13:05:01.764Z" title="发表于 2025-10-13 21:05:01">2025-10-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/13/%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E7%9A%84%E6%95%B4%E9%99%A4%E6%80%A7/" title="判断一个数的整除性"><img src="/image/61.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="判断一个数的整除性"/></a><div class="content"><a class="title" href="/2025/10/13/%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E6%95%B0%E7%9A%84%E6%95%B4%E9%99%A4%E6%80%A7/" title="判断一个数的整除性">判断一个数的整除性</a><time datetime="2025-10-13T13:00:00.000Z" title="发表于 2025-10-13 21:00:00">2025-10-13</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By liangdl</span><span class="framework-info"><span>框架 </span><a href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.0-b3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const loadMathjax = () => {
+    if (!window.MathJax) {
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'none',
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          enableMenu: true,
+          renderActions: {
+            findScript: [10, doc => {
+              for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/)
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                const text = document.createTextNode('')
+                node.parentNode.replaceChild(text, node)
+                math.start = {node: text, delim: '', n: 0}
+                math.end = {node: text, delim: '', n: 0}
+                doc.math.push(math)
+              }
+            }, '']
+          }
+        }
+      }
+
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.startup.document.state(0)
+      MathJax.texReset()
+      MathJax.typesetPromise()
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
+})()</script><script>(() => {
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = `%%{init:{ 'theme':'${theme}'}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (false) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.cocoonxu.me/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://twikoo.cocoonxu.me/',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
