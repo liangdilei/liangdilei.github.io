@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>[题解][P14173] 猜拳游戏</title>
+      <link href="/2025/10/25/%5B%E9%A2%98%E8%A7%A3%5D%5BP14173%5D%20%E7%8C%9C%E6%8B%B3%E6%B8%B8%E6%88%8F/"/>
+      <url>/2025/10/25/%5B%E9%A2%98%E8%A7%A3%5D%5BP14173%5D%20%E7%8C%9C%E6%8B%B3%E6%B8%B8%E6%88%8F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="题解-P14173-猜拳游戏"><a href="#题解-P14173-猜拳游戏" class="headerlink" title="[题解][P14173] 猜拳游戏"></a>[题解][P14173] 猜拳游戏</h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>$A$ 的出招序列是 $a$，$B$ 的出招序列是 $b$。长度分别为 $n,m$。</p><p>它们会循环出 $10^{100}$ 次招，如果出招相同，就 GG。</p><p>求最少修改多少次序列，使得不会出现平局？</p><h2 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h2><p>$n,m\leq5\times10^5$</p><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>首先明确，如果在 $\operatorname{lcm}(n,m)$ 中没有平局，那么在 $10^{100}$ 内也不会出现平局。</p><p>因为会循环出招，所以如果修改序列中的某一个出招，会影响到很多局。</p><p>那我们就考虑，$a_i$ 会和哪些 $b_j$ 交战呢？</p><p>稍加思考，我们可以得出同余方程：$i+kn\equiv j\pmod m$</p><p>我们想让 $kn$ 这一项消掉，变成 $i\equiv j+x\pmod y$ 的形式，怎么办呢？</p><p>我们可以将模数变为 $\gcd(n,m)$，这样，$kn$ 这一项就恒定为 $0$，消掉了。</p><p>为方便表述，我们记 $g=\gcd(n,m)$。</p><p>即原方程变为：$i\equiv j \pmod g$。</p><p>如果 $i$ 和 $j$ 在 $\bmod\ g$ 时同余，那它们一定会交战。</p><p>此时我们把 $i$ 和 $j$ 分为 $[0,g-1]$ 组，那么同一组的 $i,j$ 对应的出招必然不能相同。</p><p>假设固定 $i_0$ 组内的元素都为一个出招，则 $j_0$ 组内的元素就只能为另外两个。</p><p>假设固定 $i_0$ 组内的元素都为任意两种出招，则 $j_0$ 组内的元素就只能为剩下一个。</p><p>只有这两种方案，分别计算每一种方案的操作数，取最小值就好了。</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>),cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> n,m;cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    string a,b;cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">    <span class="keyword">auto</span> gcd=[](<span class="keyword">auto</span> self,<span class="type">int</span> a,<span class="type">int</span> b)-&gt;<span class="type">int</span> &#123;<span class="keyword">return</span> !b?a:<span class="built_in">self</span>(self,b,a%b);&#125;;</span><br><span class="line">    <span class="type">int</span> g=<span class="built_in">gcd</span>(gcd,n,m);</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">ca</span><span class="params">(n<span class="number">+5</span>)</span>,<span class="title">cb</span><span class="params">(n<span class="number">+5</span>)</span></span>; </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++) ca[i%g]+=a[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;m;i++) cb[i%g]+=b[i];</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;<span class="type">char</span> t[<span class="number">3</span>]=&#123;<span class="string">&#x27;R&#x27;</span>,<span class="string">&#x27;P&#x27;</span>,<span class="string">&#x27;S&#x27;</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;g;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> sum=INT_MAX;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> sw=<span class="number">0</span>;sw&lt;=<span class="number">1</span>;sw++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">3</span>;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> w1=ca[i].<span class="built_in">size</span>()-<span class="built_in">count</span>(ca[i].<span class="built_in">begin</span>(),ca[i].<span class="built_in">end</span>(),t[j]);</span><br><span class="line">                <span class="type">int</span> w2=<span class="built_in">count</span>(cb[i].<span class="built_in">begin</span>(),cb[i].<span class="built_in">end</span>(),t[j]);</span><br><span class="line">                sum=<span class="built_in">min</span>(sum,w1+w2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">swap</span>(ca,cb);</span><br><span class="line">        &#125;</span><br><span class="line">        ans+=sum;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> OI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 题解 </tag>
+            
+            <tag> 同余 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>线段树</title>
       <link href="/2025/10/20/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
       <url>/2025/10/20/%E7%BA%BF%E6%AE%B5%E6%A0%91/</url>
@@ -512,6 +539,37 @@
     
     
     <entry>
+      <title>模</title>
+      <link href="/2025/08/14/%E6%A8%A1/"/>
+      <url>/2025/08/14/%E6%A8%A1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="模"><a href="#模" class="headerlink" title="模"></a>模</h1><h2 id="模的定义"><a href="#模的定义" class="headerlink" title="模的定义"></a>模的定义</h2><p>事实上，模本身并不是一个精确的术语，它可以指代很多东西。</p><ul><li><p>$a\ mod{\ b}$ 和 $a \equiv b \pmod{m}$：此时的模是动词，意味 ‘取余数’。</p></li><li><p>模数：是一个正整数。模数m规定了运算结果中整数的范围为(0~m)。例如：<code>模是998244353</code> 中的模就是模数的意思。</p></li><li><p>模运算：这是一整套在<strong>给定模数下对整数进行计算的规则体系</strong>。例如：<code>学习有关模的知识</code> 此时的模就是模运算的意思。</p></li><li><p>模意义：一种抽象的概念。在模意义下，我们关注数的 ‘同余关系’，而不是观察这个数本身是多少。例如：<code>从模的角度看</code> 的模就是模领域的意思。</p></li></ul><h2 id="模运算"><a href="#模运算" class="headerlink" title="模运算"></a>模运算</h2><p>模运算中的加、减、乘都很简单。</p><ul><li><p>$(a+b)\ mod \ M = (a\ mod\ M+b\ mod\ M)\ mod\ M$</p></li><li><p>$(a-b)\ mod\ M=(a\ mod\ M-b\ mod\ M)\ mod\ M$</p></li><li><p>$(a\times b)\ mod\ M=(a\ mod\ M\times b\ mod\ M)\ mod\ M$ </p></li></ul><p>但是除法就有些特别。在模运算中<strong>不能</strong>直接除，而是要<strong>乘以除数的逆元</strong>。</p><h2 id="模逆元"><a href="#模逆元" class="headerlink" title="模逆元"></a>模逆元</h2><p>所谓模逆元，其实就是在模领域下的倒数，即<strong>一个数乘以它的模逆元在模领域下等于 1</strong>。</p><p>例如 $a$ 的模逆元是 $a^{-1}\pmod{M}$ ，因为 $a\times a^{-1}\equiv1\pmod{M}$ </p><p>注意：$a^{-1}\in \mathbb{N^*}$。</p><h3 id="求单个逆元"><a href="#求单个逆元" class="headerlink" title="求单个逆元"></a>求单个逆元</h3><p>那么一个数的逆元怎么求呢？我们可以使用费马小定理。</p><p>费马小定理：若 $p$ 是质数，且 $a$ 不是 $p$ 的倍数，那么可得 $a^{p-1}\equiv1\pmod{p}$</p><p>$\because a^{p-1} \equiv 1\pmod{p} \\\therefore a\times a^{p-2} \equiv 1\pmod{p}$</p><p>根据逆元定义，可知 $a^{p-2}$ 就是 $a$ 的逆元，接下来再用快速幂求解一下就好了。</p><h3 id="求连续阶乘逆元"><a href="#求连续阶乘逆元" class="headerlink" title="求连续阶乘逆元"></a>求连续阶乘逆元</h3><p>我们要求 $n!$ 的逆元，设 $inv[x]$ 为 $x!$ 的逆元。</p><p>则有：$n!(n+1)\times inv[n+1]\equiv 1\pmod p$</p><p>$inv[n]$ 就是 $(n+1)\times inv[n+1]$ 。</p><p>所以，如果我们要求 $[1,n]$ 的逆元，就可以先求出 $inv[n]$。</p><p>然后反向遍历，$inv[i]=(i+1)\times inv[n+1] \mod p$</p><h2 id="同余"><a href="#同余" class="headerlink" title="同余"></a>同余</h2><p>若 $p\mid(a-b)$，则 $a\equiv b\pmod p$。这便是同余的定义。</p><p>为何呢？</p><p>我们设 $a=np+l，b=mp+r\ (l,r &lt; p)$。$l,r$ 即为 $a,b$ 除以 $p$ 的余数。 </p><p>则 $a-b=(n-m)p+(l-r)$</p><p>$\because p \mid (a-b)$</p><p>$\therefore p \mid (n-m)p + (l-r)$</p><p>$\therefore l=r$</p><p>$\therefore a \equiv b \pmod p$</p><h3 id="同余的性质"><a href="#同余的性质" class="headerlink" title="同余的性质"></a>同余的性质</h3><p>同余是一种等价关系，它具有如下性质。</p><ul><li><p>自反性：$a\equiv a \pmod p$</p></li><li><p>对称性：若 $a\equiv b\pmod p$，则 $b\equiv a \pmod p$</p></li><li><p>传递性：若 $a \equiv b \pmod p$，$b \equiv c \pmod p$，则 $a \equiv c \pmod p$</p></li></ul><p>线性运算：</p><p>若 $a,b,c,d\in \mathbb{Z}$，$a\equiv b \pmod p$，$c \equiv d \pmod p$，则：</p><ul><li><p>$a\pm c \equiv b \pm d \pmod p$</p></li><li><p>$a \times c\equiv b\times d\pmod p$</p></li></ul><p>其他三个重要关系： </p><ul><li><p>若 $d\mid p,\ a\equiv b\pmod p$，则 $a\equiv b \pmod d$</p></li><li><p>若 $d\mid a,\ d\mid b,\ d\mid p,\ a\equiv b \pmod p$，则 $\frac{a}{d}\equiv \frac{b}{d}\pmod {\frac{d}{p}}$</p></li><li><p>若 $a\equiv b\pmod p$，则 $ak\equiv bk\pmod {pk}$</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> OI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数学 </tag>
+            
+            <tag> 同余 </tag>
+            
+            <tag> 逆元 </tag>
+            
+            <tag> 费马小定理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[题解][ABC410F] Balanced Rectangles</title>
       <link href="/2025/08/08/%5B%E9%A2%98%E8%A7%A3%5D%5BABC410F%5D%20Balanced%20Rectangles/"/>
       <url>/2025/08/08/%5B%E9%A2%98%E8%A7%A3%5D%5BABC410F%5D%20Balanced%20Rectangles/</url>
@@ -587,35 +645,6 @@
             <tag> Atcoder </tag>
             
             <tag> ABC </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>模</title>
-      <link href="/2025/08/04/%E6%A8%A1/"/>
-      <url>/2025/08/04/%E6%A8%A1/</url>
-      
-        <content type="html"><![CDATA[<h1 id="模"><a href="#模" class="headerlink" title="模"></a>模</h1><h2 id="模的定义"><a href="#模的定义" class="headerlink" title="模的定义"></a>模的定义</h2><p>事实上，模本身并不是一个精确的术语，它可以指代很多东西。</p><ul><li><p>$a\ mod{\ b}$ 和 $a \equiv b \pmod{m}$：此时的模是动词，意味 ‘取余数’。</p></li><li><p>模数：是一个正整数。模数m规定了运算结果中整数的范围为(0~m)。例如：<code>模是998244353</code> 中的模就是模数的意思。</p></li><li><p>模运算：这是一整套在<strong>给定模数下对整数进行计算的规则体系</strong>。例如：<code>学习有关模的知识</code> 此时的模就是模运算的意思。</p></li><li><p>模意义：一种抽象的概念。在模意义下，我们关注数的 ‘同余关系’，而不是观察这个数本身是多少。例如：<code>从模的角度看</code> 的模就是模领域的意思。</p></li></ul><h2 id="模运算"><a href="#模运算" class="headerlink" title="模运算"></a>模运算</h2><p>模运算中的加、减、乘都很简单。</p><ul><li><p>$(a+b)\ mod \ M = (a\ mod\ M+b\ mod\ M)\ mod\ M$</p></li><li><p>$(a-b)\ mod\ M=(a\ mod\ M-b\ mod\ M)\ mod\ M$</p></li><li><p>$(a\times b)\ mod\ M=(a\ mod\ M\times b\ mod\ M)\ mod\ M$ </p></li></ul><p>但是除法就有些特别。在模运算中<strong>不能</strong>直接除，而是要<strong>乘以除数的逆元</strong>。</p><h2 id="乘法逆元"><a href="#乘法逆元" class="headerlink" title="乘法逆元"></a>乘法逆元</h2><p>所谓逆元，其实就是在模领域下的倒数，即<strong>一个数乘以它的逆元在模领域下等于1</strong>。</p><p>例如 $a$ 的逆元是 $a^{-1}\pmod{M}$ ，因为 $a\times a^{-1}\equiv1\pmod{M}$ </p><p>那么一个数的逆元怎么求呢？我们可以使用费马小定理。</p><p>费马小定理：若 $p$ 是质数，且 $a$ 不是 $p$ 的倍数，那么可得 $a^{p-1}\equiv1\pmod{p}$</p><p>$\because a^{p-1} \equiv 1\pmod{p} \\\therefore a\times a^{p-2} \equiv 1\pmod{p}$</p><p>根据逆元定义，可知 $a^{p-2}$ 就是 $a$ 的逆元，接下来再用快速幂求解一下就好了。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> OI </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 数学 </tag>
-            
-            <tag> 逆元 </tag>
-            
-            <tag> 费马小定理 </tag>
             
         </tags>
       
@@ -847,9 +876,9 @@
       
         <tags>
             
-            <tag> 游记 </tag>
-            
             <tag> CSP </tag>
+            
+            <tag> 游记 </tag>
             
         </tags>
       
