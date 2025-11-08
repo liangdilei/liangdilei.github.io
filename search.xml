@@ -31,6 +31,33 @@
     
     
     <entry>
+      <title>[CSP-S T2] road 补题后有感</title>
+      <link href="/2025/11/08/%5BCSP-S%20T2%5D%20road%20%E8%A1%A5%E9%A2%98%E5%90%8E%E6%9C%89%E6%84%9F/"/>
+      <url>/2025/11/08/%5BCSP-S%20T2%5D%20road%20%E8%A1%A5%E9%A2%98%E5%90%8E%E6%9C%89%E6%84%9F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="CSP-S-T2-road-补题后有感"><a href="#CSP-S-T2-road-补题后有感" class="headerlink" title="[CSP-S T2] road 补题后有感"></a>[CSP-S T2] road 补题后有感</h1><p>赛场上只打了 $O(2^km\log m)$ 的暴力分。</p><p>其实这有很多冗余部分，比如，对于原图，我们只需要保留 MST 的 n-1 条边就好了，其余边在排序时一定不会排到前面，因而没有贡献。</p><p>加边对于答案而言完全是不劣的。</p><p>于是我们得到了 $O(2^kkn\log kn)$ 的代码。</p><p>但其实很多排序仍然是冗余的。</p><p>我们只需要在一开始把 kn 条边排序，然后遍历 kn 条边，看哪条边需要被使用就好了。</p><p>这样我们只用排序一次。$O(kn \log kn+2^kkn)$</p><p>这使得我开始思考。我们知道 kruskal 有一个“预处理”阶段，也就是排序。</p><p>当我们<strong>多次</strong>使用 kruskal 的时候，就要进行多次预处理。</p><p>但如果我们只进行一次预处理，就可以使得 kruskal 的预处理阶段消失不见。</p><p>这使得我意识到，算法的步骤是可以“拆开来”实现的。</p><p>例如，对于 kruskal，它有几个步骤：</p><ul><li><p>排序</p></li><li><p>遍历边</p></li><li><p>判断是否连通</p></li><li><p>加边</p></li></ul><p>我们不必每次调用的时候都排序，把它拆出来，先排序，再调用。</p><p>调用一次算法和调用多次算法是不同的。</p><p>调用多次某种算法可能存在某种优化。</p><p>而这种优化很可能与算法步骤相关联。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 闲谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CSP </tag>
+            
+            <tag> kruskal </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[题解][P14173] 猜拳游戏</title>
       <link href="/2025/10/25/%5B%E9%A2%98%E8%A7%A3%5D%5BP14173%5D%20%E7%8C%9C%E6%8B%B3%E6%B8%B8%E6%88%8F/"/>
       <url>/2025/10/25/%5B%E9%A2%98%E8%A7%A3%5D%5BP14173%5D%20%E7%8C%9C%E6%8B%B3%E6%B8%B8%E6%88%8F/</url>
