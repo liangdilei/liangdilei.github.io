@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>2025 CSP 游寄</title>
+      <link href="/2025/11/08/2025%20CSP%20%E6%B8%B8%E5%AF%84/"/>
+      <url>/2025/11/08/2025%20CSP%20%E6%B8%B8%E5%AF%84/</url>
+      
+        <content type="html"><![CDATA[<h1 id="2025-CSP-游寄"><a href="#2025-CSP-游寄" class="headerlink" title="2025 CSP 游寄"></a>2025 CSP 游寄</h1><h2 id="J"><a href="#J" class="headerlink" title="- J"></a>- J</h2><p>很顺的开题，但是写到 T4 的时候没劲往下写了？太累了吗？</p><p>J : 100 + 100 + 100 + 52 = 352</p><h2 id="S"><a href="#S" class="headerlink" title="- S"></a>- S</h2><p>天崩开局。</p><p>一开始没想出 T1 正解，然后想打 T1 的 dp 暴力，调了 1h 都没调出来。</p><p>然后转向 T2，打了 T2 的暴力分又回来调 T1，又调了 1h，还是没想出来。</p><p>最后想着偷点特殊性质，然后在特殊性质的引导下把 T1 的正解贪心打出来了。</p><p>然而此时时间只剩下了半小时。最后还把 T2 的 freopen 给注释掉了，虽然开了 long long，但是答案的最大值设置成了 INT_MAX，喜提 0pts。</p><p>S : 100 + 0 + 0 + 0 = 100</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>J 组发挥还行，问题在于 S 组。</p><p>应该先把除了 T1 的暴力分、性质分都拿下，再留 1h 时间想 T1 正解。</p><p>想不出正解的时候不要着急打暴力，应该看看性质，用性质引导做题。</p><p>并且还要留 5min 时间检查文件输入输出。</p><p>这次是败在了考试技巧。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 闲谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CSP </tag>
+            
+            <tag> 游记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[题解][P14173] 猜拳游戏</title>
       <link href="/2025/10/25/%5B%E9%A2%98%E8%A7%A3%5D%5BP14173%5D%20%E7%8C%9C%E6%8B%B3%E6%B8%B8%E6%88%8F/"/>
       <url>/2025/10/25/%5B%E9%A2%98%E8%A7%A3%5D%5BP14173%5D%20%E7%8C%9C%E6%8B%B3%E6%B8%B8%E6%88%8F/</url>
@@ -657,7 +684,7 @@
       <link href="/2025/08/03/WA%E9%A2%98%E9%93%AD/"/>
       <url>/2025/08/03/WA%E9%A2%98%E9%93%AD/</url>
       
-        <content type="html"><![CDATA[<h1 id="WA题铭"><a href="#WA题铭" class="headerlink" title="WA题铭"></a>WA题铭</h1><ol><li><p><a href="https://atcoder.jp/contests/abc416/tasks/abc416_e">E - Development</a>：输入的时候没有取边的min值，而是直接覆盖。以后用邻接表记录图的时候一定要注意！</p></li><li><p><a href="https://atcoder.jp/contests/abc414/tasks/abc414_e">E - Count A%B=C</a>：在带有模的运算中，所有的除都应该变成乘逆元。</p></li><li><p><a href="https://atcoder.jp/contests/abc417/tasks/abc417_e">E - A Path in A Dictionary</a>：多组数据输入时，在每次开始之前要初始化好要用到的东西，不要漏掉！！！</p></li><li><p><a href="https://atcoder.jp/contests/abc409/tasks/abc409_e">E - Pair Annihilation</a>：要注意int类型数据运算时，可能超过int上限，如果不乘1ll,就算记录结果的变量是long long,系统也不会帮你隐式转换！还有就是记清楚自己用的数据是什么类型的，不要犯把long long当成int记的低级错误！还有就是写代码之前一定要把思路证明清楚，不要在模糊的情况下开始写代码！</p></li><li><p><a href="https://atcoder.jp/contests/abc409/tasks/abc409_f">F - Connecting Points</a>：不要在没想清楚的时候写代码！写之前把需要的数据结构、算法都想清楚先，急着写只会损失更多时间；想清楚每个变量，数组的定义，执行完每一步后确保满足定义，不要有模糊的地方，这种地方最容易出错了；代码越长，写的就要越细心！</p></li><li><p><a href="https://www.luogu.com.cn/problem/P2602">P2602 [ZJOI2010] 数字计数</a>：写变量的数据类型时要小心，注意赋的值的类型。</p></li><li><p><a href="https://www.luogu.com.cn/problem/P2657?contestId=249020">P2657 [SCOI2009] windy 数</a>：如果满足了递归退出条件就一定要退出！</p></li><li><p><a href="https://atcoder.jp/contests/abc410/tasks/abc410_f">F - Balanced Rectangles</a>：数组开小了是真难蚌。</p></li><li><p><a href="https://www.luogu.com.cn/problem/P9245">P9245 [蓝桥杯 2023 省 B] 景区导游</a>：求LCA的第二个循环需要从大到小遍历i。</p></li><li><p><a href="https://atcoder.jp/contests/abc420/tasks/abc420_d">D - Toggle Maze</a>：广搜模板打错了。。。边界条件太多了，写 <code>continue</code> 会好点。一定要在结点 <code>push</code> 前打标签啊！否则会多次入队。</p></li><li><p><a href="https://atcoder.jp/contests/abc375/tasks/abc375_e">E - 3 Team Division</a>：数组最多开到 $3\times 10^7$。</p></li><li><p><a href="https://atcoder.jp/contests/abc392/tasks/abc392_d">D - Doubles</a>：请检查数组范围。</p></li><li><p><a href="https://atcoder.jp/contests/abc344/tasks/abc344_d">D - String Bags</a>：动态转移方程没错，但是要看清楚转移方程所碰到的边界条件。还有分组背包dp的模板打错了。。。</p></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="WA题铭"><a href="#WA题铭" class="headerlink" title="WA题铭"></a>WA题铭</h1><ol><li><p><a href="https://atcoder.jp/contests/abc416/tasks/abc416_e">E - Development</a>：输入的时候没有取边的min值，而是直接覆盖。以后用邻接表记录图的时候一定要注意！</p></li><li><p><a href="https://atcoder.jp/contests/abc414/tasks/abc414_e">E - Count A%B=C</a>：在带有模的运算中，所有的除都应该变成乘逆元。</p></li><li><p><a href="https://atcoder.jp/contests/abc417/tasks/abc417_e">E - A Path in A Dictionary</a>：多组数据输入时，在每次开始之前要初始化好要用到的东西，不要漏掉！！！</p></li><li><p><a href="https://atcoder.jp/contests/abc409/tasks/abc409_e">E - Pair Annihilation</a>：要注意int类型数据运算时，可能超过int上限，如果不乘1ll,就算记录结果的变量是long long,系统也不会帮你隐式转换！还有就是记清楚自己用的数据是什么类型的，不要犯把long long当成int记的低级错误！还有就是写代码之前一定要把思路证明清楚，不要在模糊的情况下开始写代码！</p></li><li><p><a href="https://atcoder.jp/contests/abc409/tasks/abc409_f">F - Connecting Points</a>：不要在没想清楚的时候写代码！写之前把需要的数据结构、算法都想清楚先，急着写只会损失更多时间；想清楚每个变量，数组的定义，执行完每一步后确保满足定义，不要有模糊的地方，这种地方最容易出错了；代码越长，写的就要越细心！</p></li><li><p><a href="https://www.luogu.com.cn/problem/P2602">P2602 [ZJOI2010] 数字计数</a>：写变量的数据类型时要小心，注意赋的值的类型。</p></li><li><p><a href="https://www.luogu.com.cn/problem/P2657?contestId=249020">P2657 [SCOI2009] windy 数</a>：如果满足了递归退出条件就一定要退出！</p></li><li><p><a href="https://atcoder.jp/contests/abc410/tasks/abc410_f">F - Balanced Rectangles</a>：数组开小了是真难蚌。</p></li><li><p><a href="https://www.luogu.com.cn/problem/P9245">P9245 [蓝桥杯 2023 省 B] 景区导游</a>：求LCA的第二个循环需要从大到小遍历i。</p></li><li><p><a href="https://atcoder.jp/contests/abc420/tasks/abc420_d">D - Toggle Maze</a>：广搜模板打错了。。。边界条件太多了，写 <code>continue</code> 会好点。一定要在结点 <code>push</code> 前打标签啊！否则会多次入队。</p></li><li><p><a href="https://atcoder.jp/contests/abc375/tasks/abc375_e">E - 3 Team Division</a>：数组最多开到 $3\times 10^7$。</p></li><li><p><a href="https://atcoder.jp/contests/abc392/tasks/abc392_d">D - Doubles</a>：请检查数组范围。</p></li><li><p><a href="https://atcoder.jp/contests/abc344/tasks/abc344_d">D - String Bags</a>：动态转移方程没错，但是要看清楚转移方程所碰到的边界条件。还有分组背包dp的模板打错了。。。</p></li><li><p><a href="https://www.luogu.com.cn/problem/P14362">P14362 [CSP-S 2025] 道路修复 / road（官方数据） - 洛谷</a>：开了 long long，但是 ans 初始值赋成了 INT_MAX，喜提 0pts。</p></li></ol>]]></content>
       
       
       <categories>
