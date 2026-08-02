@@ -71,9 +71,34 @@
 <p>仅仅只是感受它们在你大脑中发生的化学反应，望着它们。</p>
 <p>这真的很神奇啊。理性上知道，模拟赛爆了之后的挫败感对于我来说毫无用处，感性上又不断释放挫败感，让我的动力瘫痪。</p>
 <p>但只要永远保持理智，就不会跌的太惨。</p>
+<p>我需要去建立一个场。外界所有事情，成绩、对比、写题没写出来、今天效率很高，这都是客观事件，不要让它们轻易入侵你，你需要以一种“冷漠”的态度对待生活，建立低情绪波动的生活。</p>
 ]]></content>
       <categories>
         <category>随心小记</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>2026.8.2 随心小记</title>
+    <url>/2026/08/02/2026-8-2-%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/</url>
+    <content><![CDATA[<p>OI 倒是练了很久，背诵任务和 whk 要稍微弄一弄啊，不能完全不管它。</p>
+<p>Neurosama 唱的 Chinatown blues 好好听啊，憧憬成为 vedal 捏。</p>
+<p>今天心态挺好的吧。就是打模拟赛的时候着急了点。说到底就是与预期的不太一样嘛。</p>
+<p>还有就是刷视频刷的有点耽误学习了。这是客观的啊，不是带着情绪的批判。</p>
+<p>还是要在不影响学习的前提下娱乐啊。那几个时间锚点都给我记牢了。</p>
+<p>8.00 开始学习；9.00 到图书馆；1.10 睡觉；2.00 到图书馆；7.00 到图书馆。</p>
+<p>嗯嗯。一切都好。</p>
+]]></content>
+      <categories>
+        <category>随心小记</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>8.2-8.9 学习记录</title>
+    <url>/2026/08/02/8-2-8-9-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="8-2"><a href="#8-2" class="headerlink" title="8.2"></a>8.2</h1><p>ABC 469 D: 及时去除无贡献的点。<br>ABC 469 F：kruskal 本质是先选择边权小的贪心。基于此，不必拘泥于给所有边排序，可以枚举值域。<br>ABC 469 E：本质二分找最大均值。形式化出来就好做了。写代码之前先想清楚啊。<br>P2829 &amp; </p>
+]]></content>
+      <categories>
+        <category>学习记录</category>
       </categories>
   </entry>
 </search>
