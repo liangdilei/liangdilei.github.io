@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"liangdilei.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"twikoo","storage":true,"lazyload":true,"nav":null,"activeClass":"twikoo"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="我们应当认为，中高考与算法竞赛不是智力游戏，它们同时还考察着训练策略、心态调节等能力。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于题解的训练策略">
+<meta property="og:url" content="https://liangdilei.github.io/2026/08/04/%E5%9F%BA%E4%BA%8E%E9%A2%98%E8%A7%A3%E7%9A%84%E8%AE%AD%E7%BB%83%E7%AD%96%E7%95%A5/index.html">
+<meta property="og:site_name" content="liangdl 的博客">
+<meta property="og:description" content="我们应当认为，中高考与算法竞赛不是智力游戏，它们同时还考察着训练策略、心态调节等能力。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-08-04T13:14:28.000Z">
+<meta property="article:modified_time" content="2026-08-04T14:53:06.118Z">
+<meta property="article:author" content="liangdl">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://liangdilei.github.io/2026/08/04/%E5%9F%BA%E4%BA%8E%E9%A2%98%E8%A7%A3%E7%9A%84%E8%AE%AD%E7%BB%83%E7%AD%96%E7%95%A5/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://liangdilei.github.io/2026/08/04/%E5%9F%BA%E4%BA%8E%E9%A2%98%E8%A7%A3%E7%9A%84%E8%AE%AD%E7%BB%83%E7%AD%96%E7%95%A5/","path":"2026/08/04/基于题解的训练策略/","title":"基于题解的训练策略"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>基于题解的训练策略 | liangdl 的博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">liangdl 的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录、分享与探索</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B3%9F%E7%B3%95%E7%9A%84%E8%AE%AD%E7%BB%83%E7%AD%96%E7%95%A5"><span class="nav-number">1.</span> <span class="nav-text">糟糕的训练策略</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E9%A2%98%E8%A7%A3%E7%9A%84%E8%AE%AD%E7%BB%83%E7%AD%96%E7%95%A5"><span class="nav-number">2.</span> <span class="nav-text">基于题解的训练策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-1%EF%BC%9A%E7%AD%9B%E9%80%89%E9%A2%98%E7%9B%AE"><span class="nav-number">2.1.</span> <span class="nav-text">Part 1：筛选题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-2%EF%BC%9A%E6%80%9D%E8%80%83%E9%A2%98%E7%9B%AE"><span class="nav-number">2.2.</span> <span class="nav-text">Part 2：思考题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-3%EF%BC%9A%E7%9C%8B%E9%A2%98%E8%A7%A3-%E6%80%BB%E7%BB%93%E5%A4%8D%E7%9B%98"><span class="nav-number">2.3.</span> <span class="nav-text">Part 3：看题解 &amp; 总结复盘</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%99%84%E5%BD%95"><span class="nav-number">3.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OI-%E7%9A%84%E8%A7%A3%E9%A2%98%E6%80%9D%E7%BB%B4"><span class="nav-number">3.1.</span> <span class="nav-text">OI 的解题思维</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E8%A7%A3"><span class="nav-number">3.1.1.</span> <span class="nav-text">理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">3.1.2.</span> <span class="nav-text">思考</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81-%E9%97%AE%E9%A2%98%E7%B1%BB%E5%9E%8B-%E7%9A%84%E6%80%9D%E8%80%83%E6%96%B9%E5%90%91"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">常见 问题类型 的思考方向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84-%E6%80%9D%E8%80%83%E6%8A%80%E5%B7%A7%EF%BC%88%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4%E5%B9%BF%EF%BC%8C%E5%BC%BA%E5%BA%A6%E9%80%82%E4%B8%AD%EF%BC%89"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">一些常见的 思考技巧（适用范围广，强度适中）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81-trick%EF%BC%88%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4%E5%B0%8F%EF%BC%8C%E4%BD%86%E5%BC%BA%EF%BC%89"><span class="nav-number">3.1.2.3.</span> <span class="nav-text">一些常见 trick（适用范围小，但强）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9B%BE%E8%AE%BA"><span class="nav-number">3.1.2.3.1.</span> <span class="nav-text">图论</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B4%AA%E5%BF%83"><span class="nav-number">3.1.2.3.2.</span> <span class="nav-text">贪心</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DP"><span class="nav-number">3.1.2.3.3.</span> <span class="nav-text">DP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="nav-number">3.1.2.3.4.</span> <span class="nav-text">线段树</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.1.3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E8%AF%95"><span class="nav-number">3.1.4.</span> <span class="nav-text">调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E7%9B%98"><span class="nav-number">3.1.5.</span> <span class="nav-text">复盘</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E7%9A%84%E8%A7%A3%E9%A2%98%E6%80%9D%E7%BB%B4"><span class="nav-number">3.2.</span> <span class="nav-text">数学的解题思维</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.2.1.</span> <span class="nav-text">解题步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E7%B1%BB%E5%9E%8B%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%80%9D%E8%80%83%E6%96%B9%E5%90%91"><span class="nav-number">3.2.2.</span> <span class="nav-text">题目类型带来的思考方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E4%BD%95%E5%85%B3%E7%B3%BB%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%80%9D%E8%80%83%E6%96%B9%E5%90%91"><span class="nav-number">3.2.3.</span> <span class="nav-text">几何关系带来的思考方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%A5%97%E8%B7%AF%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%80%9D%E8%80%83%E6%96%B9%E5%90%91"><span class="nav-number">3.2.4.</span> <span class="nav-text">常见套路带来的思考方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%84%8F%E8%AF%86"><span class="nav-number">3.2.5.</span> <span class="nav-text">一些意识</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">liangdl</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://muyangyangli.github.io/" title="&lt;i class&#x3D;&#39;fa fa-link&#39;&gt;&lt;&#x2F;i&gt; 友情链接 → https:&#x2F;&#x2F;muyangyangli.github.io&#x2F;" rel="noopener me" target="_blank"><i class='fa fa-link'></i> 友情链接</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liangdilei.github.io/2026/08/04/%E5%9F%BA%E4%BA%8E%E9%A2%98%E8%A7%A3%E7%9A%84%E8%AE%AD%E7%BB%83%E7%AD%96%E7%95%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="liangdl">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liangdl 的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="基于题解的训练策略 | liangdl 的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          基于题解的训练策略
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-08-04 21:14:28 / 修改时间：22:53:06" itemprop="dateCreated datePublished" datetime="2026-08-04T21:14:28+08:00">2026-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%96%B9%E6%B3%95%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">方法论</span></a>
+        </span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>我们应当认为，中高考与算法竞赛不是智力游戏，它们同时还考察着训练策略、心态调节等能力。</p>
+<span id="more"></span>
+
+<p>本文参考资料：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xSYxzDEPg/?spm_id_from=333.337.search-card.all.click&vd_source=9d556581d652d25760090bf00fa71258">一个金牌选手的信竞攻略_哔哩哔哩_bilibili</a>，liangdl 的学习经历。</p>
+<h1 id="糟糕的训练策略"><a href="#糟糕的训练策略" class="headerlink" title="糟糕的训练策略"></a>糟糕的训练策略</h1><p>在介绍 “基于题解的训练策略” 之前，让我们先看一下糟糕的训练策略是什么：</p>
+<p>首先，L 从<strong>不知道哪个地方</strong>拿来一道题目。假设是一道数学几何难题好了。</p>
+<p>然后，绞劲脑汁想了<strong>一个小时</strong>，<strong>凭感觉</strong>这试一下那试一下，辅助线画下来擦了又擦，题目都擦糊了，还是没有想出解法。</p>
+<p>最后，无奈之下选择请教帮哥。<strong>看到帮哥设了五个未知数，过程写得和英语作文一样</strong>，L 从头读到尾，勉强理解，过程一抄就过掉了这道题。</p>
+<p>L 疲惫地靠在椅背上，想着在这流逝的一个半小时里，自己竭尽全力还是无法战胜一道数学压轴题。L 感到无比的<strong>挫败与沮丧</strong>，又想到自己好像什么也没学到，不自觉地陷入<strong>自我怀疑</strong>。于是，L 开摆了。</p>
+<p>以上内容是 liangdl 的真实经历<del>（艺术加工版）</del>。</p>
+<p>我们来分析一下这样训练的问题：</p>
+<ol>
+<li><p>没有选择好的训练资源。随机选取的题目要么简单、要么奇怪、要么困难，找到一道好题的概率很小，不要把自己宝贵的精力浪费在这种题上面。</p>
+</li>
+<li><p>思考没有目的性，没有设定好思考时限。这个方面的内容涉及到解题思维，我在文章最后附了我的 OI ＆ 数学题的解题思维，大伙可以参照一下。</p>
+</li>
+<li><p>没有选择合适的题解。若一道初中数学几何题需要设 2 个以上的未知数时，这篇题解可以断定没有学习价值，我敢说一定存在更优雅的简单解法。</p>
+</li>
+<li><p>预期与心态的问题。应该带着“我大概会解不出来的”的预期去写题，否则挫败感几乎是无法避免的，不应该让自己陷进去。</p>
+</li>
+</ol>
+<h1 id="基于题解的训练策略"><a href="#基于题解的训练策略" class="headerlink" title="基于题解的训练策略"></a>基于题解的训练策略</h1><p>于是，基于存在的这些问题，liangdl 优化出了一套新的训练策略——基于题解的训练策略！</p>
+<p>你想，一道题目，如果你能写出来，那么它在你写之前就已经在你的能力范围之内了（当然不否认简单题目对于思维的强化作用）。只有你需要看题解的题目，才能让你的能力有所提升。</p>
+<p>当面对一个新学科的时候，如果没有题解帮助你实现从 0到1 的跨越&#x2F;积累，刷再多的题也没用。</p>
+<p>具体怎么操作呢？</p>
+<h2 id="Part-1：筛选题目"><a href="#Part-1：筛选题目" class="headerlink" title="Part 1：筛选题目"></a>Part 1：筛选题目</h2><p>拿到一道题目，要判断它值不值得训练，首先看它的<strong>来源</strong>。好的来源有：<strong>老师推荐、历年真题与广受好评的教辅。</strong> 这里推荐一个网站：<a target="_blank" rel="noopener" href="https://www.jyeoo.com/">菁优网</a>。可以在这里找到各地区的历年真题。</p>
+<p>若没有渠道从这些来源获得题目，或者你觉得好的题源里未必每一道题都值得训练，你就需要<strong>看题解了</strong>。（这点在语文阅读理解训练里尤其重要，你可以找到好的题目，但是要找到好的答案很难，如果题目的答案不好，那么训练价值也是很少的，可以换一道题目了）</p>
+<p>当然，你并不需要把解答从头到尾看得明明白白，那样还有啥训练效果。我的意思是，看看答案大致上是不是条理清晰、简洁就好了。例如，数学题设 5 个未知数、阅读理解的答案写的极其随性简短，没有明确评分标准、OI 题解里全都是“感性理解”“显然”“易得”，这样的题解就可以避雷了。</p>
+<h2 id="Part-2：思考题目"><a href="#Part-2：思考题目" class="headerlink" title="Part 2：思考题目"></a>Part 2：思考题目</h2><p>首先知道一个事实：你能解出来的题目难度<strong>并不等价于</strong>你的能力。成功解题是有概率的，这个概率根据你的能力水平会浮动。所以，不要抱着“这题写不出来我就是菜”的心态来写题，而是要抱着“如果我写出来了，我巩固了我的思维；如果我没写出来，我扩展了我的能力”。总之，我只要写题就是赢！</p>
+<p>其次，限时。一道题目（当然要看你刷的是什么题，我这里以数学压轴和 OI 题为例），如果你是试了20-30分钟才试出来的，那么其实你还是没有掌握。我个人倾向于认真思考5-10分钟未果就去看题解，不然会带来很大的挫败感。</p>
+<h2 id="Part-3：看题解-总结复盘"><a href="#Part-3：看题解-总结复盘" class="headerlink" title="Part 3：看题解 &amp; 总结复盘"></a>Part 3：看题解 &amp; 总结复盘</h2><p>选择一篇好的题解，然后理解它。<strong>理解的标准是：能够用简洁的一句话表达出题目的核心。</strong></p>
+<p>然后把自己的卡点记录下来，将题解是如何面对卡点的方法，归纳进你的解题思维里。</p>
+<p>以上就是“基于题解的训练策略”的全部基础版内容了，掌握这个训练策略并加以坚持，我相信你可以拉爆很多人了<del>（不要拉爆我啊）</del>。最后扩展一点，这个训练策略的三个部分是可以 <strong>“多线并行”</strong> 的，这就带给了我们极大的自由度，在 OI 这种动辄几个小时的训练中有极大的便利。具体来说，你可以在状态不好的时候筛选题目，状态极佳的时候思考题目 or 看题解，这样就保证了自己不会浪费时间，最大化利用了时间。</p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="OI-的解题思维"><a href="#OI-的解题思维" class="headerlink" title="OI 的解题思维"></a>OI 的解题思维</h2><h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><ol>
+<li>形式化题面。</li>
+<li>标出数据范围。</li>
+</ol>
+<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><ol>
+<li>先判断能否对应问题类型，再标出奇怪的地方，再使用思考技巧。</li>
+<li>先广搜，得到几个大致的<strong>思考方向</strong>，写下来。用数据范围排除掉一些算法。</li>
+<li>然后选一个深搜。如果想了 10 分钟还是没有进展，就换一个方向。如果所有方向都没有进展，看题解。</li>
+<li>形式化思考结果</li>
+</ol>
+<h4 id="常见-问题类型-的思考方向"><a href="#常见-问题类型-的思考方向" class="headerlink" title="常见 问题类型 的思考方向"></a>常见 问题类型 的思考方向</h4><ol>
+<li>操作题：思考操作顺序、操作影响、操作影响如何映射到其他东西上等。</li>
+<li>二维网格：枚举上下边界、按行 DP、格点 DP。</li>
+<li>博弈题：先找出 必胜 or 必败 的状态。（找全）<br>然后证明，如果状态不属于 必胜 or 必败 态（反向刻画），就必然属于相反的状态。</li>
+<li>计数题：考虑不同主体、<strong>唯一代表元</strong>的贡献。</li>
+<li>最优化：二分答案、DP、贪心</li>
+<li>区间计数&#x2F;最优区间：枚举端点，另一端考虑双指针、二分</li>
+<li>构造题：考虑无解</li>
+</ol>
+<h4 id="一些常见的-思考技巧（适用范围广，强度适中）"><a href="#一些常见的-思考技巧（适用范围广，强度适中）" class="headerlink" title="一些常见的 思考技巧（适用范围广，强度适中）"></a>一些常见的 思考技巧（适用范围广，强度适中）</h4><ol>
+<li>正难则反</li>
+<li>考虑单个元素贡献，考虑哪些元素无贡献。无贡献的元素要立刻剥离：2025 CSPST2、最短路公共路径</li>
+<li>分类讨论（分治）</li>
+<li>从简化的问题入手</li>
+<li>关注不变量</li>
+<li>排序</li>
+<li>研究操作 前提&#x2F;影响</li>
+<li>猜证结论</li>
+<li>能离线的要离线</li>
+<li>放入二维平面</li>
+<li>跳出动态过程（什么样的状态下），研究静态结构（存在什么）：双栈序列</li>
+</ol>
+<h4 id="一些常见-trick（适用范围小，但强）"><a href="#一些常见-trick（适用范围小，但强）" class="headerlink" title="一些常见 trick（适用范围小，但强）"></a>一些常见 trick（适用范围小，但强）</h4><h5 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h5><ol>
+<li>虚点，超级源点，超级汇点</li>
+<li>有向图考虑 DAG 解法，缩点。</li>
+<li>偏序关系考虑差分约束</li>
+<li>点的状态很少考虑分层图</li>
+<li>染色：找出主体的不同状态，用边表示状态的异同。</li>
+<li>连通性：并查集、搜索树。</li>
+</ol>
+<h5 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h5><ol>
+<li>临项交换</li>
+</ol>
+<h5 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h5><ol>
+<li>状态设计成 <strong>恰好</strong> 形式的</li>
+<li>状态设计<strong>一定</strong>不要有冗余</li>
+<li>决策集合具有单调增减性，可以优化。</li>
+<li>数位DP，用mask表示0~9中哪些数出现过</li>
+<li>不知道从何下手时，先大胆设出来再优化</li>
+<li>考虑转移时，从新增的元素上下手。</li>
+<li>小区间变到大区间——&gt;区间DP。</li>
+</ol>
+<h5 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h5><p>维护区间信息时考虑线段树。</p>
+<ol>
+<li>考虑节点与节点、节点与标签、标签与标签之间的合并。</li>
+<li>考虑节点与节点的合并时，分类讨论<strong>至少</strong>两种情况，答案落在左&#x2F;右区间，答案跨越左右区间。</li>
+<li>遇到难维护的操作，直接暴力再考虑优化&#x2F;剪枝。区间每个数取模&#x2F;开方，最多进行 log 次。</li>
+</ol>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ol>
+<li><strong>写出</strong>算法流程</li>
+<li>列出关键变量、数组、函数的定义</li>
+<li>注意边界条件，dp 考虑边界</li>
+</ol>
+<h3 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h3><ol>
+<li>检查需不需要开 long long</li>
+<li>有没有 模0 或 除0</li>
+<li>pop 之前有没有判空</li>
+<li>数组下标有没有 越界&#x2F;负数，大小有没有开对</li>
+<li>逐一检查每一个变量，数组，是否正确维护。<ol>
+<li>初始值</li>
+<li>中间值</li>
+<li>边界值</li>
+</ol>
+</li>
+</ol>
+<h3 id="复盘"><a href="#复盘" class="headerlink" title="复盘"></a>复盘</h3><ol>
+<li>记录卡住的地方（思考、代码或调试）</li>
+<li>补充笔记，记录学到了什么，下次要避免什么。</li>
+</ol>
+<h2 id="数学的解题思维"><a href="#数学的解题思维" class="headerlink" title="数学的解题思维"></a>数学的解题思维</h2><h3 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h3><ol>
+<li>标数据，识别题目类型。</li>
+<li>根据几何关系，列出思考方向。</li>
+<li>根据常见套路，列出思考方向。</li>
+<li>关注一些宏观的东西<ul>
+<li>关注对称性</li>
+<li>将图形转化为已知模型的图形</li>
+</ul>
+</li>
+<li>先把可能用上的思考方向列出来，越多越好，再选择一个思考方向深度思考，思考 5 分钟没有进展，就换一个思考方向。</li>
+</ol>
+<h3 id="题目类型带来的思考方向"><a href="#题目类型带来的思考方向" class="headerlink" title="题目类型带来的思考方向"></a>题目类型带来的思考方向</h3><ul>
+<li>求线段长：勾股、和差、旋转、等面积</li>
+<li>求比例：分别求两条线段长、找相似</li>
+<li>求角度：内角和、等腰对等角、八字</li>
+<li>求面积：公式、铅锤高、割补、平行线转换、等分点转换、容斥</li>
+<li>求最小值：将军饮马、垂线段、找轨迹、全等转化线段、费马点、平移定点、旋转</li>
+<li>求最大值：三角形三边关系（注意这个三角形不能有定角或者定三边，因为这样无法三点共线）、垂线段、找轨迹、旋转<br>（最值问题本质上是在把题目转化为一定一动）</li>
+</ul>
+<h3 id="几何关系带来的思考方向"><a href="#几何关系带来的思考方向" class="headerlink" title="几何关系带来的思考方向"></a>几何关系带来的思考方向</h3><ul>
+<li>中线：八字全等（倍长）、中位线、平分面积</li>
+<li>角平分线：对称性、做垂直、角平分线定理</li>
+<li>垂线：等面积、勾股</li>
+<li>等腰：三线合一、腰上小高之和等于高</li>
+<li>特殊角：延长、垂直、构等腰、拆分</li>
+<li>直角三角形：斜边中线</li>
+<li>翻折：对称性、勾股、中垂线、悬空直角、等腰、角平分线、连接对应点、翻折中点出直角</li>
+</ul>
+<h3 id="常见套路带来的思考方向"><a href="#常见套路带来的思考方向" class="headerlink" title="常见套路带来的思考方向"></a>常见套路带来的思考方向</h3><ul>
+<li>平行三剑客：翻折平行出等腰</li>
+<li>旋转：有特殊三角形时</li>
+<li>一线三：多个等角、特殊三角形、悬空直角</li>
+<li>手拉手：特殊三角形</li>
+<li>十字架：矩形 &#x2F; 正方形</li>
+<li>半角模型：旋转</li>
+<li>射影定理导角</li>
+<li>构造中位线：四边形上有双中点，取对角线中点构造中位线</li>
+<li>一边一角构全等</li>
+<li>两倍角三角形：内外构等腰</li>
+<li>截长补短：两线段和等于另一线段</li>
+<li>两倍角、九十度：绝配角构等腰</li>
+</ul>
+<h3 id="一些意识"><a href="#一些意识" class="headerlink" title="一些意识"></a>一些意识</h3><ol>
+<li>存在大量的 等量 or 比例，大胆设未知数列方程。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/08/03/8-3-%E9%A2%93%E5%BA%9F%E4%B8%80%E5%A4%A9%E5%90%8E%E8%AE%B0/" rel="prev" title="8.3 颓废一天后记">
+                  <i class="fa fa-angle-left"></i> 8.3 颓废一天后记
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments"><div id="twikoo-comments"></div></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">liangdl</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="twikoo" type="application/json">{"enable":true,"visitor":false,"envId":"https://api.liangdl.cn","el":"#twikoo-comments"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.twikoo.el)
+    .then(() => NexT.utils.getScript(
+      CONFIG.twikoo.jsUrl || 'https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js',
+      { condition: window.twikoo }
+    ))
+    .then(() => {
+      twikoo.init(CONFIG.twikoo);
+    });
+});
+</script>
+<style>
+.post-block, .comments {
+  overflow: visible;
+}
+.tk-owo-emotion {
+  display: inline-block;
+}
+</style>
+
+</body>
+</html>
