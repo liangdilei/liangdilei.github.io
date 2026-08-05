@@ -135,7 +135,7 @@
     <content><![CDATA[<p>我们应当认为，中高考与算法竞赛不是智力游戏，它们同时还考察着训练策略、心态调节等能力。</p>
 <span id="more"></span>
 
-<p>本文参考资料：<a href="https://www.bilibili.com/video/BV1xSYxzDEPg/?spm_id_from=333.337.search-card.all.click&vd_source=9d556581d652d25760090bf00fa71258">一个金牌选手的信竞攻略_哔哩哔哩_bilibili</a>，liangdl 的学习经历。</p>
+<p>本文参考资料：<a href="https://www.bilibili.com/video/BV1xSYxzDEPg/?spm_id_from=333.337.search-card.all.click&vd_source=9d556581d652d25760090bf00fa71258">一个金牌选手的信竞攻略_哔哩哔哩_bilibili</a>，<a href="https://codeforces.com/blog/entry/98806">How to practice Competitive Programming [Um_nik version] - Codeforces</a>，liangdl 的学习经历。</p>
 <h1 id="糟糕的训练策略"><a href="#糟糕的训练策略" class="headerlink" title="糟糕的训练策略"></a>糟糕的训练策略</h1><p>在介绍 “基于题解的训练策略” 之前，让我们先看一下糟糕的训练策略是什么：</p>
 <p>首先，L 从<strong>不知道哪个地方</strong>拿来一道题目。假设是一道数学几何难题好了。</p>
 <p>然后，绞劲脑汁想了<strong>一个小时</strong>，<strong>凭感觉</strong>这试一下那试一下，辅助线画下来擦了又擦，题目都擦糊了，还是没有想出解法。</p>
