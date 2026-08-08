@@ -122,6 +122,8 @@
 <h1 id="8-7"><a href="#8-7" class="headerlink" title="8.7"></a>8.7</h1><p>P12406：移动序列可以等价于移动头指针。<br>abc311f：网格图计数，想到按行&#x2F;列 DP。<br>arc187b：明天继续。先推性质，然后暴力 DP，最后优化 DP（一开始猜的结论是假的调了两个小时呜）</p>
 <p>复习：tarjan 求 SCC、割点割边、SOS DP</p>
 <p>先摸出一点性质再深度思考啊。一点性质都没有硬想肯定难出啊。</p>
+<h1 id="8-8"><a href="#8-8" class="headerlink" title="8.8"></a>8.8</h1><p>arc187b：发现断点性质之后，形式化题目。贡献法做。<br>CF372C：区间转移考虑单调队列优化 DP。<br>另一种解法是找到函数顶点进行剪枝。<br>CF1234F：20 的字符集暗示状压DP。反转操作本质拼接合法字串。通过性质转换题目。子集 DP 处理 $a_i &amp; a_j &#x3D; 0$ 的约束。<br>ABC rk1700+。</p>
+<p>旧题重做：ABC466E、P11230、P8817（bfs一旦被访问要立马标记）</p>
 ]]></content>
       <categories>
         <category>学习记录</category>
@@ -314,6 +316,21 @@
 ]]></content>
       <categories>
         <category>方法论</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>8.7 随心小记</title>
+    <url>/2026/08/07/8-7-%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/</url>
+    <content><![CDATA[<p>有些迷茫啊。我很难说暑假结束前能不能大概切青。</p>
+<p>至少luogu上要有 100 道题目以上吧。21 天甚至更少的时间，每天切三道差不多？哦感觉还行。</p>
+<p>我当然想去省队啊！！！</p>
+<p>看着大佬们的博客羡慕死了。</p>
+<p>好想成为 OI 高手！自己实在是太菜了啊。</p>
+<p>不过这个东西只能慢慢来吧。只能说按照我的节奏慢慢走了。</p>
+<p>要相信自己呢。</p>
+]]></content>
+      <categories>
+        <category>随心小记</category>
       </categories>
   </entry>
 </search>
