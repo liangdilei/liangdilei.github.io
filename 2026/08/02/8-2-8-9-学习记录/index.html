@@ -28,7 +28,7 @@
 <meta property="og:description" content="8.2ABC 469 D: 及时去除无贡献的点。ABC 469 F：kruskal 本质是先选择边权小的贪心。基于此，不必拘泥于给所有边排序，可以枚举值域。ABC 469 E：本质二分找最大均值。形式化出来就好做了。写代码之前先想清楚啊。P2829 &amp; 2865：次短路学习+板子P1967：MST 与瓶颈路的不解之缘 P3430：看题解。染色。找出主体的不同状态，用边将不同主体联系起来，边">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-08-02T14:41:11.000Z">
-<meta property="article:modified_time" content="2026-08-08T14:08:50.459Z">
+<meta property="article:modified_time" content="2026-08-09T14:04:45.339Z">
 <meta property="article:author" content="liangdl">
 <meta name="twitter:card" content="summary">
 
@@ -165,7 +165,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#8-2"><span class="nav-number">1.</span> <span class="nav-text">8.2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-3"><span class="nav-number">2.</span> <span class="nav-text">8.3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-4"><span class="nav-number">3.</span> <span class="nav-text">8.4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-5"><span class="nav-number">4.</span> <span class="nav-text">8.5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-6"><span class="nav-number">5.</span> <span class="nav-text">8.6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-7"><span class="nav-number">6.</span> <span class="nav-text">8.7</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-8"><span class="nav-number">7.</span> <span class="nav-text">8.8</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#8-2"><span class="nav-number">1.</span> <span class="nav-text">8.2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-3"><span class="nav-number">2.</span> <span class="nav-text">8.3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-4"><span class="nav-number">3.</span> <span class="nav-text">8.4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-5"><span class="nav-number">4.</span> <span class="nav-text">8.5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-6"><span class="nav-number">5.</span> <span class="nav-text">8.6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-7"><span class="nav-number">6.</span> <span class="nav-text">8.7</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-8"><span class="nav-number">7.</span> <span class="nav-text">8.8</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-9"><span class="nav-number">8.</span> <span class="nav-text">8.9</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -252,7 +252,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-08-08 22:08:50" itemprop="dateModified" datetime="2026-08-08T22:08:50+08:00">2026-08-08</time>
+      <time title="修改时间：2026-08-09 22:04:45" itemprop="dateModified" datetime="2026-08-09T22:04:45+08:00">2026-08-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -300,6 +300,12 @@
 <p>先摸出一点性质再深度思考啊。一点性质都没有硬想肯定难出啊。</p>
 <h1 id="8-8"><a href="#8-8" class="headerlink" title="8.8"></a>8.8</h1><p>arc187b：发现断点性质之后，形式化题目。贡献法做。<br>CF372C：区间转移考虑单调队列优化 DP。<br>另一种解法是找到函数顶点进行剪枝。<br>CF1234F：20 的字符集暗示状压DP。反转操作本质拼接合法字串。通过性质转换题目。子集 DP 处理 $a_i &amp; a_j &#x3D; 0$ 的约束。<br>ABC rk1700+。</p>
 <p>旧题重做：ABC466E、P11230、P8817（bfs一旦被访问要立马标记）</p>
+<h1 id="8-9"><a href="#8-9" class="headerlink" title="8.9"></a>8.9</h1><p>模拟赛。<br>T1 思路秒出但是不熟计数DP调了一小时。转移时考虑转移前后集合的具体样子。<br>T2 没摸出性质做不出来。</p>
+<p>补T2：求神秘数。构造不出考虑维护。加上一个原来大于自己的数会将数量至少翻倍。<br>优化了一下解题流程。<br>CF76A：瓶颈路考虑MST。</p>
+<p>旧题重做：P1407（看到二分图完美匹配 ＆ 替换，想到交替环）</p>
+<p>定好计划之后就不要想着昨天明天了，把握好今天就 OK 呢。实在状态不好那就去切切水题，看一下语文文言文的视频吧。</p>
+<p>然后就是早点睡。</p>
+<p>这周也是圆满结束了！！！训练量还是到位的吧（？</p>
 
     </div>
 
