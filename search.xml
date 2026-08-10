@@ -339,4 +339,14 @@
         <category>随心小记</category>
       </categories>
   </entry>
+  <entry>
+    <title>8.10-8.17 学习记录</title>
+    <url>/2026/08/10/8-10-8-17-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="8-10"><a href="#8-10" class="headerlink" title="8.10"></a>8.10</h1><p>ABC466E：值域取模，分裂成两类小值域。<br>P2812（懒的去码）：SCC 缩点模板题。重要的性质是 DAG 从所有入度为 0 的点出发 dfs，最后能到达图上所有点。<br>CF2046C：二分答案。check 里枚 x 当作扫描线，然后用值域 BIT 上倍增求出 y 验证即可。<br>CF2110E：图论建模。把关键字当作点，数对当作边，建出来一个二分图，满足交替相等的性质，在这上面跑欧拉路径即可。</p>
+<p>知识学习：欧拉路径、BIT 上倍增 &amp; 线段树上二分（CF1354D）<br>旧题重做：T784496 B. 旧址</p>
+]]></content>
+      <categories>
+        <category>学习记录</category>
+      </categories>
+  </entry>
 </search>
