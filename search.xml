@@ -382,4 +382,23 @@
         <category>学习记录</category>
       </categories>
   </entry>
+  <entry>
+    <title>8.24-8.30 学习记录</title>
+    <url>/2026/08/24/8-24-8-30-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="8-24"><a href="#8-24" class="headerlink" title="8.24"></a>8.24</h1><p>完善了区间贪心的笔记。<br>反悔贪心速刷：</p>
+<ul>
+<li>种树：将 “替换当前决策” 的价值加入堆</li>
+<li>建筑抢修：用当前决策替换 最劣的那个决策</li>
+<li>Buy Low Sell High：股票买卖经典转化之，“i 买 k 卖 &#x3D; i 买 j 卖 j 买 k 卖”。撤销 j 卖这次决策，只需要再把它买回来就好了。</li>
+<li>Least Cost Bracket Sequence：括号序列经典性质之，“一个括号序列合法，当且仅当在任何时刻，左括号数量 &gt;&#x3D; 右括号数量，且整体数量相等”。先全选决策一，出现非法时，将决策一替换为决策二。先把决策做完，再考虑调整。</li>
+<li>Olympiad in Programming and Sports：先全放入队1，再调整。</li>
+<li>社团招新：先不考虑约束随便放。在找到唯一超限集合进行调整。</li>
+<li>拯救小矮人：涉及到顺序的问题考虑排序。临项交换证明排序规则。反贪。</li>
+</ul>
+<p>模拟赛。<br>补 T4。T3 力竭了。</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <categories>
+        <category>学习记录</category>
+      </categories>
+  </entry>
 </search>
