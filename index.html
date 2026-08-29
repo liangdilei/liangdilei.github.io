@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -201,6 +201,447 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://liangdilei.github.io/2026/08/29/%E4%B8%80%E8%88%AC%E6%80%A7%E7%9A%84%E8%A7%A3%E9%A2%98%E6%80%9D%E7%BB%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="liangdl">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liangdl 的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | liangdl 的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/08/29/%E4%B8%80%E8%88%AC%E6%80%A7%E7%9A%84%E8%A7%A3%E9%A2%98%E6%80%9D%E7%BB%B4/" class="post-title-link" itemprop="url">一般性的解题思维</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-08-29 21:29:27 / 修改时间：21:29:39" itemprop="dateCreated datePublished" datetime="2026-08-29T21:29:27+08:00">2026-08-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%96%B9%E6%B3%95%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">方法论</span></a>
+        </span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>如果没见过类似的结构、套路、性质、想法，那么想不出来这道题目十分正常。<br>本文收录了一些，在解题中反复出现的思维方法和思考路径。</p>
+<p>解释思维的方法，无非就是，要么分析性质，要么根据经验，要么灵光一闪吧。本文章旨在记录非常常见的经验，以及分析的基本方法。</p>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li>摸性质、猜性质</li>
+<li>试算法、摸性质</li>
+</ol>
+<h1 id="按题型分类的思考起点"><a href="#按题型分类的思考起点" class="headerlink" title="按题型分类的思考起点"></a>按题型分类的思考起点</h1><ol>
+<li>操作：思考操作顺序、操作影响、操作次数、操作取值、将操作顺序当作序列（红蓝球、禁忌数字）</li>
+<li>新定义：先考虑这个定义单独怎么求（f(A)表示序列连通块数量，区间神秘数）。</li>
+<li>博弈题：找 必胜 or 必败 态。然后证明，若不处在 必胜 or 必败 态，则一定处于相反态。</li>
+<li>计数题（所有方案的某种量的总和）：考虑不同主体如何产生贡献。</li>
+<li>构造题：考虑无解、按位构造、考虑上&#x2F;下 界</li>
+<li>交互题：一个常见思路：倒推题目，即假装我知道了 xxx，那么这道题就可以做了。为了知道 xxx，我需要。。。</li>
+</ol>
+<h1 id="常见的思考方法"><a href="#常见的思考方法" class="headerlink" title="常见的思考方法"></a>常见的思考方法</h1><ol>
+<li><p>剔除无用元素（2025 CSPST2、最短路公共路径）</p>
+</li>
+<li><p>简化问题，弱化约束，去掉限制，关注部分分，旁敲侧击地写题</p>
+</li>
+<li><p>刻画答案的样貌</p>
+</li>
+<li><p>正难则反</p>
+</li>
+<li><p>猜证结论</p>
+</li>
+<li><p>排序</p>
+</li>
+<li><p>考虑一个解被计入的情况</p>
+</li>
+<li><p>分类讨论：</p>
+<ol>
+<li>数据密度明显不同：完全图</li>
+<li>情况本质不同：&lt;&#x3D;，正负，奇偶</li>
+<li>情况本身极少：相交&#x2F;包含&#x2F;不交</li>
+</ol>
+</li>
+<li><p>关注奇怪的地方</p>
+</li>
+</ol>
+<h1 id="数据范围的提示"><a href="#数据范围的提示" class="headerlink" title="数据范围的提示"></a>数据范围的提示</h1><ol>
+<li>n log n：排序，贪心，dp＋优化</li>
+<li>n^2, nm, nmk：dp</li>
+<li>n^3：区间dp</li>
+<li>20：状压DP、SOS DP</li>
+<li>m^3 log n：矩阵加速 DP</li>
+<li>带 log：二分、排序、数据结构</li>
+</ol>
+<h1 id="题目暗示的算法思考方向"><a href="#题目暗示的算法思考方向" class="headerlink" title="题目暗示的算法思考方向"></a>题目暗示的算法思考方向</h1><ol>
+<li>二维网格：枚举上下边界、按行&#x2F;列 DP、格点 DP。</li>
+<li>计数题：枚举钦定某一主体、考虑 DP</li>
+<li>最优化：二分答案、DP、贪心、最短路</li>
+<li>区间操作：前缀和&#x2F;差分、线段树</li>
+<li>二元关系：图论建模</li>
+<li>可行性：DP、并查集、二分图</li>
+<li>序列计数：DP</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://liangdilei.github.io/2026/08/29/Trick-%E6%95%B4%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="liangdl">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liangdl 的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | liangdl 的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/08/29/Trick-%E6%95%B4%E7%90%86/" class="post-title-link" itemprop="url">Trick 整理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-08-29 21:28:35 / 修改时间：21:29:05" itemprop="dateCreated datePublished" datetime="2026-08-29T21:28:35+08:00">2026-08-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%96%B9%E6%B3%95%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">方法论</span></a>
+        </span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>对于经常出现又难以独立发现的思维中间产物，如果系统性不够被称为知识，我们会称之为技巧、模型，或者”套路“。                   ——zx2003</p>
+</blockquote>
+<p>该笔记收录了一些，在写题过程中出现过的 trick。出现次数不够频繁而不能归入一般化的思维。但是又真切的存在于自身的神经网络中。</p>
+<p>解释思维的方法，无非就是，要么分析性质，要么根据经验，要么灵光一闪吧。本文章旨在记录一些比较偏僻的经验。</p>
+<h1 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h1><ol>
+<li><p>关注不变量</p>
+</li>
+<li><p>能离线的要离线</p>
+</li>
+<li><p>跳出动态过程（什么样的状态下），研究静态结构（存在什么）：双栈序列</p>
+</li>
+<li><p>构造不出答案时，考虑维护答案。</p>
+</li>
+<li><p>考虑不同主体的贡献。</p>
+</li>
+<li><p>分类讨论（分治）</p>
+</li>
+<li><p>正序贪心难做，考虑倒序贪心（菜肴制作，ICPC睡觉）</p>
+</li>
+<li><p>先考虑下限，然后证明一定能到达下限。（构造单峰）</p>
+</li>
+<li><p>将决策顺序看作序列。（移动蓝球红球）</p>
+</li>
+<li><p>拆分贡献的时候，不要使用“事件触发”型贡献，把每个点剥离开来。（分段 mex 求最大和）</p>
+</li>
+<li><p>如果操作单点困难，考虑按照值域批次处理（构造单峰）。</p>
+</li>
+<li><p>想象状态空间，状态与状态的转移。</p>
+</li>
+<li><p>失败了不要慌张，思考最多失败多少次（最大三角形周长）</p>
+<h1 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h1></li>
+<li><p>具有阶段性考虑 DP。</p>
+</li>
+<li><p>决策集合具有单调增减性，可以优化。</p>
+</li>
+<li><p>数位DP，用mask表示0~9中哪些数出现过</p>
+</li>
+<li><p>小区间变到大区间——&gt;区间DP。</p>
+</li>
+<li><p>计数DP 转移时考虑合法集合的具体样子。</p>
+</li>
+<li><p>状压 dp 转移时，如果顺序不影响，可以只考虑 lowbit。</p>
+</li>
+<li><p>双字符串想 dp</p>
+</li>
+<li><p>代价存在某种不对称性，即在前面用和在后面用，代价不一样。考虑贪心，正反dp。</p>
+</li>
+<li><p>证明 DP 正确性：</p>
+<ol>
+<li>收敛形dp：归纳法做</li>
+<li>刻画答案的样貌</li>
+</ol>
+</li>
+<li><p>图上游走考虑矩阵加速 DP。</p>
+</li>
+<li><p>定义状态时人为添加约束，前提是约束与题目大约束不冲突。（邦邦的大合唱站队）</p>
+</li>
+<li><p>单调栈退栈时做转移（CF1407D 跳跃大楼）</p>
+</li>
+<li><p>“质变点 + 不变段”的 DP：使用数学方法压缩不变段（添加逆序对 k）</p>
+</li>
+<li><p>子序列本质上是一种顺序约束，当顺序与题目无关时，就不需要考虑子序列的约束了（分段 mex 求最大总和）</p>
+</li>
+<li><p>正反 DP 枚举断点（f(A)表示连通块数量）</p>
+</li>
+<li><p>序列个数计数，考虑 DP。</p>
+</li>
+<li><p>真正会产生不同序列的位置，是不能被前面的序列所唯一确定的。(要&#x2F;不要填mex的序列计数)</p>
+</li>
+<li><p>如果记录具体值行不通，尝试记录数量(要&#x2F;不要填mex的序列计数)。</p>
+</li>
+<li><p>背包问题，涉及到多少种花费&#x2F;价值，就往维度上放多少种。</p>
+</li>
+<li><p>排列计数 DP，如果约束只关注相对大小（最大值，大于），则状态也只考虑相对大小。</p>
+</li>
+</ol>
+<h1 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h1><ol>
+<li>虚点，超级源点，超级汇点</li>
+<li>点的状态很少考虑分层图</li>
+<li>染色：找出主体的不同状态，用边表示状态的异同。</li>
+<li>二分图完美匹配 ＆ 替换边：交替环</li>
+<li>DAG 从入度为 0 的点出发 dfs 能到达图上所有点。</li>
+<li>构造序列，交替出现，构造二分图跑欧拉路径。</li>
+<li>特殊图：<ol>
+<li>树形结构</li>
+<li>完全图：输入量很少</li>
+</ol>
+</li>
+<li>连通性：并查集、搜索树</li>
+<li>可行性：并查集、二分图染色</li>
+<li>有向图：缩点</li>
+<li>topo 最小顺序：正着原图字典序 or 反着反图字典序</li>
+<li>瓶颈路考虑 MST。</li>
+<li>删边，离线做并查集加边。</li>
+</ol>
+<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><ol>
+<li>子树查询考虑 dfs 序</li>
+<li>MST：<ol>
+<li>一般使用 kruskal</li>
+<li>完全图、稠密图、通过公式生成边权，使用 Prim</li>
+</ol>
+</li>
+</ol>
+<h2 id="图论建模"><a href="#图论建模" class="headerlink" title="图论建模"></a>图论建模</h2><ol>
+<li><p>图论建模的时候，如果发现把 x 当作点，y 当作边难做，可以尝试把 y 当作点，x 当作边。</p>
+</li>
+<li><p>什么时候考虑图论建模？</p>
+<ol>
+<li><p>二元关键字：数对 (a,b)</p>
+<ol>
+<li>将 a、b 看作两个点，(a,b) 表示这两个点之间有边相连（CF2110E、单词接龙）</li>
+<li>将 (a,b) 本身看作一个点</li>
+</ol>
+</li>
+<li><p>出现与图论结构相似的代数结构时考虑建模：</p>
+<ol>
+<li>树的结构：只有一个父亲 —&gt; 每个点只能被淘汰一次（选两个删一个）；n - 1 条边 —&gt; n - 1 个二元关系</li>
+<li>边权结构：f(u) &#x3D; f(v) + w —&gt; 状态之间的转移代价</li>
+<li>最短路结构：三角不等式</li>
+<li>二分图结构：两种选择、奇偶性、见 2 思二分图</li>
+<li>并查集：同一类、一种关系（食物链）</li>
+</ol>
+</li>
+<li><p>偏序关系：大于小于、放入、移动、嵌套</p>
+</li>
+</ol>
+</li>
+<li><p>排列建图成多个不交环。</p>
+</li>
+<li><p>保留关键点优化建图</p>
+</li>
+<li><p>同余最短路：本质是通过取模来缩小状态空间，或者约束本身带有取模性质。关键词：无限次。常见形式：d[i]：mod x &#x3D; i 的最小数（牛场围栏&#x2F;类货币系统&#x2F;跳楼机）</p>
+</li>
+</ol>
+<h1 id="树上问题"><a href="#树上问题" class="headerlink" title="树上问题"></a>树上问题</h1><ol>
+<li>算贡献，将贡献拆到 边 or 点 上</li>
+<li>匹配问题，两个贪心方向：<ol>
+<li>尽量在子树内完成匹配</li>
+<li>尽量不要与子树内的匹配</li>
+</ol>
+</li>
+</ol>
+<h1 id="区间相关"><a href="#区间相关" class="headerlink" title="区间相关"></a>区间相关</h1><h2 id="经典例题"><a href="#经典例题" class="headerlink" title="经典例题"></a>经典例题</h2><p>看到区间问题，就想到排序！！！</p>
+<ol>
+<li><p>按右端点排序：</p>
+<ol>
+<li>区间最少选点：CSP-S 2024 T2，维护上一个点的位置</li>
+<li>最大不相交区间：会议安排，维护上一个区间的右端点</li>
+</ol>
+</li>
+<li><p>按左端点排序：</p>
+<ol>
+<li>区间最少分组：廊桥分配，维护每个组的右端点</li>
+<li>最少区间覆盖：维护 nxt 数组，下一个跳到的位置。可以不是覆盖成一个区间，多个点也可以：P4064 加法</li>
+<li>区间合并：将相交的区间合并。维护当前区间。</li>
+</ol>
+</li>
+</ol>
+<p>以上问题都可以倍增优化。</p>
+<h2 id="经典形式"><a href="#经典形式" class="headerlink" title="经典形式"></a>经典形式</h2><ol>
+<li>区间计数&#x2F;最优区间：枚举端点，另一端考虑双指针、二分</li>
+<li>区间修改：将操作映射到差分数组上（konbi 01序列问题）</li>
+</ol>
+<h1 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h1><ol>
+<li>考虑节点与节点、节点与标签、标签与标签之间的合并。</li>
+<li>考虑节点与节点的合并时，分类讨论<strong>至少</strong>两种情况，答案落在左&#x2F;右区间，答案跨越左右区间。</li>
+<li>遇到难维护的操作，考虑操作最多能进行多少次。区间每个数取模&#x2F;开方，最多进行 log 次。</li>
+<li>若维护的信息没做过，有两种方法：<ul>
+<li>拆分成好维护的</li>
+<li>直接研究操作影响</li>
+</ul>
+</li>
+</ol>
+<h1 id="二分答案"><a href="#二分答案" class="headerlink" title="二分答案"></a>二分答案</h1><ol>
+<li>处理 子段和&#x2F;平均值&#x2F;01分数规划 问题时要想到二分答案</li>
+<li>最大值最小&#x2F;最小值最大 考虑二分答案</li>
+<li>单调性 考虑二分答案</li>
+<li>寻找第 k 大，考虑二分答案：2026.8.19深圳模拟赛 T1</li>
+</ol>
+<h1 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h1><ol>
+<li>值域取模裂成两类小值域。</li>
+<li>有效取模最多进行 log 次</li>
+<li>多重集排列数：n! &#x2F; （相同字符出现次数! 之积）</li>
+<li>整除 &#x3D; 取模后为 0</li>
+</ol>
+<h1 id="数形结合"><a href="#数形结合" class="headerlink" title="数形结合"></a>数形结合</h1><ol>
+<li>数对，不同属性之间比较：区间相交&#x2F;并</li>
+<li>数对，相同属性之间比较：二维平面</li>
+</ol>
+<h1 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h1><h2 id="临项交换"><a href="#临项交换" class="headerlink" title="临项交换"></a>临项交换</h2><h2 id="交换论证"><a href="#交换论证" class="headerlink" title="交换论证"></a>交换论证</h2><p>S1：断言存在一个最优解，符合某种结构。<br>S2：找到一个任意的最优解，找到它与结构矛盾的地方，调整。<br>S3：若调整后不劣，且调整的次数有限，证明成立。</p>
+<p>解集是决策的集合。<br>常见技巧：分组、找到第一个不满足的地方</p>
+<ol>
+<li>批量按值层处理，而非按位置拆贡献：（假山拍照，构造单峰）</li>
+</ol>
+<h2 id="反悔贪心"><a href="#反悔贪心" class="headerlink" title="反悔贪心"></a>反悔贪心</h2><p>一种思想，非常灵活。通常由三个部分组成：</p>
+<ul>
+<li>历史决策集合</li>
+<li>替换时机（发现更优&#x2F;不满足限制）</li>
+<li>替换规则（替换的代价&#x2F;价值是多少）</li>
+</ul>
+<p>常见特征是，有一个很自然很平凡的贪心，会带来一些问题，此时不要放弃，尝试反悔贪心来调整。思维的出发点是朴素贪心。<br>常见应用：股票买卖、选了它就不能选它的互斥选择、分队</p>
+<h1 id="mex"><a href="#mex" class="headerlink" title="mex"></a>mex</h1><ol>
+<li>序列拆分，求最大 mex 总和：累加出现次数的前缀最小值。</li>
+<li>刻画mex时，想象一个格子条，mex就是这个格子条里，最左侧的，未标记的格子。</li>
+</ol>
+<h1 id="序列"><a href="#序列" class="headerlink" title="序列"></a>序列</h1><ol>
+<li>构造一个严格增序列 {a1,a2…ai}，等价于构造一个不严格增序列 a{a1,a2+1,…ai+(i-1)}.</li>
+<li>将操作顺序视作序列。</li>
+<li>严格增 or 不严格增的约束，可以通过操作差分序列来解耦。</li>
+<li>生成任意序列，意味着可以改变序列的每一项而不影响其他项（konbi 01序列问题）</li>
+</ol>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><ol>
+<li><p>股票买卖经典转化之，“i 买 k 卖 &#x3D; i 买 j 卖 j 买 k 卖”。</p>
+</li>
+<li><p>括号序列经典性质之，“一个括号序列合法，当且仅当在任何时刻，左括号数量 &gt;&#x3D; 右括号数量，且整体数量相等”</p>
+</li>
+<li><p>拼数：按 A+B 和 B+A 的大小排序，可以证明构成偏序</p>
+</li>
+<li><p>字典序相关构造：枚举每一位，考虑这一位填什么（逆序对为 x 的字典序第 k 小排列）</p>
+</li>
+<li><p>字典序考虑贪心。</p>
+</li>
+<li><p>对角线相关：研究 x+y，x-y 的奇偶性、不变性。（V 填色）</p>
+<ol>
+<li>x-y 不变：处于同一主对角线上（充要）</li>
+<li>x+y 不变：处于同一副对角线上（充要）</li>
+<li>V 字型上 x-y &#x2F; x+y 的奇偶性相同</li>
+</ol>
+</li>
+<li><p>满二叉：叶子交换到最左边所需要的边数，等价于它编号中 1 的个数（中&#x2F;后缀最小字典序）</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -879,221 +1320,6 @@
 <p>还是要在不影响学习的前提下娱乐啊。那几个时间锚点都给我记牢了。</p>
 <p>8.00 开始学习；9.00 到图书馆；1.10 睡觉；2.00 到图书馆；7.00 到图书馆。</p>
 <p>嗯嗯。一切都好。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://liangdilei.github.io/2026/08/02/8-2-8-9-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="liangdl">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="liangdl 的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | liangdl 的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/08/02/8-2-8-9-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">8.2-8.9 学习记录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-08-02 22:41:11" itemprop="dateCreated datePublished" datetime="2026-08-02T22:41:11+08:00">2026-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-08-09 22:04:45" itemprop="dateModified" datetime="2026-08-09T22:04:45+08:00">2026-08-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">学习记录</span></a>
-        </span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="8-2"><a href="#8-2" class="headerlink" title="8.2"></a>8.2</h1><p>ABC 469 D: 及时去除无贡献的点。<br>ABC 469 F：kruskal 本质是先选择边权小的贪心。基于此，不必拘泥于给所有边排序，可以枚举值域。<br>ABC 469 E：本质二分找最大均值。形式化出来就好做了。写代码之前先想清楚啊。<br>P2829 &amp; 2865：次短路学习+板子<br>P1967：MST 与瓶颈路的不解之缘</p>
-<p>P3430：看题解。染色。找出主体的不同状态，用边将不同主体联系起来，边权表示状态的异同。</p>
-<p>模拟赛：还是太慌张了。先想好啊。下次至少要拿一个rk5吧。</p>
-<h1 id="8-3"><a href="#8-3" class="headerlink" title="8.3"></a>8.3</h1><p>颓废了捏。</p>
-<h1 id="8-4"><a href="#8-4" class="headerlink" title="8.4"></a>8.4</h1><p>P6033（2WA+TLE）：与石子合并的区别在于，石子合并多了一个合并相邻堆的约束。本质选取两个最小堆，可以用两个队列分别维护 原 &amp; 合并后 的堆，每次取队头。<br>P1197（RE）：并查集离线加边处理连通块数量。<br>P4513：涉及到动态维护区间信息，考虑线段树。先找到需要维护的信息（考虑合并时可能发现需要再添加）。在合并时，考虑节点与节点、节点与标签、标签与标签之间的合并。<br>P7706：考虑线段树节点合并时，先考虑答案落在左或右的情况，再考虑答案跨越左右的情况。对分类讨论要敏感。<br>CF438D（TLE）：对于难以维护的操作（区间每个数取模&#x2F;开方），直接暴力再考虑优化&#x2F;剪枝。这是因为操作至多进行 log 次。最终时间复杂度 n2logn.</p>
-<h1 id="8-5"><a href="#8-5" class="headerlink" title="8.5"></a>8.5</h1><p>模拟赛复盘。</p>
-<ol>
-<li>打暴力之前可以想想更优秀的做法，不要将自己的思维限定在“优化暴力”上面，很多题目的正解和暴力不沾边的。</li>
-<li>对于<strong>单调性</strong>要足够敏感，不要觉得这题二分不了就什么也不做。</li>
-<li>选择方向时，如果发现这个方向上的东西太过复杂且时间复杂度难以保证，可以先试试别的方法。</li>
-</ol>
-<p>P1972：能离线的要离线。排序往往带来优秀性质。</p>
-<h1 id="8-6"><a href="#8-6" class="headerlink" title="8.6"></a>8.6</h1><p>P4198：线段树求最长递增前缀。要维护的东西与<strong>区间</strong>有关，第一时间想到线段树。<br>P6327：线段树区间加。难点在于标签与节点的合并。若维护的信息没做过，有两种方法：</p>
-<ul>
-<li><p>拆分成好维护的</p>
-</li>
-<li><p>直接研究操作影响</p>
-</li>
-</ul>
-<p>CF1918D：子段和问题，想到二分答案。</p>
-<p>P12406（明天继续）：想贪心失败，正解是 DP。</p>
-<p>复习：单调队列优化多重背包板子，分组背包板子（g 的初始值要设为 dp 哦），SPFA 板子（带返回值的函数记得返回返回值啊），abc465e.</p>
-<p>感觉自己的思维有些太跳跃了，这样就很容易踩坑，下次可以慢下来。</p>
-<p>在 u 群提了下问，遇到不会做的题就枚举知识点，假设这题就用这个知识点做。往往不能一命速通，失败是正常的，失败之后要反思为什么开始的方向是错的，或者说，根据提示，能不能更快的选择出正确的方向。</p>
-<h1 id="8-7"><a href="#8-7" class="headerlink" title="8.7"></a>8.7</h1><p>P12406：移动序列可以等价于移动头指针。<br>abc311f：网格图计数，想到按行&#x2F;列 DP。<br>arc187b：明天继续。先推性质，然后暴力 DP，最后优化 DP（一开始猜的结论是假的调了两个小时呜）</p>
-<p>复习：tarjan 求 SCC、割点割边、SOS DP</p>
-<p>先摸出一点性质再深度思考啊。一点性质都没有硬想肯定难出啊。</p>
-<h1 id="8-8"><a href="#8-8" class="headerlink" title="8.8"></a>8.8</h1><p>arc187b：发现断点性质之后，形式化题目。贡献法做。<br>CF372C：区间转移考虑单调队列优化 DP。<br>另一种解法是找到函数顶点进行剪枝。<br>CF1234F：20 的字符集暗示状压DP。反转操作本质拼接合法字串。通过性质转换题目。子集 DP 处理 $a_i &amp; a_j &#x3D; 0$ 的约束。<br>ABC rk1700+。</p>
-<p>旧题重做：ABC466E、P11230、P8817（bfs一旦被访问要立马标记）</p>
-<h1 id="8-9"><a href="#8-9" class="headerlink" title="8.9"></a>8.9</h1><p>模拟赛。<br>T1 思路秒出但是不熟计数DP调了一小时。转移时考虑转移前后集合的具体样子。<br>T2 没摸出性质做不出来。</p>
-<p>补T2：求神秘数。构造不出考虑维护。加上一个原来大于自己的数会将数量至少翻倍。<br>优化了一下解题流程。<br>CF76A：瓶颈路考虑MST。</p>
-<p>旧题重做：P1407（看到二分图完美匹配 ＆ 替换，想到交替环）</p>
-<p>定好计划之后就不要想着昨天明天了，把握好今天就 OK 呢。实在状态不好那就去切切水题，看一下语文文言文的视频吧。</p>
-<p>然后就是早点睡。</p>
-<p>这周也是圆满结束了！！！训练量还是到位的吧（？</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://liangdilei.github.io/2026/08/01/2026-8-1-%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="liangdl">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="liangdl 的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | liangdl 的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/08/01/2026-8-1-%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/" class="post-title-link" itemprop="url">2026.8.1 随心小记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-08-01 21:57:32" itemprop="dateCreated datePublished" datetime="2026-08-01T21:57:32+08:00">2026-08-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-08-02 22:54:10" itemprop="dateModified" datetime="2026-08-02T22:54:10+08:00">2026-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">随心小记</span></a>
-        </span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><del>ABC 打的好烂啊呜呜呜。</del></p>
-<p>不知不觉间，“是否会干扰我长期高效稳定学习”，成为了我对事物的判断标准。</p>
-<p>在此基准下，情绪被我分成了两类：</p>
-<ul>
-<li><p>负面情绪：挫败感、无意义感、焦虑、厌学、<strong>对自己的怀疑</strong>、狂喜、悲伤、迷恋</p>
-</li>
-<li><p>积极情绪：安宁、满足、平静</p>
-</li>
-</ul>
-<p>对于负面情绪，在未出现时，应当尽力避免；在出现后，应该马上反应过来，并提醒自己不要沉浸其中，不要加深它的程度，那只会让你越来越累，而不会得到收获。</p>
-<p>对于积极情绪，应当仔细品味，尽可能地享受他们。</p>
-<p>说白了，就是要拒绝内耗。不是每个情绪出现得都是合理的，事实上，大部分让你感到不适的情绪都是不合理的，你应该拒绝它们，而不是任由它们支配你的大脑。</p>
-<p>仅仅只是感受它们在你大脑中发生的化学反应，望着它们。</p>
-<p>这真的很神奇啊。理性上知道，模拟赛爆了之后的挫败感对于我来说毫无用处，感性上又不断释放挫败感，让我的动力瘫痪。</p>
-<p>但只要永远保持理智，就不会跌的太惨。</p>
-<p>我需要去建立一个场。外界所有事情，成绩、对比、写题没写出来、今天效率很高，这都是客观事件，不要让它们轻易入侵你，你需要以一种“冷漠”的态度对待生活，建立低情绪波动的生活。</p>
 
       
     </div>

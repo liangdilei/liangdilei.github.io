@@ -20,26 +20,26 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"liangdilei.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"twikoo","storage":true,"lazyload":true,"nav":null,"activeClass":"twikoo"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="OI 倒是练了很久，背诵任务和 whk 要稍微弄一弄啊，不能完全不管它。 Neurosama 唱的 Chinatown blues 好好听啊，憧憬成为 vedal 捏。 今天心态挺好的吧。就是打模拟赛的时候着急了点。说到底就是与预期的不太一样嘛。 还有就是刷视频刷的有点耽误学习了。这是客观的啊，不是带着情绪的批判。 还是要在不影响学习的前提下娱乐啊。那几个时间锚点都给我记牢了。 8.00 开始学习">
+    <meta name="description" content="如果没见过类似的结构、套路、性质、想法，那么想不出来这道题目十分正常。本文收录了一些，在解题中反复出现的思维方法和思考路径。 解释思维的方法，无非就是，要么分析性质，要么根据经验，要么灵光一闪吧。本文章旨在记录非常常见的经验，以及分析的基本方法。 步骤 摸性质、猜性质 试算法、摸性质  按题型分类的思考起点 操作：思考操作顺序、操作影响、操作次数、操作取值、将操作顺序当作序列（红蓝球、禁忌数字）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2026.8.2 随心小记">
-<meta property="og:url" content="https://liangdilei.github.io/2026/08/02/2026-8-2-%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/index.html">
+<meta property="og:title" content="一般性的解题思维">
+<meta property="og:url" content="https://liangdilei.github.io/2026/08/29/%E4%B8%80%E8%88%AC%E6%80%A7%E7%9A%84%E8%A7%A3%E9%A2%98%E6%80%9D%E7%BB%B4/index.html">
 <meta property="og:site_name" content="liangdl 的博客">
-<meta property="og:description" content="OI 倒是练了很久，背诵任务和 whk 要稍微弄一弄啊，不能完全不管它。 Neurosama 唱的 Chinatown blues 好好听啊，憧憬成为 vedal 捏。 今天心态挺好的吧。就是打模拟赛的时候着急了点。说到底就是与预期的不太一样嘛。 还有就是刷视频刷的有点耽误学习了。这是客观的啊，不是带着情绪的批判。 还是要在不影响学习的前提下娱乐啊。那几个时间锚点都给我记牢了。 8.00 开始学习">
+<meta property="og:description" content="如果没见过类似的结构、套路、性质、想法，那么想不出来这道题目十分正常。本文收录了一些，在解题中反复出现的思维方法和思考路径。 解释思维的方法，无非就是，要么分析性质，要么根据经验，要么灵光一闪吧。本文章旨在记录非常常见的经验，以及分析的基本方法。 步骤 摸性质、猜性质 试算法、摸性质  按题型分类的思考起点 操作：思考操作顺序、操作影响、操作次数、操作取值、将操作顺序当作序列（红蓝球、禁忌数字）">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-08-02T14:45:44.000Z">
-<meta property="article:modified_time" content="2026-08-02T14:54:24.907Z">
+<meta property="article:published_time" content="2026-08-29T13:29:27.000Z">
+<meta property="article:modified_time" content="2026-08-29T13:29:39.773Z">
 <meta property="article:author" content="liangdl">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://liangdilei.github.io/2026/08/02/2026-8-2-%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/">
+<link rel="canonical" href="https://liangdilei.github.io/2026/08/29/%E4%B8%80%E8%88%AC%E6%80%A7%E7%9A%84%E8%A7%A3%E9%A2%98%E6%80%9D%E7%BB%B4/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://liangdilei.github.io/2026/08/02/2026-8-2-%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/","path":"2026/08/02/2026-8-2-随心小记/","title":"2026.8.2 随心小记"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://liangdilei.github.io/2026/08/29/%E4%B8%80%E8%88%AC%E6%80%A7%E7%9A%84%E8%A7%A3%E9%A2%98%E6%80%9D%E7%BB%B4/","path":"2026/08/29/一般性的解题思维/","title":"一般性的解题思维"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>2026.8.2 随心小记 | liangdl 的博客</title>
+<title>一般性的解题思维 | liangdl 的博客</title>
   
 
 
@@ -152,7 +152,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -165,6 +165,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%89%E9%A2%98%E5%9E%8B%E5%88%86%E7%B1%BB%E7%9A%84%E6%80%9D%E8%80%83%E8%B5%B7%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">按题型分类的思考起点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%80%9D%E8%80%83%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">常见的思考方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E7%9A%84%E6%8F%90%E7%A4%BA"><span class="nav-number">4.</span> <span class="nav-text">数据范围的提示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%9A%97%E7%A4%BA%E7%9A%84%E7%AE%97%E6%B3%95%E6%80%9D%E8%80%83%E6%96%B9%E5%90%91"><span class="nav-number">5.</span> <span class="nav-text">题目暗示的算法思考方向</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -215,7 +216,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://liangdilei.github.io/2026/08/02/2026-8-2-%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="https://liangdilei.github.io/2026/08/29/%E4%B8%80%E8%88%AC%E6%80%A7%E7%9A%84%E8%A7%A3%E9%A2%98%E6%80%9D%E7%BB%B4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -228,12 +229,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="2026.8.2 随心小记 | liangdl 的博客">
+      <meta itemprop="name" content="一般性的解题思维 | liangdl 的博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          2026.8.2 随心小记
+          一般性的解题思维
         </h1>
 
         <div class="post-meta-container">
@@ -245,7 +246,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-08-02 22:45:44 / 修改时间：22:54:24" itemprop="dateCreated datePublished" datetime="2026-08-02T22:45:44+08:00">2026-08-02</time>
+      <time title="创建时间：2026-08-29 21:29:27 / 修改时间：21:29:39" itemprop="dateCreated datePublished" datetime="2026-08-29T21:29:27+08:00">2026-08-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -253,7 +254,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">随心小记</span></a>
+          <a href="/categories/%E6%96%B9%E6%B3%95%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">方法论</span></a>
         </span>
     </span>
 </div>
@@ -264,13 +265,62 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>OI 倒是练了很久，背诵任务和 whk 要稍微弄一弄啊，不能完全不管它。</p>
-<p>Neurosama 唱的 Chinatown blues 好好听啊，憧憬成为 vedal 捏。</p>
-<p>今天心态挺好的吧。就是打模拟赛的时候着急了点。说到底就是与预期的不太一样嘛。</p>
-<p>还有就是刷视频刷的有点耽误学习了。这是客观的啊，不是带着情绪的批判。</p>
-<p>还是要在不影响学习的前提下娱乐啊。那几个时间锚点都给我记牢了。</p>
-<p>8.00 开始学习；9.00 到图书馆；1.10 睡觉；2.00 到图书馆；7.00 到图书馆。</p>
-<p>嗯嗯。一切都好。</p>
+    <div class="post-body" itemprop="articleBody"><p>如果没见过类似的结构、套路、性质、想法，那么想不出来这道题目十分正常。<br>本文收录了一些，在解题中反复出现的思维方法和思考路径。</p>
+<p>解释思维的方法，无非就是，要么分析性质，要么根据经验，要么灵光一闪吧。本文章旨在记录非常常见的经验，以及分析的基本方法。</p>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li>摸性质、猜性质</li>
+<li>试算法、摸性质</li>
+</ol>
+<h1 id="按题型分类的思考起点"><a href="#按题型分类的思考起点" class="headerlink" title="按题型分类的思考起点"></a>按题型分类的思考起点</h1><ol>
+<li>操作：思考操作顺序、操作影响、操作次数、操作取值、将操作顺序当作序列（红蓝球、禁忌数字）</li>
+<li>新定义：先考虑这个定义单独怎么求（f(A)表示序列连通块数量，区间神秘数）。</li>
+<li>博弈题：找 必胜 or 必败 态。然后证明，若不处在 必胜 or 必败 态，则一定处于相反态。</li>
+<li>计数题（所有方案的某种量的总和）：考虑不同主体如何产生贡献。</li>
+<li>构造题：考虑无解、按位构造、考虑上&#x2F;下 界</li>
+<li>交互题：一个常见思路：倒推题目，即假装我知道了 xxx，那么这道题就可以做了。为了知道 xxx，我需要。。。</li>
+</ol>
+<h1 id="常见的思考方法"><a href="#常见的思考方法" class="headerlink" title="常见的思考方法"></a>常见的思考方法</h1><ol>
+<li><p>剔除无用元素（2025 CSPST2、最短路公共路径）</p>
+</li>
+<li><p>简化问题，弱化约束，去掉限制，关注部分分，旁敲侧击地写题</p>
+</li>
+<li><p>刻画答案的样貌</p>
+</li>
+<li><p>正难则反</p>
+</li>
+<li><p>猜证结论</p>
+</li>
+<li><p>排序</p>
+</li>
+<li><p>考虑一个解被计入的情况</p>
+</li>
+<li><p>分类讨论：</p>
+<ol>
+<li>数据密度明显不同：完全图</li>
+<li>情况本质不同：&lt;&#x3D;，正负，奇偶</li>
+<li>情况本身极少：相交&#x2F;包含&#x2F;不交</li>
+</ol>
+</li>
+<li><p>关注奇怪的地方</p>
+</li>
+</ol>
+<h1 id="数据范围的提示"><a href="#数据范围的提示" class="headerlink" title="数据范围的提示"></a>数据范围的提示</h1><ol>
+<li>n log n：排序，贪心，dp＋优化</li>
+<li>n^2, nm, nmk：dp</li>
+<li>n^3：区间dp</li>
+<li>20：状压DP、SOS DP</li>
+<li>m^3 log n：矩阵加速 DP</li>
+<li>带 log：二分、排序、数据结构</li>
+</ol>
+<h1 id="题目暗示的算法思考方向"><a href="#题目暗示的算法思考方向" class="headerlink" title="题目暗示的算法思考方向"></a>题目暗示的算法思考方向</h1><ol>
+<li>二维网格：枚举上下边界、按行&#x2F;列 DP、格点 DP。</li>
+<li>计数题：枚举钦定某一主体、考虑 DP</li>
+<li>最优化：二分答案、DP、贪心、最短路</li>
+<li>区间操作：前缀和&#x2F;差分、线段树</li>
+<li>二元关系：图论建模</li>
+<li>可行性：DP、并查集、二分图</li>
+<li>序列计数：DP</li>
+</ol>
 
     </div>
 
@@ -284,14 +334,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2026/08/02/8-2-8-9-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" rel="prev" title="8.2-8.9 学习记录">
-                  <i class="fa fa-angle-left"></i> 8.2-8.9 学习记录
+                <a href="/2026/08/29/Trick-%E6%95%B4%E7%90%86/" rel="prev" title="Trick 整理">
+                  <i class="fa fa-angle-left"></i> Trick 整理
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2026/08/03/8-3-%E9%A2%93%E5%BA%9F%E4%B8%80%E5%A4%A9%E5%90%8E%E8%AE%B0/" rel="next" title="8.3 颓废一天后记">
-                  8.3 颓废一天后记 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
