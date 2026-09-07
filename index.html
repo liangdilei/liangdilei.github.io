@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -210,6 +210,180 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://liangdilei.github.io/2026/09/07/9-7-9-13-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="liangdl">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liangdl 的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | liangdl 的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/09/07/9-7-9-13-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">9.7-9.13 学习记录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-09-07 22:30:07 / 修改时间：22:30:38" itemprop="dateCreated datePublished" datetime="2026-09-07T22:30:07+08:00">2026-09-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">学习记录</span></a>
+        </span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="9-7"><a href="#9-7" class="headerlink" title="9.7"></a>9.7</h1><h2 id="VP-CF-1116-Div-2"><a href="#VP-CF-1116-Div-2" class="headerlink" title="VP CF 1116 Div.2"></a>VP CF 1116 Div.2</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>三个非负整数 $$a$$，$$b$$，$$c$$，操作可以将其中一个整数替换为另外两个整数之和，问最小极差。</p>
+<h4 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h4><ol>
+<li>极差最小，也就是三个数尽可能一样大。</li>
+<li>操作能生成的数只会越来越大。$$a$$，$$b$$，$$a+b$$ 不管怎么操作，极差都比原来大，因此只会操作一次。</li>
+<li>答案就是，$$\min(\text{原极差}, \max(a,b), \max(b,c), \max(a,c))$$</li>
+<li>用时 $$14$$ 分钟</li>
+</ol>
+<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><h4 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h4><p>替换 <code>?</code>，变成 $$0&#x2F;1$$，使得对于每一个 $$1 &lt; i &lt; n$$，都有 $$s_{i-1} \neq s_{i+1}$$。</p>
+<p>求替换方案数。</p>
+<h4 id="思考-1"><a href="#思考-1" class="headerlink" title="思考"></a>思考</h4><ol>
+<li>如果出现形如 <code>0?0</code> 就输出 $$0$$</li>
+<li>形如 <code>????</code>，第一个填什么，第三个填相反的，第二个和第四个同理。</li>
+<li>先把能确定的 <code>?</code> 确定下来，例如 <code>10?</code>，此时 <code>?</code> 一定是 $$0$$</li>
+<li>剩下的就按连续 <code>?</code> 处理，扫一遍就好了。</li>
+<li>交上去 WA 了？？用时 $$30$$ 分钟。</li>
+</ol>
+<h4 id="正确思路"><a href="#正确思路" class="headerlink" title="正确思路"></a>正确思路</h4><p>可恶，多考虑一步就做出来了。</p>
+<p>对于 <code>?????</code>，第五个也会被第一项确定，误以为它是自由的。</p>
+<p>因此分成奇偶两条链考虑，交替相等。</p>
+<p>还有一种做法是 dp。</p>
+<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><h4 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h4><p>$$2n$$ 个人围成圈，奇数称为红组，偶数称为蓝组。有一些人拿着炸弹，每个拿着炸弹的人可以执行以下操作之一：</p>
+<ul>
+<li>保留炸弹</li>
+<li>传递给下一个人，前提是那个人没有炸弹（顺时针）</li>
+</ul>
+<p>如果下一个人有炸弹，则无法传递。</p>
+<p>游戏进行 $$k$$ 轮，问最终分数。</p>
+<h4 id="思考-2"><a href="#思考-2" class="headerlink" title="思考"></a>思考</h4><ol>
+<li>考虑简单的情况，只有一个炸弹。若 $$k &#x3D; 0$$ 是必败态，$$k &#x3D; 1$$ 是必胜态，$$k &#x3D; 2$$ 是必胜态，$$k &#x3D; 3$$ 是必胜态。。。</li>
+<li>两个炸弹？$$k &#x3D; 0$$ 必败，$$k &#x3D; 1$$ 且下一个人没有炸弹，必胜，否则必败。$$k &#x3D; 2$$ 且下一个人没有炸弹，必胜，否则，有可能胜有可能败。</li>
+<li>没思路了。用时 $$20$$ 分钟。</li>
+</ol>
+<h4 id="正确思路-1"><a href="#正确思路-1" class="headerlink" title="正确思路"></a>正确思路</h4><ol>
+<li>游戏类似生活中的击鼓传花，$k$ 很大，不难发现只有只会在 $k&#x3D;1$ 的时候操作。</li>
+<li>把序列分成很多个连续的 $1$，每一段往后抛炸弹。</li>
+</ol>
+<h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><h4 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h4><p>长度为 $$n$$ 的 $$01$$ 串，每次操作可以选定两个 $$l \le r$$ 且 $$s_l &#x3D; s_r$$，然后让 $$[l+1, r-1]$$ 区间内的数翻转，问能形成多少种 $$01$$ 串。</p>
+<h4 id="思考-3"><a href="#思考-3" class="headerlink" title="思考"></a>思考</h4><ol>
+<li>对形如 $$0110$$ 等对称区间的操作是无用的。</li>
+<li>经典结论：翻转 $$[1,l]$$，$$[l+1,r]$$，$$[1, r]$$ &#x3D; 交换 $$[1,l]$$ 与 $$[l+1,r]$$ 的位置</li>
+<li>没有思路啊。用时 $$8$$ 分钟。</li>
+</ol>
+<h4 id="正确思考"><a href="#正确思考" class="headerlink" title="正确思考"></a>正确思考</h4><p>明天补吧。。</p>
+<hr>
+<h2 id="VP-CF-Educational-193"><a href="#VP-CF-Educational-193" class="headerlink" title="VP CF Educational 193"></a>VP CF Educational 193</h2><h3 id="A-1"><a href="#A-1" class="headerlink" title="A"></a>A</h3><h4 id="题意-4"><a href="#题意-4" class="headerlink" title="题意"></a>题意</h4><p>判断 $$[2, n+1]$$ 中是否存在一个数 $$x$$，使得 $$&lt; x$$ 的数都不是他的因子，且 $$&gt; x$$ 的数都是它的倍数。</p>
+<h4 id="思考-4"><a href="#思考-4" class="headerlink" title="思考"></a>思考</h4><ol>
+<li>只有最后一个数有可能，遍历一遍即可。</li>
+<li>用时 $$7$$ 分钟。</li>
+</ol>
+<h3 id="B-1"><a href="#B-1" class="headerlink" title="B"></a>B</h3><h4 id="题意-5"><a href="#题意-5" class="headerlink" title="题意"></a>题意</h4><p>删除序列中的一些元素，之后再交换一次相邻元素（可以不交换）。</p>
+<p>问使得序列中不存在相邻相同元素的最小删除次数。</p>
+<h4 id="思考-5"><a href="#思考-5" class="headerlink" title="思考"></a>思考</h4><ol>
+<li>交换操作最理想的情况是 $$1122 \rightarrow 1212$$</li>
+<li>交换操作只适用于 $$(!x)xxyy(!y)$$ 或 $$(!x)xxy(!x)$$ 或 $$(!x)yxx(!x)$$ 这三种情况</li>
+<li>全部删除后再反悔即可。</li>
+<li>交上去又 WA 了？？用时 $$26$$ 分钟。</li>
+</ol>
+<h4 id="正确思路-2"><a href="#正确思路-2" class="headerlink" title="正确思路"></a>正确思路</h4><p>思路基本正确，但是这样代码容易写挂，把连续段合并就好写了。</p>
+<p>连续段合并是一个经典技巧。</p>
+<h3 id="C-1"><a href="#C-1" class="headerlink" title="C"></a>C</h3><h4 id="题意-6"><a href="#题意-6" class="headerlink" title="题意"></a>题意</h4><p>给定长度分别为 $$x$$，$$y$$ 的严格增序列 $$a$$，$$b$$ 和一个 $$n \times m$$ 的矩阵，初始全 $$0$$。</p>
+<p>操作可以用 $$a$$ 中的元素填充矩阵的 $$i$$ 行，可以用 $$b$$ 中元素填充矩阵的 $$j$$ 列。</p>
+<p>最大化矩阵中出现了至少一次的数字之和。</p>
+<p>$$n,m \le 10^5$$，$$x,y,a_i,b_i \le n+m$$</p>
+<h4 id="思考-6"><a href="#思考-6" class="headerlink" title="思考"></a>思考</h4><ol>
+<li>发现看错题了，耗时 $$34$$ 分钟（悲）</li>
+<li>把样例都算一遍好像就找到构造方法了。</li>
+<li>简单来说，选 $$n-1$$ 个 $$a$$，$$m-1$$ 个 $$b$$，最后一个在 $$a$$，$$b$$ 中选就好了</li>
+<li>但是有一个问题：出现重复的时候，选择 $$a$$ 和选择 $$b$$ 是不同的。</li>
+<li>想不出来补丁，失败了，用时 $$12$$ 分钟。</li>
+</ol>
+<h4 id="正确思考-1"><a href="#正确思考-1" class="headerlink" title="正确思考"></a>正确思考</h4><p>明天一定补上！</p>
+<hr>
+<h2 id="贪心专题训练"><a href="#贪心专题训练" class="headerlink" title="贪心专题训练"></a>贪心专题训练</h2><h3 id="Monsters-And-Spells"><a href="#Monsters-And-Spells" class="headerlink" title="Monsters And Spells"></a>Monsters And Spells</h3><h4 id="题意-7"><a href="#题意-7" class="headerlink" title="题意"></a>题意</h4><p>$$n$$ 个怪兽，每个怪兽有出现时间 $$k_i$$ 和生命值 $$h_i$$。</p>
+<p>你有一个攻击力 $$x$$，如果上一秒没有攻击，这一秒的攻击力就是 $$x$$，否则就是 $$x+1$$。</p>
+<p>为了让每个怪兽出现即死亡，计算最少魔力花费（攻击之和）。</p>
+<p>$$n \le 10^4$$</p>
+<h4 id="思考-7"><a href="#思考-7" class="headerlink" title="思考"></a>思考</h4><ol>
+<li>一个比较 naive 的做法是从 $$k_i - h_i + 1$$ 时开始蓄力，这样的花费显然最小。</li>
+<li>把这视作一个区间，发现区间有交，之后合并。</li>
+<li>最后统计无交区间就好了，等差数列求和。</li>
+</ol>
+<h3 id="Vasya-And-Array"><a href="#Vasya-And-Array" class="headerlink" title="Vasya And Array"></a>Vasya And Array</h3><h4 id="题意-8"><a href="#题意-8" class="headerlink" title="题意"></a>题意</h4><p>给定 $$m$$ 条信息，告诉你 $$[l, r]$$ 区间是&#x2F;不是不降序列，构造一个长度为 $$n$$ 的数组满足条件。</p>
+<p>$$n, m \le 10^3$$</p>
+<h4 id="思考-8"><a href="#思考-8" class="headerlink" title="思考"></a>思考</h4><ol>
+<li>数据范围很小，一开始的想法是图论建模暴力连边，但无法处理 $$t &#x3D; 0$$ 约束。</li>
+<li>考虑到这是贪心专题。显然两个相交的不降区间可以合并，先处理所有不降区间，再处理非不降区间。</li>
+<li>如果后者会被不降区间包含则无解，否则，就说明左边界或者右边界存在 $$a_i &lt; a_{i+1}$$。时间复杂度 $$O(nm)$$。</li>
+</ol>
+<h3 id="Stall-Reservations-S"><a href="#Stall-Reservations-S" class="headerlink" title="Stall Reservations S"></a>Stall Reservations S</h3><p>区间调度板子。</p>
+<h3 id="Coffee-Break"><a href="#Coffee-Break" class="headerlink" title="Coffee Break"></a>Coffee Break</h3><h4 id="题意-9"><a href="#题意-9" class="headerlink" title="题意"></a>题意</h4><p>给定 $$n$$ 个点，值域 $$m$$ 和一个 $$d$$。</p>
+<p>定义偏序 $$a \preceq b$$ 为 $$b &gt; a + d$$，问最小链划分数量，以及每个点在哪个链划分内。</p>
+<h4 id="思考-9"><a href="#思考-9" class="headerlink" title="思考"></a>思考</h4><ol>
+<li>根据 Dilworth 定理，偏序集的最小链划分数量等于最大反链集合大小。这题的反链集合内的元素，任意两点之间的大小不超过 $$d$$，也就是最大值 $$-$$ 最小值 $$\le d$$。</li>
+<li>排序后双指针找出最大反链集合即可。</li>
+<li>但是这题需要输出方案！！</li>
+<li>考虑选择 $$a$$ 之后，$$[a, a+d]$$ 区间内的数都无法和他处于同一条链上。将每个点视作区间，区间不能重叠，且要分组，那么问题就转化为了一个区间调度问题。妙啊。</li>
+<li>实际上因为区间长度固定，所以有一种二分贪心写法，但是时间复杂度是一样的，感觉还不是很好写，作罢。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://liangdilei.github.io/2026/09/06/9-6-%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -228,7 +402,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/09/06/9-6-%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/" class="post-title-link" itemprop="url">9.6 随心小记”</a>
+          <a href="/2026/09/06/9-6-%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/" class="post-title-link" itemprop="url">9.6 随心小记</a>
         </h2>
 
         <div class="post-meta-container">
@@ -238,9 +412,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-09-06 21:27:52 / 修改时间：21:37:34" itemprop="dateCreated datePublished" datetime="2026-09-06T21:27:52+08:00">2026-09-06</time>
+      <time title="创建时间：2026-09-06 21:27:52" itemprop="dateCreated datePublished" datetime="2026-09-06T21:27:52+08:00">2026-09-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-09-07 08:22:19" itemprop="dateModified" datetime="2026-09-07T08:22:19+08:00">2026-09-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -260,7 +440,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>不得不承认，写题这件事情，并没有一个明确的，规律的方法论，存在的只是一些更为抽象的东西。</p>
+          <h1 id="傍晚记"><a href="#傍晚记" class="headerlink" title="傍晚记"></a>傍晚记</h1><p>不得不承认，写题这件事情，并没有一个明确的，规律的方法论，存在的只是一些更为抽象的东西。</p>
 <p>理性的算力实在是太过有限，不得不让位于感性。</p>
 <p>或许我需要放下那些“规律的枷锁”，去拥抱“抽象的感性”吧。</p>
 <p>写题本质上是一种启发式搜索，你的做题经验就是你的启发式函数。</p>
@@ -274,6 +454,19 @@
 <p>而不是从单方面，单角度得从字眼中寻求突破。</p>
 <p>这是不对的。</p>
 <p>去拥抱模糊的，感性的美丽吧。</p>
+<h1 id="深夜记"><a href="#深夜记" class="headerlink" title="深夜记"></a>深夜记</h1><p>我时常在入睡前感伤。</p>
+<p>躺在床上，身旁是无尽的黑，内心里是激动、是恐惧、是自责、是担忧、是愧疚、是胆怯。</p>
+<p>白天积攒的情绪会在黑夜时爆发出来，为了能让自己睡个好觉，我只得拼了命的忽略它们。</p>
+<p>我隐约的感到有某个问题躲在黑夜里，一旦触碰，会非常痛苦，因而我选择逃避。</p>
+<p>这个问题就是，“我做的对吗” “我做的好吗”。</p>
+<p>尽管从他人口中得出了结论，但我无法轻易相信，也没有方法能够确凿的信任自己。</p>
+<p>我像一只瞎了眼的豪猪，在无尽的夜里的无尽的林里乱窜。</p>
+<p>我必须学会接受自己是个瞎子这个事实。</p>
+<p>在人生尺度上，不确定性是不可避免的。</p>
+<p>我需要学会闭着眼睛向前跑。</p>
+<p>那些恐惧，那些怀疑只能用奔跑来缓解。</p>
+<p>睡下吧，在这平凡而又特殊的夜。</p>
+<p>我是多么幸运。</p>
 
       
     </div>
@@ -1515,86 +1708,6 @@
 <h1 id="8-21"><a href="#8-21" class="headerlink" title="8.21"></a>8.21</h1><p>写出算法流程后请 AI 代笔：P10067、CF2027D2（然而失败了）<br>CF2027D2：平凡的序列最优化 ＆ 计数 DP。<br>AT_arc170_c（未码）：序列计数dp。对于本质不同的情况需要分类讨论。序列计数，关注那些固定了之后，整个序列也会随着规定的量。如果记录具体值行不通，尝试记录数量。<br>计数 dp 速刷。</p>
 <h1 id="8-22"><a href="#8-22" class="headerlink" title="8.22"></a>8.22</h1><p>图论建模速刷：生成树、（同余）最短路、边权结构连边、数对连边（两种）、偏序关系连边、同一类考虑种类并查集<br>硬币问题：存在最大不可表示金额当且仅当所有硬币 gcd &#x3D; 1. (P2662)<br>P15593（未码）：考虑简单情况，再添加约束。将操作思考成</p>
 <h1 id="8-23"><a href="#8-23" class="headerlink" title="8.23"></a>8.23</h1><p>上午模拟赛<br>下午模拟赛<br>晚上数学考试</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://liangdilei.github.io/2026/08/16/8-16-%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="liangdl">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="liangdl 的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | liangdl 的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/08/16/8-16-%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/" class="post-title-link" itemprop="url">8.16 随心小记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-08-16 22:38:53 / 修改时间：22:40:14" itemprop="dateCreated datePublished" datetime="2026-08-16T22:38:53+08:00">2026-08-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">随心小记</span></a>
-        </span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>当你无法用现有的知识体系去解释一个题目的解法时。</p>
-<p>先不要沮丧。这是你成长的绝佳时机。</p>
-<p>当你发现你可以用现有的知识体系去理解一个题目解法，但你没有想出来是。</p>
-<p>也不要沮丧。这是你在不断强化自己体系的过程。</p>
 
       
     </div>
