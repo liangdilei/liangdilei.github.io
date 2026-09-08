@@ -28,7 +28,7 @@
 <meta property="og:description" content="9.1完善了部分训练策略。能力提升综合题单 Part 1.1 - 1.2，比较有价值的题目：  P1980 计数问题：按位考虑数位贡献。 P1014 Cantor 表：对角线分组，副对角线和相同，奇偶讨论。 P1047 校门外的树：区修想差分。  9.2能力全面提升综合题单 Part 1.3 - 1.4 P1012 拼数：拼数比较法求最大整数。 A+B &gt; B+A，这构成严格偏序。 P201">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-09-02T14:31:33.000Z">
-<meta property="article:modified_time" content="2026-09-06T14:41:56.341Z">
+<meta property="article:modified_time" content="2026-09-08T14:30:11.580Z">
 <meta property="article:author" content="liangdl">
 <meta name="twitter:card" content="summary">
 
@@ -178,7 +178,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -252,7 +252,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-06 22:41:56" itemprop="dateModified" datetime="2026-09-06T22:41:56+08:00">2026-09-06</time>
+      <time title="修改时间：2026-09-08 22:30:11" itemprop="dateModified" datetime="2026-09-08T22:30:11+08:00">2026-09-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -484,7 +484,10 @@
 </ol>
 </li>
 </ol>
-<h4 id="Hard-version-的正确思路"><a href="#Hard-version-的正确思路" class="headerlink" title="Hard version 的正确思路"></a>Hard version 的正确思路</h4><p>明天补。</p>
+<h4 id="Hard-version-的正确思路"><a href="#Hard-version-的正确思路" class="headerlink" title="Hard version 的正确思路"></a>Hard version 的正确思路</h4><ol>
+<li>枚举值域是正确的，但是要发现，用 $x&#x3D;i$ 操作一定比 $x&#x3D;k$ 更优。</li>
+<li>考虑比 $i$ 大的数形成一段，直观上，每次对半切能得到的 $x$ 最多。</li>
+</ol>
 <h2 id="贪心专题训练"><a href="#贪心专题训练" class="headerlink" title="贪心专题训练"></a>贪心专题训练</h2><h3 id="Destroyer-Takahashi"><a href="#Destroyer-Takahashi" class="headerlink" title="Destroyer Takahashi"></a>Destroyer Takahashi</h3><h4 id="题意-6"><a href="#题意-6" class="headerlink" title="题意"></a>题意</h4><p>$n$ 个区间 $[l,r]$，$l,r \le 10^9$。你可以通过一次操作清除与 $[x,x+d-1]$ 有交的所有区间。问最小操作次数。</p>
 <p>$n \le 2 \times 10^5$</p>
 <h4 id="思考-5"><a href="#思考-5" class="headerlink" title="思考"></a>思考</h4><ol>
@@ -530,6 +533,7 @@
 <h4 id="思考-7"><a href="#思考-7" class="headerlink" title="思考"></a>思考</h4><ol>
 <li>环上区间覆盖，做过类似的题目，扩环成链后钦定起点倍增即可。</li>
 <li>唯一的问题是这题的 $M$ 特别大，离散化一下就好了。</li>
+<li>还有一个细节，就是这题跨越边界的区间也要扩环。</li>
 </ol>
 
     </div>
