@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"liangdilei.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"twikoo","storage":true,"lazyload":true,"nav":null,"activeClass":"twikoo"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="9.7VP CF 1116 Div.2A题意三个非负整数 $a$，$b$，$c$，操作可以将其中一个整数替换为另外两个整数之和，问最小极差。 思考 极差最小，也就是三个数尽可能一样大。 操作能生成的数只会越来越大。$a$，$b$，$a+b$ 不管怎么操作，极差都比原来大，因此只会操作一次。 答案就是，$\min(\text{原极差}, \max(a,b), \max(b,c), \max(a,c)">
+    <meta name="description" content="9.7 VP CF 1116 Div.2 A 题意 三个非负整数 $a$，$b$，$c$，操作可以将其中一个整数替换为另外两个整数之和，问最小极差。 思考  极差最小，也就是三个数尽可能一样大。 操作能生成的数只会越来越大。$a$，$b$，$a+b$ 不管怎么操作，极差都比原来大，因此只会操作一次。 答案就是，$\min(\text{原极差}, \max(a,b), \max(b,c), \max">
 <meta property="og:type" content="article">
 <meta property="og:title" content="9.7-9.13 学习记录">
 <meta property="og:url" content="https://liangdilei.github.io/2026/09/07/9-7-9-13-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="liangdl 的博客">
-<meta property="og:description" content="9.7VP CF 1116 Div.2A题意三个非负整数 $a$，$b$，$c$，操作可以将其中一个整数替换为另外两个整数之和，问最小极差。 思考 极差最小，也就是三个数尽可能一样大。 操作能生成的数只会越来越大。$a$，$b$，$a+b$ 不管怎么操作，极差都比原来大，因此只会操作一次。 答案就是，$\min(\text{原极差}, \max(a,b), \max(b,c), \max(a,c)">
+<meta property="og:description" content="9.7 VP CF 1116 Div.2 A 题意 三个非负整数 $a$，$b$，$c$，操作可以将其中一个整数替换为另外两个整数之和，问最小极差。 思考  极差最小，也就是三个数尽可能一样大。 操作能生成的数只会越来越大。$a$，$b$，$a+b$ 不管怎么操作，极差都比原来大，因此只会操作一次。 答案就是，$\min(\text{原极差}, \max(a,b), \max(b,c), \max">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-09-07T14:30:07.000Z">
-<meta property="article:modified_time" content="2026-09-08T14:34:38.878Z">
+<meta property="article:modified_time" content="2026-09-11T14:27:14.284Z">
 <meta property="article:author" content="liangdl">
 <meta name="twitter:card" content="summary">
 
@@ -165,7 +165,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#9-7"><span class="nav-number">1.</span> <span class="nav-text">9.7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VP-CF-1116-Div-2"><span class="nav-number">1.1.</span> <span class="nav-text">VP CF 1116 Div.2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A"><span class="nav-number">1.1.1.</span> <span class="nav-text">A</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B"><span class="nav-number">1.1.2.</span> <span class="nav-text">B</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-1"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-1"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">正确思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C"><span class="nav-number">1.1.3.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-2"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-2"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-1"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">正确思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D"><span class="nav-number">1.1.4.</span> <span class="nav-text">D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-3"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-3"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%80%83"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">正确思考</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VP-CF-Educational-193"><span class="nav-number">1.2.</span> <span class="nav-text">VP CF Educational 193</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">A</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-4"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-4"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">B</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-5"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-5"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-2"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">正确思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-6"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-6"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%80%83-1"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">正确思考</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%AA%E5%BF%83%E4%B8%93%E9%A2%98%E8%AE%AD%E7%BB%83"><span class="nav-number">1.3.</span> <span class="nav-text">贪心专题训练</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Monsters-And-Spells"><span class="nav-number">1.3.1.</span> <span class="nav-text">Monsters And Spells</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-7"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-7"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vasya-And-Array"><span class="nav-number">1.3.2.</span> <span class="nav-text">Vasya And Array</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-8"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-8"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stall-Reservations-S"><span class="nav-number">1.3.3.</span> <span class="nav-text">Stall Reservations S</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coffee-Break"><span class="nav-number">1.3.4.</span> <span class="nav-text">Coffee Break</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-9"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-9"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">思考</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-8"><span class="nav-number">2.</span> <span class="nav-text">9.8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E9%A2%98"><span class="nav-number">2.1.</span> <span class="nav-text">补题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CF-Educational-193-D"><span class="nav-number">2.1.1.</span> <span class="nav-text">[CF Educational 193] D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-10"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">题意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CF-1118-Div-2-C"><span class="nav-number">2.1.2.</span> <span class="nav-text">[CF 1118 Div.2] C</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-11"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%80%83-2"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">正确思考</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VP-CF-1115-Div-2"><span class="nav-number">2.2.</span> <span class="nav-text">VP CF 1115 Div.2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-2"><span class="nav-number">2.2.1.</span> <span class="nav-text">A</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-12"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-10"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">B</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-13"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-11"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-2"><span class="nav-number">2.2.3.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-14"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-12"><span class="nav-number">2.2.3.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D-1"><span class="nav-number">2.2.4.</span> <span class="nav-text">D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-15"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-13"><span class="nav-number">2.2.4.2.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-3"><span class="nav-number">2.2.4.3.</span> <span class="nav-text">正确思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VP-CF-1113-Div-2"><span class="nav-number">2.3.</span> <span class="nav-text">VP CF 1113 Div.2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-3"><span class="nav-number">2.3.1.</span> <span class="nav-text">A</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-16"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-14"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-3"><span class="nav-number">2.3.2.</span> <span class="nav-text">B</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-17"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-15"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-3"><span class="nav-number">2.3.3.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-18"><span class="nav-number">2.3.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-4"><span class="nav-number">2.3.3.2.</span> <span class="nav-text">正确思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D-2"><span class="nav-number">2.3.4.</span> <span class="nav-text">D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-19"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-5"><span class="nav-number">2.3.4.2.</span> <span class="nav-text">正确思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%AA%E5%BF%83%E4%B8%93%E9%A2%98%E8%AE%AD%E7%BB%83-1"><span class="nav-number">2.4.</span> <span class="nav-text">贪心专题训练</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Packing-Under-Range-Regulations"><span class="nav-number">2.4.1.</span> <span class="nav-text">Packing Under Range Regulations</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-20"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-16"><span class="nav-number">2.4.1.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#01Sequence"><span class="nav-number">2.4.2.</span> <span class="nav-text">01Sequence</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-21"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-17"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8E%E8%AF%9D"><span class="nav-number">2.4.2.3.</span> <span class="nav-text">后话</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-of-Fugitive"><span class="nav-number">2.4.3.</span> <span class="nav-text">Case of Fugitive</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-22"><span class="nav-number">2.4.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-18"><span class="nav-number">2.4.3.2.</span> <span class="nav-text">思考</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">9.7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VP-CF-1116-Div-2"><span class="nav-number">1.1.</span> <span class="nav-text">VP CF 1116 Div.2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A"><span class="nav-number">1.1.1.</span> <span class="nav-text">A</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B"><span class="nav-number">1.1.2.</span> <span class="nav-text">B</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-2"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%9B%E6%97%B6%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">赛时思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">正确思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C"><span class="nav-number">1.1.3.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%9B%E6%97%B6%E6%80%9D%E8%B7%AF-2"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">赛时思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-2"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">正确思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D"><span class="nav-number">1.1.4.</span> <span class="nav-text">D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-3"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%9B%E6%97%B6%E6%80%9D%E8%B7%AF-3"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">赛时思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%80%83"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">正确思考</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VP-CF-Educational-193"><span class="nav-number">1.2.</span> <span class="nav-text">VP CF Educational 193</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-2"><span class="nav-number">1.2.1.</span> <span class="nav-text">A</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-4"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-2"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-2"><span class="nav-number">1.2.2.</span> <span class="nav-text">B</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-5"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%9B%E6%97%B6%E6%80%9D%E8%B7%AF-4"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">赛时思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-3"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">正确思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-2"><span class="nav-number">1.2.3.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-6"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%9B%E6%97%B6%E6%80%9D%E8%B7%AF-5"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">赛时思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%80%83-2"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">正确思考</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%AA%E5%BF%83%E4%B8%93%E9%A2%98%E8%AE%AD%E7%BB%83"><span class="nav-number">1.3.</span> <span class="nav-text">贪心专题训练</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Monsters-And-Spells"><span class="nav-number">1.3.1.</span> <span class="nav-text">Monsters And Spells</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-7"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-3"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vasya-And-Array"><span class="nav-number">1.3.2.</span> <span class="nav-text">Vasya And Array</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-8"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-4"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stall-Reservations-S"><span class="nav-number">1.3.3.</span> <span class="nav-text">Stall Reservations S</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coffee-Break"><span class="nav-number">1.3.4.</span> <span class="nav-text">Coffee Break</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-9"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-5"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">思考</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">9.8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E9%A2%98"><span class="nav-number">2.1.</span> <span class="nav-text">补题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CF-Educational-193-D"><span class="nav-number">2.1.1.</span> <span class="nav-text">[CF Educational 193] D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-10"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-4"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">正确思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CF-1118-Div-2-C"><span class="nav-number">2.1.2.</span> <span class="nav-text">[CF 1118 Div.2] C</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-11"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%80%83-3"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">正确思考</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VP-CF-1115-Div-2"><span class="nav-number">2.2.</span> <span class="nav-text">VP CF 1115 Div.2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-3"><span class="nav-number">2.2.1.</span> <span class="nav-text">A</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-12"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-6"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-3"><span class="nav-number">2.2.2.</span> <span class="nav-text">B</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-13"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-7"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-3"><span class="nav-number">2.2.3.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-14"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-8"><span class="nav-number">2.2.3.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D-2"><span class="nav-number">2.2.4.</span> <span class="nav-text">D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-15"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%9B%E6%97%B6%E6%80%9D%E8%B7%AF-6"><span class="nav-number">2.2.4.2.</span> <span class="nav-text">赛时思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-5"><span class="nav-number">2.2.4.3.</span> <span class="nav-text">正确思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-6"><span class="nav-number">2.2.4.4.</span> <span class="nav-text">正确思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VP-CF-1113-Div-2"><span class="nav-number">2.3.</span> <span class="nav-text">VP CF 1113 Div.2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-4"><span class="nav-number">2.3.1.</span> <span class="nav-text">A</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-16"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-9"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-4"><span class="nav-number">2.3.2.</span> <span class="nav-text">B</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-17"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-10"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-4"><span class="nav-number">2.3.3.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-18"><span class="nav-number">2.3.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-7"><span class="nav-number">2.3.3.2.</span> <span class="nav-text">正确思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D-3"><span class="nav-number">2.3.4.</span> <span class="nav-text">D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-19"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-8"><span class="nav-number">2.3.4.2.</span> <span class="nav-text">正确思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%AA%E5%BF%83%E4%B8%93%E9%A2%98%E8%AE%AD%E7%BB%83-2"><span class="nav-number">2.4.</span> <span class="nav-text">贪心专题训练</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Packing-Under-Range-Regulations"><span class="nav-number">2.4.1.</span> <span class="nav-text">Packing Under Range Regulations</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-20"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-11"><span class="nav-number">2.4.1.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#01Sequence"><span class="nav-number">2.4.2.</span> <span class="nav-text">01Sequence</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-21"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-12"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8E%E8%AF%9D"><span class="nav-number">2.4.2.3.</span> <span class="nav-text">后话</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-of-Fugitive"><span class="nav-number">2.4.3.</span> <span class="nav-text">Case of Fugitive</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-22"><span class="nav-number">2.4.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-13"><span class="nav-number">2.4.3.2.</span> <span class="nav-text">思考</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">9.9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VP-CF-Educational-194"><span class="nav-number">3.1.</span> <span class="nav-text">VP CF Educational 194</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-5"><span class="nav-number">3.1.1.</span> <span class="nav-text">A</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-5"><span class="nav-number">3.1.2.</span> <span class="nav-text">B</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-23"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%9B%E6%97%B6%E6%80%9D%E8%B7%AF-7"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">赛时思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-9"><span class="nav-number">3.1.2.3.</span> <span class="nav-text">正确思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-5"><span class="nav-number">3.1.3.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-24"><span class="nav-number">3.1.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%9B%E6%97%B6%E6%80%9D%E8%B7%AF-8"><span class="nav-number">3.1.3.2.</span> <span class="nav-text">赛时思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-10"><span class="nav-number">3.1.3.3.</span> <span class="nav-text">正确思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D-4"><span class="nav-number">3.1.4.</span> <span class="nav-text">D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-25"><span class="nav-number">3.1.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%9B%E6%97%B6%E6%80%9D%E8%B7%AF-9"><span class="nav-number">3.1.4.2.</span> <span class="nav-text">赛时思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-11"><span class="nav-number">3.1.4.3.</span> <span class="nav-text">正确思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VP-CF-1112-Div-2"><span class="nav-number">3.2.</span> <span class="nav-text">VP CF 1112 Div.2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-6"><span class="nav-number">3.2.1.</span> <span class="nav-text">A</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-26"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-14"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-6"><span class="nav-number">3.2.2.</span> <span class="nav-text">B</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-27"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-15"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-6"><span class="nav-number">3.2.3.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-28"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%9B%E6%97%B6%E6%80%9D%E8%B7%AF-10"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">赛时思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-12"><span class="nav-number">3.2.3.3.</span> <span class="nav-text">正确思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D-5"><span class="nav-number">3.2.4.</span> <span class="nav-text">D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-29"><span class="nav-number">3.2.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%9B%E6%97%B6%E6%80%9D%E8%B7%AF-11"><span class="nav-number">3.2.4.2.</span> <span class="nav-text">赛时思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-13"><span class="nav-number">3.2.4.3.</span> <span class="nav-text">正确思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%AA%E5%BF%83%E4%B8%93%E9%A2%98%E8%AE%AD%E7%BB%83-3"><span class="nav-number">3.3.</span> <span class="nav-text">贪心专题训练</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B6%85%E9%80%9F%E6%A3%80%E6%B5%8B"><span class="nav-number">3.3.1.</span> <span class="nav-text">超速检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%BC%E6%95%B0"><span class="nav-number">3.3.2.</span> <span class="nav-text">拼数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BD%E7%8E%8B%E6%B8%B8%E6%88%8F"><span class="nav-number">3.3.3.</span> <span class="nav-text">国王游戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Buy-low-sell-high"><span class="nav-number">3.3.4.</span> <span class="nav-text">Buy low sell high</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Olympiad-in-Programming-and-Sports"><span class="nav-number">3.3.5.</span> <span class="nav-text">Olympiad in Programming and Sports</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%AF%E6%95%91%E5%B0%8F%E7%9F%AE%E4%BA%BA"><span class="nav-number">3.3.6.</span> <span class="nav-text">拯救小矮人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E7%AD%91%E6%8A%A2%E4%BF%AE"><span class="nav-number">3.3.7.</span> <span class="nav-text">建筑抢修</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">9.10</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VP-CF-1111-Div-2"><span class="nav-number">4.1.</span> <span class="nav-text">VP CF 1111 Div.2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#B-7"><span class="nav-number">4.1.1.</span> <span class="nav-text">B</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-30"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-16"><span class="nav-number">4.1.1.2.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%94%E8%AE%B0"><span class="nav-number">4.1.1.3.</span> <span class="nav-text">笔记</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-7"><span class="nav-number">4.1.2.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-31"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-17"><span class="nav-number">4.1.2.2.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%94%E8%AE%B0-2"><span class="nav-number">4.1.2.3.</span> <span class="nav-text">笔记</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D-6"><span class="nav-number">4.1.3.</span> <span class="nav-text">D</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-32"><span class="nav-number">4.1.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B5%9B%E6%97%B6%E6%80%9D%E8%B7%AF-12"><span class="nav-number">4.1.3.2.</span> <span class="nav-text">赛时思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Eazy-version-%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF"><span class="nav-number">4.1.3.3.</span> <span class="nav-text">Eazy version 正确思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hard-version-%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF"><span class="nav-number">4.1.3.4.</span> <span class="nav-text">Hard version 正确思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#E"><span class="nav-number">4.1.4.</span> <span class="nav-text">E</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-33"><span class="nav-number">4.1.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-14"><span class="nav-number">4.1.4.2.</span> <span class="nav-text">正确思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%AA%E5%BF%83%E4%B8%93%E9%A2%98%E8%AE%AD%E7%BB%83-4"><span class="nav-number">4.2.</span> <span class="nav-text">贪心专题训练</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%8D%E6%A0%91"><span class="nav-number">4.2.1.</span> <span class="nav-text">种树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Least-Cost-Bracket-Sequence"><span class="nav-number">4.2.2.</span> <span class="nav-text">Least Cost Bracket Sequence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Minimize-The-Integer"><span class="nav-number">4.2.3.</span> <span class="nav-text">Minimize The Integer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-34"><span class="nav-number">4.2.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-18"><span class="nav-number">4.2.3.2.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-15"><span class="nav-number">4.2.3.3.</span> <span class="nav-text">正确思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E6%95%B0%E9%97%AE%E9%A2%98"><span class="nav-number">4.2.4.</span> <span class="nav-text">删数问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-35"><span class="nav-number">4.2.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-19"><span class="nav-number">4.2.4.2.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-16"><span class="nav-number">4.2.4.3.</span> <span class="nav-text">正确思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%95%BF%E9%87%8E%E5%8E%9F%E9%BE%99%E5%8A%BF%E6%B5%81%E6%98%9F%E7%BE%A4"><span class="nav-number">4.2.5.</span> <span class="nav-text">长野原龙势流星群</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-36"><span class="nav-number">4.2.5.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%80%83-20"><span class="nav-number">4.2.5.2.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%9D%E8%B7%AF-17"><span class="nav-number">4.2.5.3.</span> <span class="nav-text">正确思路</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">9.11</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -178,7 +178,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -252,7 +252,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-08 22:34:38" itemprop="dateModified" datetime="2026-09-08T22:34:38+08:00">2026-09-08</time>
+      <time title="修改时间：2026-09-11 22:27:14" itemprop="dateModified" datetime="2026-09-11T22:27:14+08:00">2026-09-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -271,114 +271,195 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="9-7"><a href="#9-7" class="headerlink" title="9.7"></a>9.7</h1><h2 id="VP-CF-1116-Div-2"><a href="#VP-CF-1116-Div-2" class="headerlink" title="VP CF 1116 Div.2"></a>VP CF 1116 Div.2</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>三个非负整数 $a$，$b$，$c$，操作可以将其中一个整数替换为另外两个整数之和，问最小极差。</p>
-<h4 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h4><ol>
+    <div class="post-body" itemprop="articleBody"><h1>9.7</h1>
+<h2 id="VP-CF-1116-Div-2">VP CF 1116 Div.2</h2>
+<h3 id="A">A</h3>
+<h4 id="题意">题意</h4>
+<p>三个非负整数 $a$，$b$，$c$，操作可以将其中一个整数替换为另外两个整数之和，问最小极差。</p>
+<h4 id="思考">思考</h4>
+<ol>
 <li>极差最小，也就是三个数尽可能一样大。</li>
 <li>操作能生成的数只会越来越大。$a$，$b$，$a+b$ 不管怎么操作，极差都比原来大，因此只会操作一次。</li>
 <li>答案就是，$\min(\text{原极差}, \max(a,b), \max(b,c), \max(a,c))$</li>
 <li>用时 $14$ 分钟</li>
 </ol>
-<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><h4 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h4><p>替换 <code>?</code>，变成 $0&#x2F;1$，使得对于每一个 $1 &lt; i &lt; n$，都有 $s_{i-1} \neq s_{i+1}$。</p>
+<h3 id="B">B</h3>
+<h4 id="题意-2">题意</h4>
+<p>替换 <code>?</code>，变成 $0/1$，使得对于每一个 $1 &lt; i &lt; n$，都有 $s_{i-1} \neq s_{i+1}$。</p>
 <p>求替换方案数。</p>
-<h4 id="思考-1"><a href="#思考-1" class="headerlink" title="思考"></a>思考</h4><ol>
+<h4 id="赛时思路">赛时思路</h4>
+<ol>
 <li>如果出现形如 <code>0?0</code> 就输出 $0$</li>
-<li>形如 <code>????</code>，第一个填什么，第三个填相反的，第二个和第四个同理。</li>
+<li>形如 <code>????</code>，第一个填什么，第三个填相反的，第二个和第四个同理。<mark>这里又着急了，往后多想一个 <code>?</code> 就想到正解了</mark></li>
 <li>先把能确定的 <code>?</code> 确定下来，例如 <code>10?</code>，此时 <code>?</code> 一定是 $0$</li>
 <li>剩下的就按连续 <code>?</code> 处理，扫一遍就好了。</li>
 <li>交上去 WA 了？？用时 $30$ 分钟。</li>
 </ol>
-<h4 id="正确思路"><a href="#正确思路" class="headerlink" title="正确思路"></a>正确思路</h4><p>可恶，多考虑一步就做出来了。</p>
+<h4 id="正确思路">正确思路</h4>
+<p>可恶，多考虑一步就做出来了。</p>
 <p>对于 <code>?????</code>，第五个也会被第一项确定，误以为它是自由的。</p>
 <p>因此分成奇偶两条链考虑，交替相等。</p>
 <p>还有一种做法是 dp。</p>
-<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><h4 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h4><p>$2n$ 个人围成圈，奇数称为红组，偶数称为蓝组。有一些人拿着炸弹，每个拿着炸弹的人可以执行以下操作之一：</p>
+<h3 id="C">C</h3>
+<p>$2n$ 个人围成圈，奇数称为红组，偶数称为蓝组。有一些人拿着炸弹，每个拿着炸弹的人可以执行以下操作之一：</p>
 <ul>
 <li>保留炸弹</li>
 <li>传递给下一个人，前提是那个人没有炸弹（顺时针）</li>
 </ul>
 <p>如果下一个人有炸弹，则无法传递。</p>
 <p>游戏进行 $k$ 轮，问最终分数。</p>
-<h4 id="思考-2"><a href="#思考-2" class="headerlink" title="思考"></a>思考</h4><ol>
-<li>考虑简单的情况，只有一个炸弹。若 $k &#x3D; 0$ 是必败态，$k &#x3D; 1$ 是必胜态，$k &#x3D; 2$ 是必胜态，$k &#x3D; 3$ 是必胜态。。。</li>
-<li>两个炸弹？$k &#x3D; 0$ 必败，$k &#x3D; 1$ 且下一个人没有炸弹，必胜，否则必败。$k &#x3D; 2$ 且下一个人没有炸弹，必胜，否则，有可能胜有可能败。</li>
+<h4 id="赛时思路-2">赛时思路</h4>
+<ol>
+<li>考虑简单的情况，只有一个炸弹。若 $k = 0$ 是必败态，$k = 1$ 是必胜态，$k = 2$ 是必胜态，$k = 3$ 是必胜态。。。<mark>不要看到博弈题就去推必胜/必败态，感觉无论是什么题目，起点都是要去理解感受这个问题。可能不同题型确实存在一些技巧，但是不要一上来就套技巧。</mark></li>
+<li>两个炸弹？$k = 0$ 必败，$k = 1$ 且下一个人没有炸弹，必胜，否则必败。$k = 2$ 且下一个人没有炸弹，必胜，否则，有可能胜有可能败。</li>
 <li>没思路了。用时 $20$ 分钟。</li>
 </ol>
-<h4 id="正确思路-1"><a href="#正确思路-1" class="headerlink" title="正确思路"></a>正确思路</h4><ol>
+<h4 id="正确思路-2">正确思路</h4>
+<ol>
 <li>对于每个人来说，保证自己存活且淘汰别人，是最优的。</li>
-<li>对于拿炸弹的人来说，直到最后一轮再抛出去，可以同时满足上述两个目的。因此一定是最后一轮才抛。</li>
+<li>考虑每个人的决策，对于拿炸弹的人来说，直到最后一轮再抛出去，可以同时满足上述两个目的。因此一定是最后一轮才抛。</li>
 <li>邪门思路：$k$ 很大，肯定与 $k$ 无关（</li>
 </ol>
-<h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><h4 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h4><p>长度为 $n$ 的 $01$ 串，每次操作可以选定两个 $l \le r$ 且 $s_l &#x3D; s_r$，然后让 $[l+1, r-1]$ 区间内的数翻转，问能形成多少种 $01$ 串。</p>
-<h4 id="思考-3"><a href="#思考-3" class="headerlink" title="思考"></a>思考</h4><ol>
+<h3 id="D">D</h3>
+<h4 id="题意-3">题意</h4>
+<p>长度为 $n$ 的 $01$ 串，每次操作可以选定两个 $l \le r$ 且 $s_l = s_r$，然后让 $[l+1, r-1]$ 区间内的数翻转，问能形成多少种 $01$ 串。</p>
+<h4 id="赛时思路-3">赛时思路</h4>
+<ol>
 <li>对形如 $0110$ 等对称区间的操作是无用的。</li>
-<li>经典结论：翻转 $[1,l]$，$[l+1,r]$，$[1, r]$ &#x3D; 交换 $[1,l]$ 与 $[l+1,r]$ 的位置</li>
+<li>经典结论：翻转 $[1,l]$，$[l+1,r]$，$[1, r]$ = 交换 $[1,l]$ 与 $[l+1,r]$ 的位置</li>
 <li>没有思路啊。用时 $8$ 分钟。</li>
 </ol>
-<h4 id="正确思考"><a href="#正确思考" class="headerlink" title="正确思考"></a>正确思考</h4><p>明天补吧。。</p>
-<h2 id="VP-CF-Educational-193"><a href="#VP-CF-Educational-193" class="headerlink" title="VP CF Educational 193"></a>VP CF Educational 193</h2><h3 id="A-1"><a href="#A-1" class="headerlink" title="A"></a>A</h3><h4 id="题意-4"><a href="#题意-4" class="headerlink" title="题意"></a>题意</h4><p>判断 $[2, n+1]$ 中是否存在一个数 $x$，使得 $&lt; x$ 的数都不是他的因子，且 $&gt; x$ 的数都是它的倍数。</p>
-<h4 id="思考-4"><a href="#思考-4" class="headerlink" title="思考"></a>思考</h4><ol>
+<h4 id="正确思考">正确思考</h4>
+<ol>
+<li>操作题，思考哪些东西不会被操作改变。</li>
+<li>$01$ 串能考虑的东西不多，直接考虑相邻两项 $00/01/10/11$ 翻转之后的样子好像不好做。</li>
+<li>先把 $01$ 串缩成极大连续段，此时考虑操作，发现不会改变 $01010$ 或 $10101$ 的结构，而且段内 $1$ 或 $0$ 的数量可以通过操作任意改变（不能变成 $0$）。</li>
+<li>那就把多出来的 $0$ 和 $1$ 抽出来，隔板法算方案，各自之间是独立的。</li>
+</ol>
+<h2 id="VP-CF-Educational-193">VP CF Educational 193</h2>
+<h3 id="A-2">A</h3>
+<h4 id="题意-4">题意</h4>
+<p>判断 $[2, n+1]$ 中是否存在一个数 $x$，使得 $&lt; x$ 的数都不是他的因子，且 $&gt; x$ 的数都是它的倍数。</p>
+<h4 id="思考-2">思考</h4>
+<ol>
 <li>只有最后一个数有可能，遍历一遍即可。</li>
 <li>用时 $7$ 分钟。</li>
 </ol>
-<h3 id="B-1"><a href="#B-1" class="headerlink" title="B"></a>B</h3><h4 id="题意-5"><a href="#题意-5" class="headerlink" title="题意"></a>题意</h4><p>删除序列中的一些元素，之后再交换一次相邻元素（可以不交换）。</p>
+<h3 id="B-2">B</h3>
+<h4 id="题意-5">题意</h4>
+<p>删除序列中的一些元素，之后再交换一次相邻元素（可以不交换）。</p>
 <p>问使得序列中不存在相邻相同元素的最小删除次数。</p>
-<h4 id="思考-5"><a href="#思考-5" class="headerlink" title="思考"></a>思考</h4><ol>
+<h4 id="赛时思路-4">赛时思路</h4>
+<ol>
 <li>交换操作最理想的情况是 $1122 \rightarrow 1212$</li>
-<li>交换操作只适用于 $(!x)xxyy(!y)$ 或 $(!x)xxy(!x)$ 或 $(!x)yxx(!x)$ 这三种情况</li>
+<li>交换操作只适用于 $(!x)xxyy(!y)$ 或 $(!x)xxy(!x)$ 或 $(!x)yxx(!x)$ 这三种情况。<mark>这里情况太复杂了，如果缩成连续段就好写很多，感觉是缺了个技巧，相邻相同缩成段这个还是很常见的。</mark></li>
 <li>全部删除后再反悔即可。</li>
 <li>交上去又 WA 了？？用时 $26$ 分钟。</li>
 </ol>
-<h4 id="正确思路-2"><a href="#正确思路-2" class="headerlink" title="正确思路"></a>正确思路</h4><p>思路基本正确，但是这样代码容易写挂，把连续段合并就好写了。</p>
-<p>连续段合并是一个经典技巧。</p>
-<h3 id="C-1"><a href="#C-1" class="headerlink" title="C"></a>C</h3><h4 id="题意-6"><a href="#题意-6" class="headerlink" title="题意"></a>题意</h4><p>给定长度分别为 $x$，$y$ 的严格增序列 $a$，$b$ 和一个 $n \times m$ 的矩阵，初始全 $0$。</p>
+<h4 id="正确思路-3">正确思路</h4>
+<ol>
+<li>缩成连续段后考虑三种情况：
+<ol>
+<li>左右长度大于 $1$：交换后少 $2$ 次操作。</li>
+<li>左长度大于 $1$，右长度等于 $1$：判断 $i+2$ 与 $i$ 的颜色是否相同，交换后少 $1$ 次操作。</li>
+<li>左长度等于 $1$，右长度大于 $1$：判断 $i-1$ 与 $i+1$ 的颜色是否相同，交换后少 $1$ 次操作。</li>
+</ol>
+</li>
+</ol>
+<h3 id="C-2">C</h3>
+<h4 id="题意-6">题意</h4>
+<p>给定长度分别为 $x$，$y$ 的严格增序列 $a$，$b$ 和一个 $n \times m$ 的矩阵，初始全 $0$。</p>
 <p>操作可以用 $a$ 中的元素填充矩阵的 $i$ 行，可以用 $b$ 中元素填充矩阵的 $j$ 列。</p>
 <p>最大化矩阵中出现了至少一次的数字之和。</p>
 <p>$n,m \le 10^5$，$x,y,a_i,b_i \le n+m$</p>
-<h4 id="思考-6"><a href="#思考-6" class="headerlink" title="思考"></a>思考</h4><ol>
-<li>发现看错题了，耗时 $34$ 分钟（悲）</li>
+<h4 id="赛时思路-5">赛时思路</h4>
+<ol>
+<li>发现看错题了，耗时 $34$ 分钟（悲）<mark>读完题之后看样例验证一下理解啊。</mark></li>
 <li>把样例都算一遍好像就找到构造方法了。</li>
 <li>简单来说，选 $n-1$ 个 $a$，$m-1$ 个 $b$，最后一个在 $a$，$b$ 中选就好了</li>
 <li>但是有一个问题：出现重复的时候，选择 $a$ 和选择 $b$ 是不同的。</li>
 <li>想不出来补丁，失败了，用时 $12$ 分钟。</li>
 </ol>
-<h4 id="正确思考-1"><a href="#正确思考-1" class="headerlink" title="正确思考"></a>正确思考</h4><p>明天一定补上！</p>
-<h2 id="贪心专题训练"><a href="#贪心专题训练" class="headerlink" title="贪心专题训练"></a>贪心专题训练</h2><h3 id="Monsters-And-Spells"><a href="#Monsters-And-Spells" class="headerlink" title="Monsters And Spells"></a>Monsters And Spells</h3><h4 id="题意-7"><a href="#题意-7" class="headerlink" title="题意"></a>题意</h4><p>$n$ 个怪兽，每个怪兽有出现时间 $k_i$ 和生命值 $h_i$。</p>
+<h4 id="正确思考-2">正确思考</h4>
+<ol>
+<li>一个显然的想法是用前 $n$ 个 $a$ 填，前 $m$ 个 $b$ 填。</li>
+<li>细想之后发现，要么填 $n-1$ 个 $a$ 和 $m$ 个 $b$，要么填 $n$ 个 $a$ 和 $m-1$ 个 $b$，所以一共填 $n+m-1$ 个数。记填的总数 $S=\min(n+m-1,\min(x,n)+\min(y,m))$</li>
+<li>难点在于如何处理重复的数字，它既可以放在 $a$ 也可以放在 $b$，但是在当时并不知道放 $a$ 好还是放 $b$ 好。</li>
+<li>那我们就把它拿了再说，先不纠结它到底拿了哪个。某种意义上是一种 <strong>延迟决策</strong>。</li>
+<li>那如何判断合法性呢？发现只要拿的总数 $\le S$，就一定合法。因为总可以把都有的全分配到 $a$ 和 $b$ 里，但不超过 $a$，$b$ 的数量限制。相当于在最后再判断它放在哪里。</li>
+<li>具体做法是处理出：只在 $a$ 中出现的数 $A$（取前 $n$ 个），只在 $b$ 中出现的数 $B$（取前 $m$ 个），在 $a$，$b$ 中都出现的数 $C$，然后合并，取前 $S$ 个。</li>
+</ol>
+<h2 id="贪心专题训练">贪心专题训练</h2>
+<h3 id="Monsters-And-Spells">Monsters And Spells</h3>
+<h4 id="题意-7">题意</h4>
+<p>$n$ 个怪兽，每个怪兽有出现时间 $k_i$ 和生命值 $h_i$。</p>
 <p>你有一个攻击力 $x$，如果上一秒没有攻击，这一秒的攻击力就是 $x$，否则就是 $x+1$。</p>
 <p>为了让每个怪兽出现即死亡，计算最少魔力花费（攻击之和）。</p>
 <p>$n \le 10^4$</p>
-<h4 id="思考-7"><a href="#思考-7" class="headerlink" title="思考"></a>思考</h4><ol>
+<h4 id="思考-3">思考</h4>
+<ol>
 <li>一个比较 naive 的做法是从 $k_i - h_i + 1$ 时开始蓄力，这样的花费显然最小。</li>
 <li>把这视作一个区间，发现区间有交，之后合并。</li>
 <li>最后统计无交区间就好了，等差数列求和。</li>
 </ol>
-<h3 id="Vasya-And-Array"><a href="#Vasya-And-Array" class="headerlink" title="Vasya And Array"></a>Vasya And Array</h3><h4 id="题意-8"><a href="#题意-8" class="headerlink" title="题意"></a>题意</h4><p>给定 $m$ 条信息，告诉你 $[l, r]$ 区间是&#x2F;不是不降序列，构造一个长度为 $n$ 的数组满足条件。</p>
+<h3 id="Vasya-And-Array">Vasya And Array</h3>
+<h4 id="题意-8">题意</h4>
+<p>给定 $m$ 条信息，告诉你 $[l, r]$ 区间是/不是不降序列，构造一个长度为 $n$ 的数组满足条件。</p>
 <p>$n, m \le 10^3$</p>
-<h4 id="思考-8"><a href="#思考-8" class="headerlink" title="思考"></a>思考</h4><ol>
-<li>数据范围很小，一开始的想法是图论建模暴力连边，但无法处理 $t &#x3D; 0$ 约束。</li>
+<h4 id="思考-4">思考</h4>
+<ol>
+<li>数据范围很小，一开始的想法是图论建模暴力连边，但无法处理 $t = 0$ 约束。</li>
 <li>考虑到这是贪心专题。显然两个相交的不降区间可以合并，先处理所有不降区间，再处理非不降区间。</li>
 <li>如果后者会被不降区间包含则无解，否则，就说明左边界或者右边界存在 $a_i &lt; a_{i+1}$。时间复杂度 $O(nm)$。</li>
 </ol>
-<h3 id="Stall-Reservations-S"><a href="#Stall-Reservations-S" class="headerlink" title="Stall Reservations S"></a>Stall Reservations S</h3><p>区间调度板子。</p>
-<h3 id="Coffee-Break"><a href="#Coffee-Break" class="headerlink" title="Coffee Break"></a>Coffee Break</h3><h4 id="题意-9"><a href="#题意-9" class="headerlink" title="题意"></a>题意</h4><p>给定 $n$ 个点，值域 $m$ 和一个 $d$。</p>
+<h3 id="Stall-Reservations-S">Stall Reservations S</h3>
+<p>区间调度板子。</p>
+<h3 id="Coffee-Break">Coffee Break</h3>
+<h4 id="题意-9">题意</h4>
+<p>给定 $n$ 个点，值域 $m$ 和一个 $d$。</p>
 <p>定义偏序 $a \preceq b$ 为 $b &gt; a + d$，问最小链划分数量，以及每个点在哪个链划分内。</p>
-<h4 id="思考-9"><a href="#思考-9" class="headerlink" title="思考"></a>思考</h4><ol>
+<h4 id="思考-5">思考</h4>
+<ol>
 <li>根据 Dilworth 定理，偏序集的最小链划分数量等于最大反链集合大小。这题的反链集合内的元素，任意两点之间的大小不超过 $d$，也就是最大值 $-$ 最小值 $\le d$。</li>
 <li>排序后双指针找出最大反链集合即可。</li>
 <li>但是这题需要输出方案！！</li>
 <li>考虑选择 $a$ 之后，$[a, a+d]$ 区间内的数都无法和他处于同一条链上。将每个点视作区间，区间不能重叠，且要分组，那么问题就转化为了一个区间调度问题。妙啊。</li>
 <li>实际上因为区间长度固定，所以有一种二分贪心写法，但是时间复杂度是一样的，感觉还不是很好写，作罢。</li>
 </ol>
-<h1 id="9-8"><a href="#9-8" class="headerlink" title="9.8"></a>9.8</h1><h2 id="补题"><a href="#补题" class="headerlink" title="补题"></a>补题</h2><h3 id="CF-Educational-193-D"><a href="#CF-Educational-193-D" class="headerlink" title="[CF Educational 193] D"></a>[CF Educational 193] D</h3><h4 id="题意-10"><a href="#题意-10" class="headerlink" title="题意"></a>题意</h4><p>维护 $a,b$。每次移动需要令 $a \leftarrow a+1$ 或 $b \leftarrow b+1$，每次可以跳到 $(p+a,q+b)$ 的位置。</p>
+<h1>9.8</h1>
+<h2 id="补题">补题</h2>
+<h3 id="CF-Educational-193-D">[CF Educational 193] D</h3>
+<h4 id="题意-10">题意</h4>
+<p>维护 $a,b$。每次移动需要令 $a \leftarrow a+1$ 或 $b \leftarrow b+1$，每次可以跳到 $(p+a,q+b)$ 的位置。</p>
 <p>飞船必须处于 $(x,y)$ 内，求一个操作序列 $s$，使得它到 $(x,y)$ 的欧几里得距离最小。</p>
-<h3 id="CF-1118-Div-2-C"><a href="#CF-1118-Div-2-C" class="headerlink" title="[CF 1118 Div.2] C"></a>[CF 1118 Div.2] C</h3><h4 id="题意-11"><a href="#题意-11" class="headerlink" title="题意"></a>题意</h4><p>交互题，需要找到直径长度，以及直径端点。</p>
+<p>$s$ 的长度不超过 $2 \times 10^4$。<mark>题面有说的，一开始没注意到，一定要通读题面啊。</mark></p>
+<h4 id="正确思路-4">正确思路</h4>
+<ol>
+<li>应该注意到 $s$ 的长度不大。因为 $p,q$ 的增加是类似等差数列的，所以是根号级别的长度。 当然题目也有提示。<mark>实际上就算没发现这点，也需要想到要将移动总距离拆出来，拆给每种取值的 $a$ 和 $b$。动机就是，如果按照题目的方法算移动距离的话，很不优雅。具体来讲，就是将“这一步可以将 $p$ 增加 $a$，$q$ 增加 $b$”，转化为“这一步可以将 $p$ 或 $q$ 增加 $T-i+1$。”</mark></li>
+<li>所以我们就去考虑 $s$ 每一位的影响，尝试把这个影响独立出来。</li>
+<li>假设我们已经确定了 $s$ 的长度为 $T$，那么如果在第 $i$ 位令 $a$ 增加 $1$，整体来看，$x$ 坐标向右移动了 $T-i+1$ 格。所以在第 $i$ 位，可以使飞船向右或向上移动 $T-i+1$ 格，尽可能接近但不超过 $(x,y)$。</li>
+<li>此时就可以把 $T$ 算出来了，因为这个等差数列的和一定 $\le x+y$，且越大越好。</li>
+<li>知道了 $T$ 之后，$p+q$ 实际上也知道了，现在就要让 $(p-x)^2+(q-y)^2$ 最小。</li>
+<li>在 $p+q$ 固定的情况下，显然让 $p-x=q-y$ 最好。因此我们可以直接解出 $p,q$ 的值。</li>
+<li>因为取的是一个等差数列，所以一定能取出 $p$，又因为 $p+q=$ 等差数列的和，所以剩下的一定组成 $q$。</li>
+<li>具体流程是算出 $T$，算出 $p$，再等差数列取数。</li>
+</ol>
+<h3 id="CF-1118-Div-2-C">[CF 1118 Div.2] C</h3>
+<h4 id="题意-11">题意</h4>
+<p>交互题，需要找到直径长度，以及直径端点。</p>
 <p>最多 $3n$ 次询问，每次询问可以知道 $\operatorname{dist}(u,v)$ 是否大于等于 $d$。</p>
-<h4 id="正确思考-2"><a href="#正确思考-2" class="headerlink" title="正确思考"></a>正确思考</h4><ol>
+<h4 id="正确思考-3">正确思考</h4>
+<ol>
 <li>找直径两种方法，两次 dfs 和树形 DP。这题显然是两次 dfs。</li>
 <li>维护一个 $d$，直径是 $d-1$，钦定一个起点，枚举其他点，更新 $d$。</li>
 <li>再用最远点跑一边。总共询问最多 $3n$。$d$ 最多增加 $n$ 次，两个循环用掉 $2n$ 次询问。</li>
 </ol>
-<h2 id="VP-CF-1115-Div-2"><a href="#VP-CF-1115-Div-2" class="headerlink" title="VP CF 1115 Div.2"></a>VP CF 1115 Div.2</h2><h3 id="A-2"><a href="#A-2" class="headerlink" title="A"></a>A</h3><h4 id="题意-12"><a href="#题意-12" class="headerlink" title="题意"></a>题意</h4><p>长度为 $n$ 的序列，排序，出现了连续两个相同数之后不能累加。</p>
-<h4 id="思考-10"><a href="#思考-10" class="headerlink" title="思考"></a>思考</h4><ol>
+<h2 id="VP-CF-1115-Div-2">VP CF 1115 Div.2</h2>
+<h3 id="A-3">A</h3>
+<h4 id="题意-12">题意</h4>
+<p>长度为 $n$ 的序列，排序，出现了连续两个相同数之后不能累加。</p>
+<h4 id="思考-6">思考</h4>
+<ol>
 <li>构造一个形如：$1234\ 1234\ 123\ 22$ 的序列就好了。</li>
 <li>找到出现次数最多的那一个，用它减去第二多，剩下的只能贡献两个。</li>
 <li>用时 $10$ 分钟。交上去 WA 了？？？</li>
@@ -386,8 +467,11 @@
 <li>换一种思路，先把最大的那个平铺，然后往里面插空。只有当所有其他数字的出现次数 $&lt;$ 空 的时候，会出现相邻相同，分类讨论即可。</li>
 <li>终于对了，耗时 $25$ 分钟。</li>
 </ol>
-<h3 id="B-2"><a href="#B-2" class="headerlink" title="B"></a>B</h3><h4 id="题意-13"><a href="#题意-13" class="headerlink" title="题意"></a>题意</h4><p>给你一个长度为 $n$ 的 $01$ 串，可以用 $010101\ldots$ 或 $101010\ldots$ 删除一些项，使得最终序列没有相邻相同的元素，问最少操作次数。</p>
-<h4 id="思考-11"><a href="#思考-11" class="headerlink" title="思考"></a>思考</h4><ol>
+<h3 id="B-3">B</h3>
+<h4 id="题意-13">题意</h4>
+<p>给你一个长度为 $n$ 的 $01$ 串，可以用 $010101\ldots$ 或 $101010\ldots$ 删除一些项，使得最终序列没有相邻相同的元素，问最少操作次数。</p>
+<h4 id="思考-7">思考</h4>
+<ol>
 <li>需要删除的 $01$ 数量可以计算，最终删除的 $01$ 数量只差 $1$。</li>
 <li>统计出需要删除的数量之后，如果差值 $&gt;1$，就要多删小的那个。</li>
 <li>但是删除小的那一个，会让另一个需要删除的数量至少增加 $1$（两个块合并了），达不到效果。</li>
@@ -397,38 +481,60 @@
 <li>所以只能删除头尾元素。</li>
 <li>用时 $16$ 分钟。</li>
 </ol>
-<h3 id="C-2"><a href="#C-2" class="headerlink" title="C"></a>C</h3><h4 id="题意-14"><a href="#题意-14" class="headerlink" title="题意"></a>题意</h4><p>$n \times m$ 的网格，初始每个点有 $a_{i,j}$，每行有 $v_i$。每当移除一个点，会使得这一行及上方所有行 $v_k \leftarrow v_k-a_{i,u}$。</p>
+<h3 id="C-3">C</h3>
+<h4 id="题意-14">题意</h4>
+<p>$n \times m$ 的网格，初始每个点有 $a_{i,j}$，每行有 $v_i$。每当移除一个点，会使得这一行及上方所有行 $v_k \leftarrow v_k-a_{i,u}$。</p>
 <p>当 $v_i \le 0$ 或同一行的点都被移除后，游戏结束。</p>
 <p>要使得游戏结束，最少进行几轮？</p>
 <p>$n\times m \le 10^6$</p>
-<h4 id="思考-12"><a href="#思考-12" class="headerlink" title="思考"></a>思考</h4><ol>
+<h4 id="思考-8">思考</h4>
+<ol>
 <li>首先 $m$ 轮是下界。</li>
 <li>然后思考如何让某一层 $v_i \le 0$。找到当前层以及下方所有层数中，$a_{i,j}$ 最大的 $k$ 个（$k\le m$），扫一遍就好了。时间复杂度 $O(nm \log m)$，归并排序，每次合并两行。</li>
 <li>用时 $28$ 分钟，代码调了 $10$ 分钟（悲</li>
 </ol>
-<h3 id="D-1"><a href="#D-1" class="headerlink" title="D"></a>D</h3><h4 id="题意-15"><a href="#题意-15" class="headerlink" title="题意"></a>题意</h4><p>长度为 $n$ 的序列，可以选定一个 $2 \le i \le n-1$，要求 $a_{i-1}$ 和 $a_{i+1}$ 同奇偶，然后让 $a_i \leftarrow a_{i-1}+a_{i+1}-a_i$。</p>
+<h3 id="D-2">D</h3>
+<h4 id="题意-15">题意</h4>
+<p>长度为 $n$ 的序列，可以选定一个 $2 \le i \le n-1$，要求 $a_{i-1}$ 和 $a_{i+1}$ 同奇偶，然后让 $a_i \leftarrow a_{i-1}+a_{i+1}-a_i$。</p>
 <p>问，进行若干次操作之后，字典序最小的序列长什么样。</p>
 <p>$n \le 10^5$</p>
-<h4 id="思考-13"><a href="#思考-13" class="headerlink" title="思考"></a>思考</h4><ol>
-<li>这种操作次数不限的问题，要去考虑操作不能改变的东西是什么。</li>
-<li>显然操作不会改变 $a_i$ 的奇偶性，因此，能操作的项是确定的。</li>
+<h4 id="赛时思路-6">赛时思路</h4>
+<ol>
+<li>这种操作次数不限的问题，要去考虑操作不能改变的东西是什么。<mark>这里其实范围可以扩大，操作次数不限的问题要去考虑操作的性质，不变性只是其中一种。</mark></li>
+<li>显然操作不会改变 $a_i$ 的奇偶性，因此，能操作的项是确定的。<mark>这在这题里只能算小性质吧。</mark></li>
 <li>既然是字典序贪心，那就从第一个可以操作的项开始考虑。如果右边那一项不可操作，那就看操作一次之后会不会让当前项变小就好了。</li>
-<li>右边那一项可操作怎么办呢？那就循环依赖寄了啊。</li>
+<li>右边那一项可操作怎么办呢？那就循环依赖寄了啊。<mark>发现不可做要及时回溯。</mark></li>
 <li>感觉想不出来了，用时 $9$ 分钟。</li>
 </ol>
-<h4 id="正确思路-3"><a href="#正确思路-3" class="headerlink" title="正确思路"></a>正确思路</h4><h2 id="VP-CF-1113-Div-2"><a href="#VP-CF-1113-Div-2" class="headerlink" title="VP CF 1113 Div.2"></a>VP CF 1113 Div.2</h2><h3 id="A-3"><a href="#A-3" class="headerlink" title="A"></a>A</h3><h4 id="题意-16"><a href="#题意-16" class="headerlink" title="题意"></a>题意</h4><p>A，B 博弈，A 可以删除一个 $0$，B 可以删除一个 $1$，A 先手。</p>
+<h4 id="正确思路-5">正确思路</h4>
+<ol>
+<li>序列上操作，一个常见的思路是将操作映射到差分/前缀和数组上。</li>
+<li>题目的操作会让人联想到差分，于是我们考虑操作一次对差分数组有何影响。</li>
+<li>发现操作 $i$ 相当于交换 $d_i$ 和 $d_{i+1}$，操作的前提是 $a_{i-1}$ 和 $a_{i+1}$ 同奇偶，同奇偶的数差是偶数，所以约束等价于 $d_i = d_{i+1}$。</li>
+<li>所以操作就变成差分数组上同奇偶的数可以任意交换，缩成极大连续段，然后让小的数排前面。</li>
+<li>注意第 $1$ 项不可以操作。</li>
+</ol>
+<h4 id="正确思路-6">正确思路</h4>
+<h2 id="VP-CF-1113-Div-2">VP CF 1113 Div.2</h2>
+<h3 id="A-4">A</h3>
+<h4 id="题意-16">题意</h4>
+<p>A，B 博弈，A 可以删除一个 $0$，B 可以删除一个 $1$，A 先手。</p>
 <p>A 希望最终序列字典序最大，B 相反。输出最终序列</p>
-<h4 id="思考-14"><a href="#思考-14" class="headerlink" title="思考"></a>思考</h4><ol>
+<h4 id="思考-9">思考</h4>
+<ol>
 <li>B 会删除第一个 $1$。</li>
 <li>A 删除第一个 $0$。</li>
 <li>用时 $4$ 分钟。</li>
 </ol>
-<h3 id="B-3"><a href="#B-3" class="headerlink" title="B"></a>B</h3><h4 id="题意-17"><a href="#题意-17" class="headerlink" title="题意"></a>题意</h4><p>大小为 $n$ 的初始集合 $a$，以及大小为 $m$ 的目标集合 $b$。</p>
+<h3 id="B-4">B</h3>
+<h4 id="题意-17">题意</h4>
+<p>大小为 $n$ 的初始集合 $a$，以及大小为 $m$ 的目标集合 $b$。</p>
 <p>每次操作选择 $a$ 中的两个数，删除他们，插入一个他们之间的数进入 $a$。</p>
 <p>问能否通过若干次操作使得集合 $a$ 等于集合 $b$。</p>
 <p>集合 $a$，$b$ 中的数<strong>两两不同</strong>。</p>
 <p>$n,m \le 2\times10^5$</p>
-<h4 id="思考-15"><a href="#思考-15" class="headerlink" title="思考"></a>思考</h4><ol>
+<h4 id="思考-10">思考</h4>
+<ol>
 <li>首先 $n &lt; 2m$ 一定不行。</li>
 <li>考虑将 $a$，$b$ 排序。</li>
 <li>$a$ 不能生成比 $\max a$ 大或比 $\min a$ 小的数，因此若 $\max b &gt; \max a$ 或 $\min b &lt; \min a$，则一定不行。</li>
@@ -441,38 +547,391 @@
 <li>把 $a$ 的数视作 $1$，$b$ 的数视作 $-1$，前后扫一遍，如果 $&lt;0$，那就不行。类似括号序列？</li>
 <li>交上去居然 AC 了，用时 $25$ 分钟。好神秘。</li>
 </ol>
-<h3 id="C-3"><a href="#C-3" class="headerlink" title="C"></a>C</h3><h4 id="题意-18"><a href="#题意-18" class="headerlink" title="题意"></a>题意</h4><p>长度为 $2n$ 的序列，$x \in [1,n]$ 在 $a$ 中出现了两次。</p>
+<h3 id="C-4">C</h3>
+<h4 id="题意-18">题意</h4>
+<p>长度为 $2n$ 的序列，$x \in [1,n]$ 在 $a$ 中出现了两次。</p>
 <p>每次操作选择一个数 $x$，找到它在 $a$ 中出现的下标，$l$ 和 $r$，删除 $a[l\ldots r]$，收获 $(r-l+1)^2$ 的价值。</p>
 <p>问序列为空之后能得到的最大价值。</p>
 <p>$n \le 2\times 10^5$</p>
-<h4 id="正确思路-4"><a href="#正确思路-4" class="headerlink" title="正确思路"></a>正确思路</h4><h3 id="D-2"><a href="#D-2" class="headerlink" title="D"></a>D</h3><h4 id="题意-19"><a href="#题意-19" class="headerlink" title="题意"></a>题意</h4><p>两个长度为 $n$ 的 $01$ 串 $s,t$，$q$ 组询问，每一组询问给定 $l$，$r$，问 $s[l\ldots r]$ 和 $t[l\ldots r]$ 是不是合法对。</p>
+<h4 id="正确思路-7">正确思路</h4>
+<ol>
+<li>如果 $[l,r]$ 区间内已经有数被删掉了，那么它一定是被内部消化了，可以证明这个一定不优于不删除。</li>
+<li>所以最优删除一定是多个紧密相贴的块。</li>
+<li>DP 做。</li>
+</ol>
+<h3 id="D-3">D</h3>
+<h4 id="题意-19">题意</h4>
+<p>$2$ 个长度为 $n$ 的 $01$ 串 $s,t$，$q$ 组询问，每一组询问给定 $l$，$r$，问 $s[l\ldots r]$ 和 $t[l\ldots r]$ 是不是合法对。</p>
 <p>合法对 $a,b$ 定义为，可以通过不断选择一组 $i_1 &lt; i_2 &lt; \ldots &lt; i_k$，使得 $a_i$ 与 $b_i$ 中的众数是一样的，然后删除这些项，直到 $a,b$ 为空。</p>
-<h4 id="正确思路-5"><a href="#正确思路-5" class="headerlink" title="正确思路"></a>正确思路</h4><h2 id="贪心专题训练-1"><a href="#贪心专题训练-1" class="headerlink" title="贪心专题训练"></a>贪心专题训练</h2><h3 id="Packing-Under-Range-Regulations"><a href="#Packing-Under-Range-Regulations" class="headerlink" title="Packing Under Range Regulations"></a>Packing Under Range Regulations</h3><h4 id="题意-20"><a href="#题意-20" class="headerlink" title="题意"></a>题意</h4><p>$n$ 个数，每个数的取值范围是 $[l_i,r_i]$。$n$ 个数要求两两不同，问能不能做到。</p>
+<h4 id="正确思路-8">正确思路</h4>
+<ol>
+<li>$2$ 个 $01$ 串，考虑 $00/01/10/11$ 这几种情况。</li>
+<li>$00/11$ 这两种情况对约束是比较友好的，虽然能改变相对大小，但不会使得 $a$，$b$ 的众数从相同变不同，只可能使众数从不同变相同。</li>
+<li>$10/01$ 两个组合在一起也可以达到相同的效果，不会改变相对大小，所以能消掉的就消掉。</li>
+<li>所以考虑只剩下 $01/10$ 的情况，他们会改变众数。此时就需要一个 $00/11$ 来弥补。</li>
+<li>统计 $01/10$ 的个数，$00/11$ 的个数就好了。</li>
+</ol>
+<h2 id="贪心专题训练-2">贪心专题训练</h2>
+<h3 id="Packing-Under-Range-Regulations">Packing Under Range Regulations</h3>
+<h4 id="题意-20">题意</h4>
+<p>$n$ 个数，每个数的取值范围是 $[l_i,r_i]$。$n$ 个数要求两两不同，问能不能做到。</p>
 <p>$n \le 2\times 10^5$</p>
-<h4 id="思考-16"><a href="#思考-16" class="headerlink" title="思考"></a>思考</h4><ol>
+<h4 id="思考-11">思考</h4>
+<ol>
 <li>题目给到区间约束。一个比较 naive 的想法是按区间左端点排序，每次选区间左端点。</li>
 <li>但是这样会出现多个区间共用左端点的情况。不难发现，占用了左端点后，其余区间的可选范围减少 $1$，把他们归到下一个左端点考虑就好了。</li>
 <li>相同左端点，优先满足 $r$ 小的那一个区间。</li>
 </ol>
-<h3 id="01Sequence"><a href="#01Sequence" class="headerlink" title="01Sequence"></a>01Sequence</h3><h4 id="题意-21"><a href="#题意-21" class="headerlink" title="题意"></a>题意</h4><p>构造一个长度为 $n$ 且 $1$ 的数量最少的 $01$ 序列，使其满足 $m$ 个约束，每个约束 $l,r,x$ 表示 $[l,r]$ 中至少有 $x$ 个 $1$。</p>
+<h3 id="01Sequence">01Sequence</h3>
+<h4 id="题意-21">题意</h4>
+<p>构造一个长度为 $n$ 且 $1$ 的数量最少的 $01$ 序列，使其满足 $m$ 个约束，每个约束 $l,r,x$ 表示 $[l,r]$ 中至少有 $x$ 个 $1$。</p>
 <p>$n,m \le 2\times 10^5$</p>
-<h4 id="思考-17"><a href="#思考-17" class="headerlink" title="思考"></a>思考</h4><ol>
+<h4 id="思考-12">思考</h4>
+<ol>
 <li>在前缀和数组的视角下看约束，$s_r - s_{l-1} \ge x$，感觉没啥用。</li>
-<li>考虑简化问题，$x &#x3D; 1$ 时退化为区间选点，那这题就相当于区间选多个点。</li>
+<li>考虑简化问题，$x = 1$ 时退化为区间选点，那这题就相当于区间选多个点。</li>
 <li>沿用区间选点的贪心思路，如果区间内点不够，就从右端点开始加。</li>
 <li>需要动态维护区间和，单点加，并查集处理“左边第一个 $0$”，时间复杂度 $O(m \log n + n \log n)$</li>
 </ol>
-<h4 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h4><ol>
+<h4 id="后话">后话</h4>
+<ol>
 <li>瞄了一眼题解，直接用 set 维护就好了，不需要上并查集。</li>
 <li>有差分约束的做法，我就说这个约束怎么这么像差分约束。然后这题的约束还有 $0 \le s_i-s_{i-1} \le 1$，边权有 $-1$，跑 SPFA 会被卡。转而考虑 $s_i$ 记录 $0$ 的数量就可以跑 dij 做了。好题！</li>
 </ol>
-<h3 id="Case-of-Fugitive"><a href="#Case-of-Fugitive" class="headerlink" title="Case of Fugitive"></a>Case of Fugitive</h3><h4 id="题意-22"><a href="#题意-22" class="headerlink" title="题意"></a>题意</h4><p>$n$ 个不交区间，$m$ 条线段，长度为 $a_i$。一条线段可以将其左右端点的相邻区间联通。问能否使得所有区间联通。</p>
+<h3 id="Case-of-Fugitive">Case of Fugitive</h3>
+<h4 id="题意-22">题意</h4>
+<p>$n$ 个不交区间，$m$ 条线段，长度为 $a_i$。一条线段可以将其左右端点的相邻区间联通。问能否使得所有区间联通。</p>
 <p>$n,m \le 2 \times 10^5$</p>
-<h4 id="思考-18"><a href="#思考-18" class="headerlink" title="思考"></a>思考</h4><ol>
+<h4 id="思考-13">思考</h4>
+<ol>
 <li>将 $a_i$ 排序，那么，相邻两个区间能选择的线段构成一个区间。</li>
 <li>对于这新的 $n-1$ 个区间，每个区间要选出一个数，一个数不能被重复选。这不就是 Packing Under Range Regulations 吗？秒了。</li>
-<li>既然出现得这么平凡，不妨起个名字，就叫点选区间问题吧。</li>
+<li>既然出现得这么频繁，不妨起个名字，就叫点选区间问题吧。</li>
 </ol>
+<h1>9.9</h1>
+<h2 id="VP-CF-Educational-194">VP CF Educational 194</h2>
+<h3 id="A-5">A</h3>
+<p>太简单就懒得写了，用时 $4$ 分钟。</p>
+<h3 id="B-5">B</h3>
+<h4 id="题意-23">题意</h4>
+<p>求 $\sum\limits_{i=0}^{k-1} (y+i) \bmod (x+i)$</p>
+<p>$x,y \le 10^6$，$k \le 10^{12}$，$\sum y\le 10^6$ <mark>对于这个 $y$ 的范围要很敏感</mark></p>
+<h4 id="赛时思路-7">赛时思路</h4>
+<ol>
+<li>推式子题，拆成 $y \bmod (x+i)+i\bmod (x+i)$。<mark>式子推错了，外面还要套一层取模的。</mark></li>
+<li>先看第一项，注意到 $y$ 很小，所以当 $x+i &gt; y$ 之后，都贡献 $y$。可以暴力枚举。</li>
+<li>再看第二项，一直贡献 $i$ 啊，等差数列求个和就好了。</li>
+<li>要开 int128 吧。</li>
+<li>过不了样例。突然发现这个式子外面还要再套一层 $\bmod (x+i)$。</li>
+<li>啊啊，重新来一遍。</li>
+<li>如果 $y &gt; x$，问题就是一个等差数列求和。</li>
+<li>如果 $y\le x$，变成 $(y+i)-\lfloor \frac{y+i}{x+i} \rfloor \times(x+i)$，考虑用 $\lfloor \frac{y+i}{x+i} \rfloor$ 的值分组。<mark>这里出现误判了，我当时以为这个会越加越大，实际上这是假分数，所以越加越小，最终趋近 $1$，所以可以暴力枚举的，$i=y$ 的时候就是 $1$ 了。</mark></li>
+<li>当 $\lfloor \frac{y+i}{x+i} \rfloor = p$ 时，有：$(y+i)-p(x+i) = y+i-px-pi=y-px+(1-p)i$</li>
+<li>感觉太复杂了啊，推不下去了。用时 $46$ 分钟。</li>
+</ol>
+<h4 id="正确思路-9">正确思路</h4>
+<ol>
+<li>看到式子之后先想一下，再尝试变化。</li>
+<li>如果 $y &lt; x$ 那就等差数列求和。</li>
+<li>如果 $y &gt; x$，这个式子很像糖水原理，所以将取模转化为 $(y+i)-\lfloor \frac{y+i}{x+i} \rfloor \times(x+i)$。当 $i=y$ 时就变成了 $y-x$。暴力枚举 $y$ 就好了。</li>
+</ol>
+<h3 id="C-5">C</h3>
+<h4 id="题意-24">题意</h4>
+<p>给定 $x,y$，一次操作可以将 $x \leftarrow x-1,y\leftarrow y+1$，使得 $x \oplus y$ 最大的同时需要操作次数最小。</p>
+<p>$x,y \le 2^{29}$</p>
+<h4 id="赛时思路-8">赛时思路</h4>
+<ol>
+<li>考虑从高向低位贪心，每次 check 当前位能不能贡献 $1$，如果可以，那就选。<mark>这里又急了，感觉还是那个问题，在没有理解题目的情况下贸然行动了。应该要注意到 $x \oplus y$ 一定可以取到最大值 $x+y$ 的。对位运算的最大值缺乏积累吧，不够敏感。</mark></li>
+<li>当前位的操作不能影响到前面数字，因此，lowbit(x) &gt; 当前位则无法操作（xxxx00000），lowzero(y) &gt; 当前位则无法操作(xxxx11111)。可以计算出此时最大操作数。</li>
+<li>从当前位看，$x$ 不能从 $0$ 变 $1$，$y$ 不能从 $1$ 变 $0$，因此，记录这两位第一次变化所需的操作次数，取较大值即可。</li>
+<li>$x$ 从 $1$ 变 $0$ 好计算（xxxx011111），$y$ 从 $0$ 变 $1$ 也好计算 (xxxx10000)。</li>
+<li>这样子 $x \oplus y$ 确实最大，但是操作次数最小吗？的确吧。</li>
+<li>代码没调出来（悲。用时 $40$ 分钟。</li>
+</ol>
+<h4 id="正确思路-10">正确思路</h4>
+<ol>
+<li>对位运算的最大/最小值应该很敏感才行：
+<ol>
+<li>xor：最大值是 $a+b$，最小值是 $0$</li>
+<li>or：最大值是 $a+b$，最小值是 $\max(a,b)$</li>
+<li>and：最大值是 $\max(a,b)$，最小值是 $0$</li>
+</ol>
+</li>
+<li>然后注意到这题 $x=0$ 时一定能取到最大值 $x+y$，考虑最小化操作次数就好了。</li>
+<li>令 $n=x+y$，$x \oplus y=n$ 意味着 $x,y$ 在一些位上不能相同，相当于让 $n$ 把一些 $1$ 分给 $x$，然后不能超过 $x$ 的同时越大越好。这就是一个用二进制来拼数的过程了，从高往低贪心。</li>
+</ol>
+<h3 id="D-4">D</h3>
+<h4 id="题意-25">题意</h4>
+<p>已知这个序列的前缀和的每一项的正负性，构造一个无元素 $0$ 的序列 $a$，它的代价是所有元素绝对值的最大值。</p>
+<p>求最小代价。</p>
+<p>$n \le 3\times 10^5$</p>
+<h4 id="赛时思路-9">赛时思路</h4>
+<ol>
+<li>考虑构造前缀和数组，它做差分就是原数组，代价就是相邻两项差的最大值，约束是不能出现相邻相同，以及每一位的正负性。</li>
+<li>出现连续 $0$ 或开头 $0$ 无解。</li>
+<li>拆成加号段和减号段。直观理解一下，每一段里，走势都是像个山峰一样的。<mark>这里应该要去尝试构造反例的，样例 hack 了这个理解。但实际上也接近了。</mark></li>
+<li>加号段的开头必为 $1$，长度为奇数时结尾为 $1$，否则是 $2$。</li>
+<li>减号段开头必为 $-1$，长度为奇数时结尾为 $-1$，否则是 $-2$。</li>
+<li>扫一遍就好了？</li>
+<li>做法假了。。用时 $20$ 分钟。</li>
+</ol>
+<h4 id="正确思路-11">正确思路</h4>
+<ol>
+<li>考虑构造前缀和数组，要求相邻两项尽可能紧密。</li>
+<li>可以通过“抖动”的策略控制大小。然后感觉这个答案其实很小。把样例都看一遍，发现答案只可能是 $1/2/3$.</li>
+<li>把玩一下样例发现只有出现 <code>-++-</code> 或 <code>+--+</code> 的时候答案才会等于 $3$</li>
+<li>所以按照加号段以 $1$ 开头，减号段以 $-1$ 开头的策略做一遍，如果答案是 $1$ 或 $2$ 直接输出，是 $3$ 的话再判断一下有没有 <code>-++-</code> 或 <code>+--+</code>，没有也输出 $2$.</li>
+</ol>
+<h2 id="VP-CF-1112-Div-2">VP CF 1112 Div.2</h2>
+<h3 id="A-6">A</h3>
+<h4 id="题意-26">题意</h4>
+<p>长度为 $n$ 的 $w$ 数组，选择一个 $k$。</p>
+<p>所有大于 $k$ 的元素右移，小于 $k$ 的元素左移，不能出现等于 $k$ 的元素。</p>
+<p>问选择 $k$ 之后能否使得 $[1,n]$ 中每一位恰好有一个元素。</p>
+<h4 id="思考-14">思考</h4>
+<ol>
+<li>每个元素都要移动，并且只移动一次。那么，第一项和第二项应该交换位置。第三项和第四项应该交换位置。奇数一定无解。</li>
+<li>所以，$k$ &lt; 奇数项，大于偶数项。比较奇数项最小值和偶数项最大值即可。</li>
+<li>用时 $12$ 分钟。</li>
+</ol>
+<h3 id="B-6">B</h3>
+<h4 id="题意-27">题意</h4>
+<p>构造一个长度为 $n$ 的 $01$ 串，要求有恰好 $k$ 个相邻相等，并且 $01$ 数量只差最多为 $1$。</p>
+<h4 id="思考-15">思考</h4>
+<ol>
+<li>考虑合并相同项。长度为 $x$ 的项可以贡献 $x-1$ 个相邻相等。</li>
+<li>先把 $k$ 的约束满足了，再用 $0101$ 填到长度为 $n$。</li>
+<li>判断 $k$ 的奇偶性，如果是偶数，$01$ 各自贡献 $\frac{k}{2}$，形如 $000011110101$</li>
+<li>如果是奇数，$0$ 贡献 $\lfloor \frac{k}{2} \rfloor$。形如 $000111101010$。</li>
+<li>用时 $12$ 分钟。</li>
+</ol>
+<h3 id="C-6">C</h3>
+<h4 id="题意-28">题意</h4>
+<p>给你一个长度为 $n$ 的序列 $a$，从中找到一个最长子序列。</p>
+<p>约束是，第 $i$ 项不能是子序列里正着数 $[l_i,r_i]$ 项，也不能是倒着数 $[u_i,v_i]$ 项。</p>
+<p>$n \le 5\times 10^3$</p>
+<h4 id="赛时思路-10">赛时思路</h4>
+<ol>
+<li>这个倒着数需要提前知道序列长度才行啊。二分？<mark>前面那一句是对的，后面这里错了，没有单调性，而且这个数据范围也不像是二分的样子啊（</mark></li>
+<li>二分之后就可以确定出子序列每一项可以填哪些数。<mark>这里细想一步就会发现非常复杂，不可做，应该及时跳出换思路。</mark></li>
+<li>这个区间的性质好像没用上啊。放弃了。用时 $21$ 分钟。</li>
+</ol>
+<h4 id="正确思路-12">正确思路</h4>
+<ol>
+<li>枚举序列长度，考虑子序列每一项可以填哪些数，发现不可做。</li>
+<li>那就依次考虑原序列的数，看它能不能填进子序列里。</li>
+<li>如果当前项能填，我们猜测，此时填一定最优 <strong>[感觉这里很难想]</strong>。 可以用调整法证明。如果最优解不是这样的，那就把第一个出现不同的位置调整，不会影响答案。</li>
+</ol>
+<h3 id="D-5">D</h3>
+<h4 id="题意-29">题意</h4>
+<p>给你一个长度为 $n-1$ 的数组 $a$。</p>
+<p>对于一个长度为 $n$ 的排列，定义 $v_i$ ($1\le i \le n-1$) 为：将这个排列从 $i$ 处断开，左右段最大值的较小值。</p>
+<p>计算有多少个 $v_i = a_i$ 的排列 $p$。</p>
+<p>$n \le 10^6,a_i \le n$</p>
+<h4 id="赛时思路-11">赛时思路</h4>
+<ol>
+<li>感觉要跑个 dp 啊。<mark>感觉应该先理解题目才是，不要上来就 dp 吧。</mark></li>
+</ol>
+<h4 id="正确思路-13">正确思路</h4>
+<ol>
+<li>观察 $v$ 的形状，$n$ 将左右劈成两个坡，分别为前缀最大值与后缀最大值。这是一个单峰序列，且峰顶是 $n-1$。</li>
+<li>此时考虑填数使得 $v_i=a_i$。如果 $a_i$ 不是一个以 $n-1$ 为峰的单峰序列，那就无解。</li>
+<li>考虑 $n$ 个数可以填在哪里。首先 $a_i$ 只能填在固定位置，且它拥有一个平台，这个平台一定放比它小的数。$n$ 比较特殊，不能放入任何一个平台，但是能放在 $n-1$ 的左右两侧。</li>
+<li>每个平台只能容纳 $\le v_i$ 的数，对于点 $i$，只能填在 $v_i\ge i$ 的平台里里。这是一个经典计数模型，从大往小填数，维护当前空位数就不会有问题。因为当前填的一定会占用后面填的一个空位。如果从小到大填，当前填的就不一定占用后面的空位，所以就不能做。</li>
+<li>判断无解，开个桶记录记录连续段长度，从大到小填数，维护一个可填空位，如果这个数不是 $a_i$ 就填，空位 $-1$.</li>
+</ol>
+<h2 id="贪心专题训练-3">贪心专题训练</h2>
+<h3 id="超速检测">超速检测</h3>
+<p>梦回 CSP-S2024，终于把当年的正解补上了。</p>
+<p>找出每个车的超速时所在的位置，第一问做个前缀和，第二问是个区间选点。对于每个区间，如果没有点覆盖，找到最后一个 $\le r$ 的点选就好了。</p>
+<p>细节好多。。。</p>
+<h3 id="拼数">拼数</h3>
+<p>拼数类贪心，之前还在 ABC 上做到过。</p>
+<h3 id="国王游戏">国王游戏</h3>
+<p>这种需要确定顺序的排序题，一种方法是邻项交换确定排序规则。</p>
+<p>假设现在交换 $i,j$。设 $s$ 是 $i-1$ 及之前的 $a$ 乘积。</p>
+<p>交换前：$\max(\lfloor \frac{s}{b_i} \rfloor, \lfloor \frac{s\times a_i}{b_j} \rfloor)$</p>
+<p>交换后：$\max(\lfloor \frac{s}{b_j} \rfloor, \lfloor \frac{s\times a_j}{b_i} \rfloor)$</p>
+<p>交换之后更优，即：$\max(\lfloor \frac{s}{b_i} \rfloor, \lfloor \frac{s\times a_i}{b_j} \rfloor) \le \max(\lfloor \frac{s}{b_j} \rfloor, \lfloor \frac{s\times a_j}{b_i} \rfloor)$。</p>
+<p>两边同时除以 $s$ ，乘以 $b_ib_j$，则有：$\max(b_j,a_ib_i) \le \max(b_i,a_jb_j)$。</p>
+<p>分两种情况讨论：</p>
+<ol>
+<li>$b_j \ge a_ib_i$，此时 $\max$ 可以消掉，$b_j \le a_jb_j$，为假。</li>
+<li>$a_ib_i &gt; b_j$，又有 $a_ib_i \ge b_i$，所有左边取的一定是 $a_jb_j$，所以 $a_ib_i \le a_jb_j$。</li>
+</ol>
+<h3 id="Buy-low-sell-high">Buy low sell high</h3>
+<p>在当前这一天卖出，需要在之前找到一个最小的买入价格。</p>
+<p>但是当前决策可能和之前冲突。决策的时候加入一个反悔代价，就可以了。</p>
+<p>先前决策价值：$a_j-a_i$<br>
+当前决策，反悔先前决策价值：$a_k-a_i - (a_j-a_i) = a_k - a_j$</p>
+<h3 id="Olympiad-in-Programming-and-Sports">Olympiad in Programming and Sports</h3>
+<p>双队伍选择，尝试反悔贪心。</p>
+<p>先把其中一队选满，再考虑另一对。</p>
+<p>如果 $i$ 没选过，贡献 $b_i$，否则，贡献 $b_i-a_i+a_j$。</p>
+<p>开三个优先队列，看看是哪种情况收益大就好了。</p>
+<p>感觉比较难理解。</p>
+<h3 id="拯救小矮人">拯救小矮人</h3>
+<p>首先要确定逃出顺序，使用我们的邻项交换法。</p>
+<p>交换操作只会对当前这两人产生影响。看这两人能否逃出就好了。</p>
+<p>交换前：$i$ 先 $j$ 后</p>
+<p>$i$ 逃出时人梯高度：$s+a_j+a_i+b_i$</p>
+<p>$j$ 逃出时人梯高度：$s+a_j+b_j$</p>
+<p>交换后：$j$ 先 $i$ 后</p>
+<p>$j$ 逃出时人梯高度：$s+a_i+a_j+b_j$</p>
+<p>$i$ 逃出时人梯高度：$s+a_i+b_i$</p>
+<p>交换后更优，条件是：$\min(a_i+a_j+b_j,a_i+b_i) \ge \min(a_j+a_i+b_i,a_j+b_j)$。</p>
+<p>推导一下有：$a_i+\min(a_j+b_j,b_i) \ge a_j+\min(a_i+b_i,b_j)$</p>
+<p>分类讨论一下：</p>
+<ol>
+<li>$a_j+b_j &gt; b_i$，此时 $a_i+b_i \ge a_j+b_j$，因为 $a_i+b_i$ 不可能大于 $a_i+b_i+a_j$。</li>
+<li>$a_j+b_j \le b_i$，此时 $a_i+a_j+b_j \ge a_j+b_j$，理由同上，将 $b_i$ 代入左式不等号不变，所以当 $a_i+b_i \ge a_j+b_j$ 时，交换不劣。</li>
+</ol>
+<p>尽可能让 $a_i+b_i$ 小的排在前面。</p>
+<p>确定顺序之后，如果当前人逃不出去了，那就在逃出去的人里面拉那个 $a_i$ 最大的来垫背。</p>
+<p>反悔贪心捏。</p>
+<h3 id="建筑抢修">建筑抢修</h3>
+<p>这种决策的顺序对答案有影响的题目，通常都需要去考虑排序。</p>
+<p>考虑邻项交换确定排序规则。交换顺序只对这两项产生影响。</p>
+<p>设修理完前面的建筑需要 $s$ 秒。</p>
+<p>交换前：先 $i$ 后 $j$</p>
+<p>$i$ 建筑：$s+T_i \le L_i$</p>
+<p>$j$ 建筑：$s+T_i+T_j \le L_j$</p>
+<p>交换后：先 $j$ 后 $i$</p>
+<p>$j$ 建筑：$s+T_j \le L_j$</p>
+<p>$i$ 建筑：$s+T_i+T_j \le L_i$</p>
+<p>交换后更优，猜测排序规则是 $L_i \le L_j$，带入验证，成立。</p>
+<p>先选，发现不行就找到之前的建筑，删掉它。</p>
+<h1>9.10</h1>
+<h2 id="VP-CF-1111-Div-2">VP CF 1111 Div.2</h2>
+<h3 id="B-7">B</h3>
+<h4 id="题意-30">题意</h4>
+<p>构造一个长度为 $n$ 的正整数序列 $a$，使得其有一个长度为 $k$ 的连续子序列的和是 $m$ 的倍数，且不存在长度 $&lt; k$ 的和是 $m$ 倍数的连续子序列。</p>
+<h4 id="思考-16">思考</h4>
+<ol>
+<li>如果 $m&lt;k$ 无解。</li>
+<li>先构造出一个长度为 $k$，和等于 $m$ 的子序列。前 $k-1$ 项是 $1$，第 $k$ 项是 $m-k$。</li>
+<li>然后选一个 $kx$ 不能整除 $m$ 的数 $x$。发现找不到。</li>
+<li>那就一直构造长度为 $k-1$ 的子序列，使他的和 $= m-1$。</li>
+<li>这样子除了前 $k$ 项，后面的长度为 $k$ 的区间和都 $&lt; m$。</li>
+<li>WA 了两发。。。哦会有 $0$ 的问题，那就使他的和 $= m$ 就好了。</li>
+<li>用时 $27$ 分钟（</li>
+</ol>
+<h4 id="笔记">笔记</h4>
+<ol>
+<li>区间和考虑前缀和数组，按余数分组。</li>
+</ol>
+<h3 id="C-7">C</h3>
+<h4 id="题意-31">题意</h4>
+<p>给你一个初始 $01$ 串 $a$ 和目标 $01$ 串 $b$，操作可以选择 $a$ 的一个子序列，要求子序列存在奇数个 $1$，然后将这个子序列取反。问从 $a$ 到 $b$ 最小操作次数。</p>
+<h4 id="思考-17">思考</h4>
+<ol>
+<li>需要从 $0$ 变 $1$ 的项非常好考虑，所以只需要考虑从 $1$ 变 $0$ 的项就好了。</li>
+<li>如果从 $1$ 变 $0$ 的个数刚好是奇数，操作 $1$ 次。从 $1$ 变 $0$ 的个数是偶数且大于 $0$？单独选择一个 $1$ 操作一次，使数量变成奇数。</li>
+<li>没有从 $1$ 变 $0$ 的个数呢？此时 $a$ 中的所有 $1$ 都与 $b$ 中的 $1$ 对应。也就是无论怎么调整，都无法生成出一个需要从 $1$ 变 $0$ 的数。无解。</li>
+<li>交上去 WA 了？？</li>
+<li>哦无解判错了。可以通过献祭一个 $a$ 中的 $1$，使它变成从 $0$ 变 $1$，同时献祭一个 $a$ 中的 $0$，使它变成从 $1$ 到 $0$。</li>
+<li>用时 $28$ 分钟。</li>
+</ol>
+<h4 id="笔记-2">笔记</h4>
+<ol>
+<li>双 $01$ 串考虑 $00/01/10/11$ 四种情况</li>
+</ol>
+<h3 id="D-6">D</h3>
+<h4 id="题意-32">题意</h4>
+<p>$0$-based.</p>
+<p>给你一个长度为 $n$ 的正整数序列 $b$。找到一个最小的 $k$，只需要交换 $i \oplus j \le k$ 的数，就可以将其排成一个不降的序列。</p>
+<p>Hard version 则需要处理多个单点修改和查询。</p>
+<p>$n \le 10^6$</p>
+<h4 id="赛时思路-12">赛时思路</h4>
+<ol>
+<li>对于一个固定的 $k$，能交换的下标是固定的。</li>
+<li>尝试将下标按照二进制最高位分组，同组之间的交换不需要用到最高位，不同组则需要。<mark>对于这种直觉出来的东西不要太过信任，如果发现不行应该果断放弃。分组的思路是对的，位运算问题里分组还是很常见的技巧。</mark></li>
+<li>发现样例的 $k$ 好像都是 $2$ 的幂？<mark>居然猜对了。</mark></li>
+<li>如果解锁了当前组，前面的组也会被解锁。</li>
+<li>等等，这个是 $0$-based，$0$ 和任何数的异或不是等于它本身吗？那就可以用 $0$ 作为跳板啊。但是用 $0$ 不一定是 $k$ 最小的。<mark>用 $0$ 作为跳板这个技巧应该挺常见的来着</mark></li>
+<li>解锁了当前组之后，组间可以任意交换，组中第一个数可以和 $0$ 交换，也就是组内任意数都可以和 $0$ 交换。</li>
+<li>排序一遍，找到不合理的位置中，下标最大的那个数的二进制最高位就好了。也就是求 $\log$ 向下取整。</li>
+<li>WA 了。。。看来还是太 naive 了。</li>
+<li>同组交换不需要用到最高位啊，和 $0$ 交换才需要。先把组内的顺序排好，再考虑和组外的交换。感觉可做啊。</li>
+<li>$x-1 \oplus x = 2^{lowbti_x}-1$，组内交换可以用 lowbit 做到？假了。。</li>
+</ol>
+<h4 id="Eazy-version-正确思路">Eazy version 正确思路</h4>
+<ol>
+<li>首先固定 $k$，考虑哪些下标可以交换。</li>
+<li>小于等于 $k$ 的下标显然可以交换，大于 $k$ 的下标中，如果它们大于 $k$ 的最高位部分相同，那么它们也可以交换。因此发现 $k$ 只有最高位有用，所以 $k$ 是 $2$ 的次幂。</li>
+<li>为了描述这种关系，我们将下标按照 $k$ 分组，同一组之间可以任意交换，不同组之间则不行。</li>
+<li>所以枚举 $k$，判断不同组之间是不是排好序的就行了。判断方法就是找出组内最大最小值，如果当前组的最小值小于前一组最大值就不行。这个可以 $O(n)$ 做到。时间复杂度 $O(n \log V)$.</li>
+</ol>
+<h4 id="Hard-version-正确思路">Hard version 正确思路</h4>
+<ol>
+<li>根据 Eazy version，我们开 $k$ 个线段树，维护相邻的逆序对数量，就可以判断区间是否有序，时间复杂度 $O(n\log n\log V)$。</li>
+<li>开动一下人类智慧，发现线段树的结构和我们分组的形状很类似。</li>
+<li>把数组的长度填成 $2$ 的次幂，那么线段树每一层就对应一个 $k$。堆式存储的线段树上的节点 $u$，它左边的节点是 $u-1$，如果 $u$ 是 $2$ 的次幂，那么它就是最左节点。</li>
+<li>维护每一层的相邻节点逆序对数，修改只会影响一条链。于是我们得到了一个 $O(n+n \log n)$ 做法。</li>
+</ol>
+<h3 id="E">E</h3>
+<h4 id="题意-33">题意</h4>
+<p>构造一个 $n$ 个顶点的树，使得 $\sum \limits_{i=1}^n dist(i,(i \bmod n)+1)=k$。</p>
+<p>$n \le 2\times 10^5$</p>
+<h4 id="正确思路-14">正确思路</h4>
+<h2 id="贪心专题训练-4">贪心专题训练</h2>
+<h3 id="种树">种树</h3>
+<p>一个 naive 的做法是把 $a$ 升序排序，取前 $m$ 个，但是可能会取到相邻的。在取的时候加入反悔选项，即 $a_{i-1}+a_{i+1}-a_i$ 即可。需要用链表维护一下左右项。</p>
+<p>感觉非常巧妙。</p>
+<h3 id="Least-Cost-Bracket-Sequence">Least Cost Bracket Sequence</h3>
+<p>先全选右括号，再扫一遍，根据括号序列的前缀约束，在每个不满足约束的位置进行反悔。</p>
+<h3 id="Minimize-The-Integer">Minimize The Integer</h3>
+<h4 id="题意-34">题意</h4>
+<p>$n$ 位的大整数 $a$，只要 $a$ 的相邻两项相同，就可以交换 $a$ 的相邻两项。</p>
+<p>求最小 $a$。</p>
+<h4 id="思考-18">思考</h4>
+<ol>
+<li>和数位有关的，最小的，是个字典序贪心。</li>
+<li>按位考虑，一个数只能和右边第一个和它不同奇偶的数交换。</li>
+<li>预处理出右边第一个不同奇偶的数，扫一遍就好了。</li>
+<li>需要套个并查集维护右边第一个不同奇偶的数。</li>
+</ol>
+<h4 id="正确思路-15">正确思路</h4>
+<ol>
+<li>瞄了眼题解，思路比我简洁一万倍啊（</li>
+<li>奇偶性相同的点无法改变次序，不同则可以任意改变。</li>
+<li>抽成两个序列，搞个类归并就 ok 了。</li>
+</ol>
+<h3 id="删数问题">删数问题</h3>
+<h4 id="题意-35">题意</h4>
+<p>$n$ 位大整数 $a$，从中删除 $k$ 位，求最小 $a$。</p>
+<h4 id="思考-19">思考</h4>
+<ol>
+<li>数位，最小，字典序贪心。</li>
+<li>按位考虑，第一次在 $[n-k,n]$ 中选最靠右的最小值，第二次在 $[n-k-1,$ 上一次选的位置 $-1]$ 中选最靠右的最小值。</li>
+<li>暴力即可。线段树也可以做到 $O(n \log n)$。</li>
+</ol>
+<h4 id="正确思路-16">正确思路</h4>
+<ol>
+<li>这题解法感觉有很多，挑一个最优雅的学下吧。</li>
+<li>只要当 $s_i \ge s_{i+1}$ 时删除 $i$ 是有用的。</li>
+<li>维护一个单调栈，如果栈顶元素 $&gt;$ push 的元素，弹掉它。</li>
+<li>如果最后 $k$ 还没有用完，弹掉栈顶 $k$ 个即可。</li>
+<li>注意前导 $0$ 和 $0$ 的细节。</li>
+</ol>
+<h3 id="长野原龙势流星群">长野原龙势流星群</h3>
+<h4 id="题意-36">题意</h4>
+<p>$n$ 个节点，以 $1$ 为根的有根树。对于每个 $u$ 找到一个平均值最大的连通块，输出这个平均值。</p>
+<p>$n \le 2\times 10^5$</p>
+<h4 id="思考-20">思考</h4>
+<ol>
+<li>这种平均值问题，很难让人不去二分啊。</li>
+<li>二分一下均值，问题就变成，存不存在一个点权和 $&gt; 0$ 的连通块。好像不可做就是了（</li>
+<li>点 $u$ 的最大均值和它的子节点有什么关系吗？换根 DP 也未尝不可。好像也不可做就是了（</li>
+<li>标签里有二分欸，那再想想。上面两个思路结合起来好像就可做了？</li>
+<li>dp[$v$] 表示以 $v$ 为根的子树中，和最大是多少。</li>
+<li>如果 dp[root] $&gt; 0$ 则说明二分可行。转移的时候自己一定要选，再选所有 $&gt; 0$ 的子节点就好了。</li>
+<li>于是得到了一个 $O(n^2\log V)$ 的做法。</li>
+<li>没思路了，开题解！</li>
+</ol>
+<h4 id="正确思路-17">正确思路</h4>
+<h1>9.11</h1>
+<p>把前面欠的 $14$ 道题全补了，累死我了。</p>
 
     </div>
 
