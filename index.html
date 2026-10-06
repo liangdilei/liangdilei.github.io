@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -201,6 +201,941 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://liangdilei.github.io/2026/10/06/09-28-10-4-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="liangdl">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liangdl 的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | liangdl 的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/10/06/09-28-10-4-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">09.28-10.4 学习记录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-10-06 16:48:47 / 修改时间：16:49:13" itemprop="dateCreated datePublished" datetime="2026-10-06T16:48:47+08:00">2026-10-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">学习记录</span></a>
+        </span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1>9.28</h1>
+<h2 id="VP-CF-1124-Div-1">VP CF 1124 Div.1</h2>
+<h3 id="C">C</h3>
+<h4 id="题意">题意</h4>
+<p>给你一个长度为 $n$ 的序列，定义一个区间的价值为：</p>
+<ul>
+<li>$m = \max a[l…r]$</li>
+<li>$val = (m &amp; a_l) \oplus (m &amp; a_{l+1})\oplus…\oplus (m &amp; a_r)$</li>
+</ul>
+<p>求最大价值。$n \le 2\times 10^5,a_i \le 2^{18}$</p>
+<h4 id="赛时思路">赛时思路</h4>
+<ol>
+<li>这个数据范围看来要打一个 $O(n \log V)$ 的算法。</li>
+<li>这种题一般都是要钦定某一个东西的。比如左端点或最大值？
+<ol>
+<li>尝试钦定区间最大值：
+<ol>
+<li>因为 $a &amp; b \le \max(a,b)$，$a&amp; a=a$，所以 $m$ 依然是区间最大值。</li>
+<li>稍微思考一下后发现 $\max val = m$。</li>
+<li>于是我们从高到低考虑 $m$ 的这一位能不能取。如果这一位是 $0$ 定然不能取，如果是 $1$，要求区间里有奇数个数这一位是 $1$。显然 $m$ 可以贡献一个 $1$，但是如果都是 $m$ 在贡献那也不合法，因为区间长度至少为 $2$。这样貌似做不了。</li>
+<li>猜测：区间长度越长，$val$ 越小。并非。</li>
+</ol>
+</li>
+<li>尝试钦定区间左端点：
+<ol>
+<li>同样地尝试从高到低构造序列价值。</li>
+<li>这个好像更不可做，序列信息更少。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>不是很懂啊，用时 $24$ 分钟。</li>
+</ol>
+<h4 id="订正">订正</h4>
+<ol>
+<li>考虑求一个序列 $val$ 的过程：
+<ol>
+<li>首先找到最大值</li>
+<li>在最大值两侧找到左右端点。</li>
+</ol>
+</li>
+<li>一些关键洞察：
+<ol>
+<li>题面的式子等价于 $(a_l \oplus a_{l+1} … a_r)\  &amp;\ m$</li>
+<li>区间异或和，想到差分。<mark>区间信息想差分还是不够敏感啊。</mark></li>
+</ol>
+</li>
+<li>发现这和笛卡尔树的结构非常吻合。于是我们建一棵笛卡尔树。
+<ol>
+<li>钦定区间最大值，在左右子树找左右端点。
+<ol>
+<li>先弱化一下问题，如果每个数不需要 $&amp; m$，这是一个经典 Trie 找最大异或和的问题。启发式合并。</li>
+<li>但这题 $&amp; m$ 使得问题变得复杂，不能对弱化解法进行推广，于是我们换种思路。</li>
+</ol>
+</li>
+<li>直接从高到低位贪心，记当前答案为 $ans$，看 $ans$ 的每一位能不能填 $1$。
+<ol>
+<li>这样子就将问题转化为了一个判定问题，显然只有 $ans\  &amp; \ m = ans$，即 $m$ 包含 $ans$ 的子树上才可能贡献答案（如果 $ans$ 的 $1$ 在 $m$ 这里是 $0$，说明一定凑不出 $ans$，因为最后的结果要 $&amp; m$）。</li>
+<li>那么我们就在这个子树的左右找，看存不存在一个 $(s_{l-1} \oplus s_r\  &amp; \ m)\  &amp;\ ans=ans$。因为 $ans$ 是 $m$ 的子集，所以式子等价为：$s_{l-1} \oplus s_r\  &amp;\ ans=ans$。</li>
+<li>对于 $ans$ 每一位，我们都更新一遍 $s$ 的取值，然后再这上面启发式合并，判断存不存在 $s_{l-1} \oplus a_r=ans$。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>时间复杂度 $O(n\log V \log n)$。</li>
+</ol>
+<h3 id="D">D</h3>
+<h4 id="题意-2">题意</h4>
+<p>一个下标 $i$ 移动一次，可以移动到：</p>
+<ul>
+<li>左边任意位置。</li>
+<li>右边第一个比它大的数的位置。</li>
+</ul>
+<p>定义 $f(i,j)$ 表示从 $i$ 到 $j$ 所需最少的操作次数，达不到就是 $0$。求 $\sum f(i,j)$。</p>
+<p>$p_i \le n \le 10^6$</p>
+<h4 id="赛时思路-2">赛时思路</h4>
+<ol>
+<li>对于 $i&gt;j$，$f(i,j)=1$，一共有 $\frac{n(n-1)}{2}$ 个。</li>
+<li>只需要考虑 $i&lt;j$ 的操作次数了。此时 $j$ 在 $i$ 右边，那么 $i$ 的操作是固定的，不断找到右边第一个比它大的数。只有在越过 $j$ 时会考虑向左。如果不能越过 $j$，说明 $p_i$ 是当前的后缀最大值，无论什么方案都得经过 $p_i$，此时无解。</li>
+<li>这时候就有两个方向了：
+<ol>
+<li>模拟过程：
+<ol>
+<li>钦定 $i$，每次跳到 $r_i$ 的时候，$[last+1,r_i]$ 这个区间加上跳跃次数。$[0,2,2,1…,3,3,2…]$ 这样的。</li>
+<li>考虑先当作 $[0,2,2,2…3,3,3…0,0,0]$ 算，最后再减去链的长度。在差分意义下考虑这个操作，是 $[0,2,0,0…1,0,0…1,0,0…,-4,0,0]$ 这样的。</li>
+<li>我们考虑维护这个差分数组。</li>
+</ol>
+</li>
+<li>跳出过程，从序列结构上理解它。</li>
+</ol>
+</li>
+<li>放弃了，太复杂了，用时 $86$ 分钟。</li>
+</ol>
+<h4 id="订正-2">订正</h4>
+<ol>
+<li>首先考虑 $f(i,j)$ 的过程。
+<ol>
+<li>要么是一直往右跳，跳到越过再回来。</li>
+<li>要么是先往左跳一步，然后跳到越过再回来。</li>
+</ol>
+</li>
+<li>考虑无解（也就是 $f(i,j)=0$ 的情况）
+<ol>
+<li>$r_i=i$ 的点会将整个序列划分成很多快，不同块之间不能相互到达。</li>
+<li>如果 $i$，$j$ 处于不同块则无解。</li>
+</ol>
+</li>
+<li>计数题，考虑将贡献拆到起点 $i$ 上：
+<ol>
+<li>如何计算 $f(i,j)$ ，其中 $i&lt;j$ 的和呢？此时应该能想到 dp，因为跳跃的过程是由 “子过程” 拼接而成的。</li>
+<li>用 $g_i$ 表示这个量，考虑如何转移 $g$。<mark>用形式化的语言表达量，这个意识还是比较缺乏。</mark>
+<ol>
+<li>因为是从前往后跳，所以 $i$ 一定从 $i&lt;j$ 转移。</li>
+<li>转移需要在已有的基础上新增一段，我们来考虑新增的是哪一段。</li>
+<li>新增的 $j$ 和两步能到达的范围有关（一步的话显然不能转移），令 $x = i$ 两步能到达的最右位置，于是我们开始讨论：
+<ol>
+<li>$x=r_i$，此时无法在两步之内走到大于 $r_i$ 的点。
+<ol>
+<li>对于 $i&gt;j$ 的点，从 $i$ 和 $r_i$ 出发是一样的步数。</li>
+<li>对于 $i=j$ 的点，走的步数比 $g_{r_i}$ 少 $1$。</li>
+<li>对于 $i&lt;j$ 的点，走的步数都比 $g_{r_1}$ 多 $1$。</li>
+<li>因此 $g_i=g_{r_i}+R-i-1$，其中 $R$ 是当前块末尾。</li>
+</ol>
+</li>
+<li>$x&gt;r_i$
+<ol>
+<li>对于 $x\le j$ 的点，从 $i$ 出发比从 $x$ 出发多 $2$ 步。贡献 $2(R-x+1)$。</li>
+<li>对于 $r_i&lt;j &lt; x$ 这个范围内的点，可以通过 $r_i$ 走两步，也可以通过 $x$ 走三步，还可以通过向左跳地比 $r_i$ 高再向右跳。我们统计那些两步能到达的点的数量。
+<ol>
+<li>$r_{r_i}$ 贡献一个，如果它小于 $x$ 的话。</li>
+<li>从 $i \to k \to j$，要求 $k&lt;i \and r_k=j$，记这个 $j$ 的数量为 $c$。</li>
+<li>这部分贡献 $2(x-r_i-1)+(x-r_i-1-c-[r_{r_i}&lt;x 且 r_{r_i} \notin c])$。</li>
+</ol>
+</li>
+<li>对于 $j=r_i$ 的点，贡献 $1$。</li>
+<li>对于 $i&lt;j&lt; r_i$ 的点，可以通过跳到 $r_i$ 再跳回来，步数为 $2$。贡献 $2(r_i-i-1)$。</li>
+<li>因此 $g_i = g_x + 2R +x - r_i - 2i - 2-c - [r_{r_i}&lt;x \text{ 且 } r_{r_i}\notin c]$。</li>
+</ol>
+</li>
+<li>考虑如何求出 $x$ 和 $c$。
+<ol>
+<li>它们都和先跳到一个 $k$ 再跳到 $r_k$ 有关，我们不妨定义一个 $l_j$ 表示，最小的 $r_k=j$ 的 $k$。</li>
+<li>那么 $x=\max\limits_{l_j&lt;i} j 或 r_{r_i}$，$c=r_i &lt; j &lt; x 且 l_j&lt;i$ 的数量。</li>
+<li>$l_i$ 和 $r_i$ 是可以预处理出来的。</li>
+<li>正序扫描 $i$，维护标记集合 $s$，记 $x$ 为其中的最大值或 $r_{r_i}$，$c$ 为其中 $j&gt;r_i$ 的部分，$flag$ 表示 $r_{r_i}$ 是不是被 $c$ 标记过，这个可以用值域树状数组做。</li>
+<li>结束之后给 $l_j=i$ 的 $j$ 加入标记集合。</li>
+<li>这样统计出 $x$ 和 $c$ 的数组，再倒序做 dp 即可。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="图论专题">图论专题</h2>
+<h3 id="CF1076D-Edge-Deletion">CF1076D Edge Deletion</h3>
+<h4 id="题意-3">题意</h4>
+<p>$n$ 点 $m$ 条边的联通无向带权图，记 $d_i$ 表示 $1$ 到 $i$ 的最短路径。现在只能留下最多 $k$ 条边，要使得 $d$ 变化的尽可能少，输出留下的边的条数和编号。</p>
+<p>$n,m,k \le 3\times 10^5$</p>
+<h4 id="正确思路">正确思路</h4>
+<ol>
+<li>先把不必要的东西剔除。建出一棵<strong>最短路树</strong>，显然只有 $(n-1)$ 条边是有用的，在里面每删一条边，至少使得一个点的最短路非法。</li>
+<li>现在要在里面保留 $x$ 条边，每条边对应一个点，dfs 搜一遍，贪心选前 $x$ 条就好了。</li>
+<li>本题不含 $0$ 边权，因此当某个点出队时，其至根的路径上的点都被松弛完毕了。直接加入这条边即可，不需要显性建树。</li>
+</ol>
+<h3 id="AT-abc243-e-Edge-Deletion">AT_abc243_e Edge Deletion</h3>
+<h4 id="题意-4">题意</h4>
+<p>$n$ 点 $m$ 条边的连通无向图，删除最多的边，使得全源最短路不变。</p>
+<h4 id="正确思考">正确思考</h4>
+<ol>
+<li>这题让我们想起 Jzzhu and Cities，同样也是删除最多的边。于是我们仿照那题思路，考虑删除一条边能不能删。
+<ol>
+<li>如果 $w &gt; dis_{u,v}$，那么这是一条废边，必须删。</li>
+<li>如果 $w=dis_{u,v}$，考虑有没有代替路径，如果有两条及以上的路径，也一定删除 $w$。
+<ol>
+<li>删除 $w$ 不会使最短路变大，考虑反证法。</li>
+<li>如果变大了，当且仅当另一条最短路径中的一条边被删除了。可我们的删除条件是，有代替路径再删除，如果被删除了，证明一定有代替路径，因此最短路根本没有变大。$w$ 可以删。</li>
+</ol>
+</li>
+<li>这样操作完之后，剩下的边但凡再删一条，都没有代替路径了（有代替路径的都被删掉了），因此就是最优的。</li>
+</ol>
+</li>
+<li>甚至结论都和那题一样啊，只不过那题是单源最短路计数，这题是多源的。</li>
+</ol>
+<h3 id="无向图的最小环问题">无向图的最小环问题</h3>
+<h4 id="题意-5">题意</h4>
+<p>给你一个 $n$ 点 $m$ 边的带权无向图，找到一个至少 $3$ 个点的简单环，使得环边权和最小。输出这个边权。</p>
+<p>$n \le 100$，$m \le 5\times 10^3$</p>
+<h4 id="正确思考-2">正确思考</h4>
+<ol>
+<li>令每个环在被它编号最大的那个点统计。记这个点为 $k$。</li>
+<li>枚举 $i$，$j$，它们与 $k$ 相邻，则构成一个 $i \rightarrow k \rightarrow j \rightarrow \dots\rightarrow i$ 的环。环长：$dis_{i,j}+w_{i,k}+w_{k,j}$。</li>
+<li>回忆 Floyd $dis$ 定义，$dis_{i,j}$ 只会使用 $&lt; k$ 的中转点，且 $i$，$j$ 本身小于 $k$（枚举决定的）。</li>
+<li>因此不重不漏地考虑了每个环。</li>
+</ol>
+<h3 id="Chokudai’s-Demand（★5）"><strong>Chokudai’s Demand（★5）</strong></h3>
+<h4 id="题意-6">题意</h4>
+<p>$n$ 个点的完全图，两点之间的边权是 $G_{i,j}$，如果 $G_{i,j}=-1$，则它实际上是 $x$。</p>
+<p>定义“好对”为：可以从 $i$ 出发，花费不超过 $P$ 到达 $j$，其中 $i&lt;j$。</p>
+<p>好对的数量恰好为 $k$。问有多少个正整数 $x$ 可以满足。</p>
+<p>$n \le 40$</p>
+<h4 id="思考">思考</h4>
+<ol>
+<li>首先把 $-1$ 当作无限大，然后先把那些必然成立的点对去掉。剔除无用元素。</li>
+<li>$x$ 越大，满足条件的点对越少。考虑二分 $x$。</li>
+<li>还真可以。时间复杂度 $O(\log V \times n^3)$。</li>
+</ol>
+<h3 id="函数调用">函数调用</h3>
+<h4 id="题意-7">题意</h4>
+<p>给你一个长度为 $n$ 的序列 $a$ 和 $m$ 个函数，每个函数是以下 $3$ 种类型之一：</p>
+<ul>
+<li>$p$ 点 $+ x$</li>
+<li>全局乘 $x$</li>
+<li>调用 $c$ 个其他函数</li>
+</ul>
+<p>然后依次处理 $q$ 次调用，问调用后的 $a$ 的取值。</p>
+<p>$n,m,q \le 10^5$，$\sum c \le 10^6$</p>
+<h4 id="思考-2">思考</h4>
+<ol>
+<li>类型 $3$ 函数可以拆成多个全局乘，多个单点加。发现主要的瓶颈就在这个操作可能很多。</li>
+<li>事情变得复杂起来了，我们尝试简化问题：
+<ol>
+<li>如果没有全局乘操作，可以怎么样弄呢？
+<ol>
+<li>这样就没有顺序关系了，我们记录一下每个函数每调用了几次，当作点权。</li>
+<li>然后在建出来的函数调用图上，按 topo 序将点权传递下去，类似前缀和。</li>
+<li>之后处理没有出度的节点即可。时间复杂度 $O(m+\sum c+q)$。</li>
+</ol>
+</li>
+<li>如果没有单点加操作呢？
+<ol>
+<li>同样地没有顺序依赖，同样地记录。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>所以现在的问题就是，加法和乘法之间存在顺序问题。现在的方向有 $3$ 种。
+<ol>
+<li>将加法变成乘法：不行。</li>
+<li>将乘法变成加法：不行。</li>
+<li>将乘法和加法统一成某个神秘运算：想不到。</li>
+</ol>
+</li>
+<li>只能靠部分分的提示了。如果形状是一棵树怎么处理？
+<ol>
+<li>加法是调用次数 $+1$。</li>
+<li>乘法的话，相当于将全局的调用次数乘以 $x$（需要将初始值视作 $n$ 次单点加）。</li>
+<li>感觉假的没边了。。。</li>
+</ol>
+</li>
+</ol>
+<h4 id="正确思路-2">正确思路</h4>
+<ol>
+<li>最后的 $a_i$ 一定形如：$xa_i+y$ 这种形式，我们要做的就是去维护这个参数。</li>
+<li>先考虑乘法参数怎么维护。
+<ol>
+<li>类型 $2$：乘 $x$</li>
+<li>类型 $3$：乘内部函数的乘积</li>
+<li>为了方便，我们把每个函数的乘法参数记为 $mul_u$</li>
+</ol>
+</li>
+<li>再考虑加法参数怎么维护。
+<ol>
+<li>我们尝试去维护每个加法操作的调用次数。</li>
+<li>从后往前扫，维护一个倒序乘积 $suf$。</li>
+<li>类型 $1$ 和 $3$ ：$cnt_u \leftarrow cnt_u + suf$。</li>
+<li>然后考虑怎么维护类型 $3$ 内部的调用次数：先传递根的，然后也是同样地后缀乘积，用 topo 序更新这个参数即可。</li>
+</ol>
+</li>
+<li>最后先把乘法参数乘上去，再依次处理加法参数。</li>
+</ol>
+<h4 id="一些思考">一些思考</h4>
+<p>维护加乘操作的题目，多去想 $ax+b$ 这个结构。这题的结构体现在函数带来的变换上。</p>
+<h1>9.29</h1>
+<h2 id="VP-CF-1124-Div-2">VP CF 1124 Div.2</h2>
+<h3 id="C-2">C</h3>
+<h4 id="题意-8">题意</h4>
+<p>给你一个长度为 $n$ 的数组和 $k$，每次操作可以删除正数第 $k$ 或倒数第 $k$ 项，删除之后得到价值，最大化价值。</p>
+<p>$n \le 10^5$</p>
+<h4 id="赛时思路-3">赛时思路</h4>
+<ol>
+<li>首先只能操作 $n-k+1$ 次。</li>
+<li>模拟这个过程，倒着数的那个指针一定是不断向右滑动的。</li>
+<li>正难则反，相当于要保留 $k-1$ 个数，这些保留的数有什么限制吗？
+<ol>
+<li>首先在中间的数肯定都会被删掉。</li>
+<li>能保留下来的数，只能是前 $k-1$ 和后 $k-1$ 个中的 $k-1$ 个。</li>
+<li>等等，删掉中间的数之后，不论删哪里，都会令两个指针移动。</li>
+<li>这个时候直接做双指针就好了。</li>
+</ol>
+</li>
+<li>总结一下，删完中间的 $[k,n-k+1]$ 个数之后，在前 $k-1$ 和后 $k-1$ 个数里双指针，再删 $\min(n,2k-2)-k+1$ 个。</li>
+<li>用时 $35$ 分钟，要讨论清楚有点烦人。</li>
+</ol>
+<h3 id="D-2">D</h3>
+<h4 id="题意-9">题意</h4>
+<p>给你一个长度为 $n$ 的数组，$a_i &lt; 16$。每次操作可以令相邻两个数同时异或 $3,6,9,12,15$ 其中之一。</p>
+<p>不限操作次数，要使尽可能多的数字能被 $3$ 整除。</p>
+<p>然后 $q$ 个询问，每次询问会改一个 $a_i$，改完之后最多有多少个数字被 $3$ 整除。</p>
+<p>$n,q \le 2\times 10^5$</p>
+<h4 id="赛时思路-4">赛时思路</h4>
+<ol>
+<li>研究操作的性质
+<ol>
+<li>首先一个数最多异或一次相同的数，所以可以用 $2^5$ 表达一个数的状态。</li>
+<li>虽然题目说只能选相邻两个，但事实上我可以选任意两个同时异或。</li>
+<li>通过打表我们发现，这些数的组合只能异或出 $0, 3, 5, 6, 9, 10, 12, 15$ 这几种值。显然每个数只会与其中之一进行异或。</li>
+<li>再次通过打表发现，只有 $5, 10$ 可以变成 $3$ 的倍数（剔除原来就是 $3$ 的倍数的数）。</li>
+<li>能使 $5$ 和 $10$ 成立的数：$3, 5, 6, 9, 10, 12$</li>
+</ol>
+</li>
+<li>$5$ 和 $10$ 可以两两相消，最终只会剩下一个孤立的 $5$ 或 $10$。</li>
+<li>除非序列里其他数都是 $15$，否则一定可以让这个孤立的 $5$ 也变成 $3$ 的倍数。</li>
+<li>所以统计一下序列里 $5$，$10$，$15$ 和非法的数的数量就好了。</li>
+<li>等等，就算全是 $15$ 也可以通过异或 $3$ 得到 $3$ 的倍数。所以不管怎样都可以得到 $3$ 的倍数。</li>
+<li>只需要统计非法的就好了。</li>
+<li>用时 $53$ 分钟。</li>
+</ol>
+<h1>9.30</h1>
+<h2 id="VP-CF-1123-Div-2">VP CF 1123 Div.2</h2>
+<h3 id="D-3">D</h3>
+<h4 id="题意-10">题意</h4>
+<p>给你一个长度为 $n$ 的排列 $a$，可以交换 $a_i$ 和 $a_{i+2}$，问能不能让它变成一个单峰序列。</p>
+<p>$n \le 2\times 10^5$</p>
+<h4 id="赛时思路-5">赛时思路</h4>
+<ol>
+<li>把序列看成是奇偶两条链，链内部可以任意调换顺序。
+<ol>
+<li>同一条链内如果出现相邻的值，例如 $23$，则它们一定处于不同侧。</li>
+</ol>
+</li>
+<li>先来确定好确定的位置，最大值一定处于峰。
+<ol>
+<li>如果最大值和次大值处于同一条链则无解。</li>
+<li>次大值一定在最大值 左边 / 右边 一格。</li>
+</ol>
+</li>
+<li>钦定峰，考虑贪心选左右两端：
+<ol>
+<li>上升段：选的数越小越好</li>
+<li>下降段：选的数越大越好</li>
+<li>这个贪心好像是对的？我们试图使用调整法证明：
+<ol>
+<li>当前处于上升段，当前剩余点中第一个比上一项大的点是 $p$，当前点取 $q$，假设 $q&gt;p$，则交换 $p$，$q$ 必然不劣：</li>
+<li>若 $p$，$q$ 同属上升段：不存在这种情况。</li>
+<li>若 $p$ 处于下降段：可以通过不断翻转路径的形式调整，确实是不劣的。</li>
+<li>下降段的论证是对称的（应该）。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>直接按照贪心策略写就好了，不用钦定最大值，如果遇到了 $n$，就调整至下降段。用两个 set 维护奇偶集合。</li>
+<li>用时 $44$ 分钟。</li>
+</ol>
+<h3 id="E">E</h3>
+<h4 id="题意-11">题意</h4>
+<p>定义一个 $01$ 串的代价为：每次可以将一段连续的 $0$ 或 $1$ 翻转，令串变成全 $0$ 或全 $1$ 的最小操作次数。</p>
+<p>定义一个 $01$ 串的价值为，其所有子串的代价之和。</p>
+<p>$q$ 次修改，每次翻转点，求修改后的价值。</p>
+<p>$n,q \le 2\times 10^5$</p>
+<h4 id="赛时思路-6">赛时思路</h4>
+<ol>
+<li>先来看这个代价怎么求：将 $01$ 串缩点，取白点黑点的 $\min$ 就好了。</li>
+<li>再来看价值怎么求：
+<ol>
+<li>钦定左端点，记当前处于 $i$ 点，则贡献：$\sum len_i\times(len_{i+2k-1}+len_{i+2k})\times k$。把 $len_i$ 提出来，后面那项分奇偶用一个变量做后缀和就可以实现 $O(n)$ 计算。但对本题好像没什么作用。</li>
+<li>把贡献拆到每一个点上，每一个点 $i$ 贡献：$\sum len_k\times len_i \times \frac{\lvert k-i+1\rvert}{2}$。同样把 $len_i$ 提出来，后面那项同样分奇偶用四个变量维护可以实现 $O(n)$ 计算。</li>
+</ol>
+</li>
+<li>来讨论修改的情况：
+<ol>
+<li>修改后不改变块数
+<ol>
+<li>相当于一个块长度 $+1$，另一个 $-1$。</li>
+<li>对同奇偶的块没影响，主要是对不同奇偶的块的影响。</li>
+<li>继续讨论感觉会相当复杂，打住。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>是否存在一个给定 $len$ 序列快速计算价值的方法？并不存在吧。</li>
+</ol>
+<h4 id="订正-3">订正</h4>
+<ol>
+<li>因为题目是单点修改，我们从连续段的角度来考虑的话不是很合适，所以我们应该从点的角度考虑。</li>
+<li>考虑代价怎么求：
+<ol>
+<li>本质是求 区间连续段数量 $/ 2$ 下取整。</li>
+<li>区间连续段数量是一个经典问题：
+<ol>
+<li>定义 $c_i \gets a_i \ne a_{i-1}$</li>
+<li>定义 $s_i \gets s_{i-1}+c_i$</li>
+<li>则 $[l,r]$ 区间的连续段数量即：$s_r-s_l+1$。因为自身包含一段。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>考虑价值怎么求：
+<ol>
+<li>钦定右端点，枚举左端点，$val = \sum\limits_{r=1}^n \sum \limits_{l=1}^{r-1} \lfloor \frac{s_r-s_l+1}{2} \rfloor$。</li>
+<li>我们现在想让取值符号去掉，$\lfloor \frac{s_r-s_l+1}{2} \rfloor = \frac{s_r-s_l+(s_r-s_l)\bmod 2}{2}$。<mark>这是一个很好用的技巧。</mark></li>
+<li>然后提出来：$val=\frac{1}{2} (\sum\limits_{l&lt;r} s_r-s_l+\sum\limits_{l&lt;r} (s_r-s_l) \bmod 2)$
+<ol>
+<li>前面的部分，可以把贡献拆到单点上，每一个 $c_i$ 贡献 $(i-1)(n-i+1)$。</li>
+<li>后面的部分，等价于 $a_{l+1} \ne a_r$，也就是求满足 $l&lt;r \and a_l \ne a_r$ 的有序对个数。因为这是 $01$ 串，所以就是 $cnt_0 \times cnt_1$。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>所以维护 $01$ 个数，每个 $c_i$ 的贡献就好了。</li>
+</ol>
+<h2 id="图论专题-2">图论专题</h2>
+<h3 id="最大半连通子图">最大半连通子图</h3>
+<p>定义半连通图为：图上任意两点，都存在 $u \to v \or v \to u$。</p>
+<p>半联通子图定义为图 $G$ 的导出子图是半连通的。问半连通子图中，顶点数最多的图有多少个顶点，以及数量。</p>
+<p>$n \le 10^5$，$m \le 10^6$</p>
+<h4 id="正确思考-3">正确思考</h4>
+<ol>
+<li>首先导出子图只与 $n$ 有关，暴力的做法是枚举所有 $n$ 的排列，时间复杂度 $O(n^2n!)$。</li>
+<li>先来考虑第一问，如何求出最大的半连通子图呢？
+<ol>
+<li>注意到选了一个点之后，它所处的强连通分量也一定被选上。因此我们将原图缩点。</li>
+<li>缩点之后发现问题就变成了找 DAG 最长链以及最长链计数。</li>
+</ol>
+</li>
+</ol>
+<h3 id="矿场搭建">矿场搭建</h3>
+<p>最少选几个点，使得删掉原图中任意一个点之后，每个连通块都还至少包含一个点。</p>
+<p>以及在最少的前提下，有多少种选择方案。</p>
+<p>$n \le 1000$，$m\le 500$</p>
+<h4 id="正确思考-4">正确思考</h4>
+<ol>
+<li>删点问题天然导向割点，删除非割点显然无用，删除割点才可能使连通块发生变化。</li>
+<li>删除割点导致的连通块变化，又会导向块割树，于是我们就在块割树上考虑。
+<ol>
+<li>定义叶块为：度为 $1$ 的节点，因为割点度至少为 $2$，所以叶块一定是 dcc。</li>
+<li>考虑删除叶块唯一连着的那个割点，则 dcc 与外部不连通，因此它的内部一定要选一个非割点。</li>
+<li>非叶块的 dcc，无论如何，都可以通过另一个割点走到另一个 dcc 里，所以不需要设点。</li>
+</ol>
+</li>
+<li>每个叶块需要设点，方案数就是叶块大小 $-1$ 的 prod。特判没有叶块的情况，此时要选两个点。</li>
+</ol>
+<h1>10.1</h1>
+<h2 id="图论专题-3">图论专题</h2>
+<h3 id="loidc，跑起来">loidc，跑起来</h3>
+<p>$n$ 点 $m$ 边无向连通图，图中不存在三角形。初始两人分别处于 $a$，$b$ 点，两人可以不动，或走到相邻点。</p>
+<p>在均采取最优策略的情况下，$b$ 能不能一定抓到 $a$，输出最少轮数。</p>
+<p>$n \le 3000$，$m \le 1.5\times10^4$</p>
+<h4 id="正确思考-5">正确思考</h4>
+<ol>
+<li>如果 $a$，$b$ 同处一个环里，则 $b$ 一定抓不到 $a$。</li>
+<li>因此 $a$ 的策略就是尽快走到一个环上面。</li>
+<li>所以我们考虑如何找环上的点。处于 edcc 里的点一定处于环上，处于环上的点也一定处于 edcc 里。所以我们找到所有 edcc 就好了。这等价于在 dfs 生成树里找 scc。</li>
+<li>只要 $a$ 比 $b$ 能更快的到底一个环上点，那么逃脱成功。</li>
+<li>否则就要在 $d_1 &lt; d_2$ 的情况下找 $d_2$ 尽可能大的点。</li>
+</ol>
+<h4 id="一些思考-2">一些思考</h4>
+<p>edcc 或 vdcc 上的点都处于环上，且环上的点都处于 edcc 或 vdcc 上。区别是，edcc $= 1$ 的点不是环，vdcc $\le 2$ 的点不是环。</p>
+<h3 id="满汉全席">满汉全席</h3>
+<p>$n$ 个点，每个点有 $01$ 两种状态。$m$ 个约束，每条约束规定两个点的状态，要求满足至少其一。</p>
+<p>问能否满足所有约束？</p>
+<h4 id="思考-3">思考</h4>
+<ol>
+<li>至少满足其一，意味着：只要不满足其一，就必须满足其二。</li>
+<li>于是我们把这种关系打包，于是这种关系是单向而不是双向的，于是我们连单向边（如果是双向等价关系就可以用种类并查集）。</li>
+<li>如果相同点不同状态处于同一个 SCC 中就不行。</li>
+</ol>
+<h3 id="Coprime-Solitaire">Coprime Solitaire</h3>
+<p>$n$ 个卡牌，每个卡牌有正反两面，分别有数子 $a$，$b$。</p>
+<p>是否存在一种摆放方案，使得朝上的数字两两互质。</p>
+<p>$n\le 3\times 10^4$，$a,b \le 2\times 10^6$</p>
+<h3 id="正确思考-6">正确思考</h3>
+<ol start="2">
+<li>这是一个典型的 “选我则不选它”，可以用 $2$-SAT 解决（两面状态想 $2$-SAT）。</li>
+<li>具体地，把每个点拆成四份，分别表示选 $a$，不选 $a$，选 $b$，不选 $b$，这里也有 “选我就要选它” 的约束。
+<ol>
+<li>选 $a$ 与不选 $b$ 连边；选 $b$ 与不选 $a$ 连边；</li>
+<li>然后枚举另一个数，如果不互质就连边。这样时间复杂度是 $O(n^2)$ 的，瓶颈在于建图。</li>
+</ol>
+</li>
+<li>考虑将数按照质因子 <strong>分类</strong>，每一类里只能选一个。于是前后缀优化建图。
+<ol>
+<li>具体地，$pre_i$ 表示前 $i$ 个节点的不选，$suf_i$ 表示后 $i$ 个节点的不选，维护很简单。</li>
+<li>对于 $i$，要和 $pre_{i-1}$ 和 $suf_{i+1}$ 连边。</li>
+</ol>
+</li>
+<li>然后 SCC 判合法性就好了。时间复杂度 $O(n \log n)$。</li>
+</ol>
+<h1>10.2</h1>
+<h2 id="图论专题-4">图论专题</h2>
+<h3 id="Triangle">Triangle</h3>
+<p>给你一个 $n$ 点无向图，给出邻接矩阵，求其中三元环的个数。</p>
+<p>$n \le 3000$</p>
+<h4 id="思考-4">思考</h4>
+<ol>
+<li>钦定其中两个点。找到共同 $1$ 的个数。</li>
+<li>直接 bitset，然后答案除以 $6$。时间复杂度 $O(\frac{n^3}{w})$。</li>
+<li>bitset 本质是把一串二进制拆成多个大整数，然后做位运算，所以时间复杂度可以除以位数。可以当作一个可以快速做位运算的 bool 数组。</li>
+</ol>
+<h3 id="无向图三元环计数">无向图三元环计数</h3>
+<p>$n \le 10^5$，$m \le 2 \times 10^5$</p>
+<h4 id="思考-5">思考</h4>
+<ol>
+<li>首先暴力的做法是，枚举每个点 $u$ 的儿子 $v_1$，再枚举 $v_1$ 的儿子 $v_2$，再枚举 $u$ 的儿子中，存不存在 $v_2$ 儿子（用一个标记数组判断）。时间复杂度是 $O(\sum\limits_u \sum\limits_{v \in u} d_v)$。</li>
+<li>发现时间复杂度与度数有关，想到大点小点分治。重复统计导致冗余，于是我们想要钦定代表元。</li>
+<li>将 $deg$ 小的点连向 $deg$ 大的点，这样每个点的 $deg$ 就在 $\sqrt{m}$ 以内，并且每个环只会被它 $deg$ 最小的那个点统计。</li>
+<li>时间复杂度 $O(m \sqrt{m})$。</li>
+</ol>
+<h3 id="Colorful-Graph（★6）">Colorful Graph（★6）</h3>
+<p>给你一个 $n$ 点 $m$ 边无向图，$q$ 个操作。</p>
+<p>每次操作给定 $u$ 和颜色 $c$，先输出 $u$ 的颜色，再将 $u$ 以及它的邻居染成 $c$。</p>
+<p>初始都是颜色 $1$。$n, q, m \le 2 \times 10^5$。</p>
+<h4 id="正确思考-7">正确思考</h4>
+<ol>
+<li>暴力做显然不行，会有很多无用行为。</li>
+<li>查询点 $u$ 时再找它的相邻点？和暴力一样啦。</li>
+<li>这里存在两个方向的思考，但是都因为度数很大所以不行。</li>
+<li>图上涉及度数的问题，通常考虑分类讨论，<strong>大点小点分治</strong>（度数小于 $B$ 的是小点）。</li>
+<li>对于度数大的点，我们不去遍历它所有的邻居，让它的邻居来遍历它。</li>
+<li>对于度数小的点，我们通过遍历它的所有邻居，来确定取值。</li>
+<li>每个点都只需要更新它们的大点邻居，最坏 $O(2m / B)$。</li>
+<li>小点查询时最坏 $O(B)$。</li>
+<li>总共时间复杂度 $O(q (B + 2m / B))$，对这个求导，显然当 $B = \sqrt{m}$ 时是极值。</li>
+</ol>
+<h2 id="补题">补题</h2>
+<h3 id="前缀进位">前缀进位</h3>
+<p><a target="_blank" rel="noopener" href="http://124.223.48.197/p/SZSY1017">前缀进位 - 题目详情 - 深圳实验中学 OJ</a></p>
+<p>给你一个长度为 $n$ 的序列 $a$，至多 $k$ 次操作机会，每次操作可以令 $a$ 的一个前缀集体 $+ 1$。</p>
+<p>问 $a_1 \mathbin{&amp;} a_2 \mathbin{&amp;} \dots \mathbin{&amp;} a_n$ 的最大值。</p>
+<p>$n \le 10^6$，$k, a_i \le 2^{60}$</p>
+<h4 id="正确思考-8">正确思考</h4>
+<ol>
+<li>位运算的题目，从高到低贪心答案。
+<ol>
+<li>我们把操作次数形式化，设在 $i$ 点加了 $b_i$ 次。<mark>这个形式化的技巧很重要，把你的决策/操作用符号表达出来。</mark></li>
+<li>则有性质：$k \ge b_1 \ge b_2 \ge \cdots \ge b_n \ge 0$。</li>
+<li>$b$ 显然越大越好。</li>
+<li>于是我们的问题就转化为：构造一个最大的 $b$，使其满足：
+<ol>
+<li>$b_i \le last$</li>
+<li>$(a_i + b_i) \mathbin{&amp;} ans = ans$</li>
+<li>上一个式子等价于 $a_i + b_i = ans + y$。<mark>理解这一步动机的关键是要理解约束。一定要包含 $ans$ 里面的位，并且此时已经包含了 $ans$，所以把 $ans$ 抽出来就很自然了。</mark></li>
+<li>为了使 $b$ 最大，我们要最大化 $y$。考察 $y$ 的约束：
+<ol>
+<li>$y \le a_i + last - ans$。</li>
+<li>$(ans + y) \mathbin{&amp;} ans = ans$。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>考虑从高到低构造 $y$，记 $x=a_i + last - ans$。
+<ol>
+<li>考察 $y$ 与 $ans$，$x$ 的二进制约束：
+<ol>
+<li>$y$ 只能取 $ans$ 为 $0$ 的位数，令 $ms$ 为 $ans$ 取反后的数，则 $y$ 只能取 $ms$ 为 $1$ 的位数。</li>
+<li>$y$ 要比 $x$ 小，做一个类似数位 dp 的过程。</li>
+</ol>
+</li>
+<li>贪心地考虑
+<ol>
+<li>$x$ 最高位 $1$ 之前的数只能取 $0$。</li>
+<li>$x$ 为 $1$ 且 $ms$ 为 $1$，则一定取。</li>
+<li>第一个 $x$ 为 $1$，$ms$ 为 $0$ 之后，剩下的就没有 $x$ 约束了，也就是把 $ms$ 取满。</li>
+<li>总结一下，找到第一个 $x$ 为 $1$，$ms$ 为 $0$ 的位置，记为 $p$。
+<ol>
+<li>$p = \log_2{(x\ &amp;\ ans)}$</li>
+<li>记 $mask = (1 \ll p) - 1$：<code>0000111111</code></li>
+<li>无 $x$ 约束：取 $ms \mathbin{&amp;} mask$</li>
+<li>有 $x$ 约束：取 $x \mathbin{&amp;} ms \mathbin{&amp;} mask$</li>
+</ol>
+</li>
+<li>所以 $y = (ms \mathbin{&amp;} mask) \mathbin{|} (x \mathbin{&amp;} ms \mathbin{&amp;} \sim mask)$</li>
+<li>得到 $y$ 之后，$b_i = ans + y - a_i$，检查一下是不是小于上一项就好了。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>时间复杂度 $O(n \log V)$。</li>
+</ol>
+<h1>10.3</h1>
+<h2 id="补题-2">补题</h2>
+<h3 id="白格连通">白格连通</h3>
+<p><strong><a target="_blank" rel="noopener" href="http://124.223.48.197/p/SZSY1018">白格连通 - 题目详情 - 深圳实验中学 OJ</a></strong></p>
+<p>给你一个 $3\times n$ 的 01 网格，每一列必须填一个 1，且相邻两列的 1 不能在同一行。问所有方案中，最大的由 0 组成的连通块的大小的期望。</p>
+<p>$n \le 500$。</p>
+<h4 id="思考-6">思考</h4>
+<ol>
+<li>虽然问的是期望，但本质计数题，因为总方案数是 $3\times2^{n-1}$。（即第一列随便放，后面的要根据前面的选另外两个）。所以问题就变成了统计所有连通块大小的总合。</li>
+<li>计数题要拆贡献，这题应该只能拆成：最大连通块 $=x$ 的数的个数。</li>
+<li>这种网格图连通块，是可以用 dp 来维护的。于是我们考虑 dp。<mark>这个 dp 成立的关键在于，任何时刻，一个可扩展连通块大小为 k，另一个可扩展连通块大小至多为 1。</mark>
+<ol>
+<li>定义 $f[j][k][0/1]$ 表示，前 i 列，第 i 列的 1 放在中间 / 两边，最大连通块为 j，最右侧可扩展的连通块大小为 k 的数量。</li>
+<li>用 $f[j][k][0]$ 刷表：
+<ol>
+<li>$g[\max(k+2,j)][k+2][1]+=f[j][k][0]$ <mark>和大小为 k 的连通块连接</mark></li>
+<li>$g[\max(j,3)][3][1]+=f[j][k][0]$ <mark>和大小为 1 的连通块连接</mark></li>
+</ol>
+</li>
+<li>用 $f[j][k][1]$ 刷表：
+<ol>
+<li>$g[\max(k+2,j)][k+2][1]+=f[j][k][1]$</li>
+<li>$g[\max(k+1,j)][k+1][0]+=f[j][k][1]$</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>统计答案就是：$\sum (f[j][k][0/1]\times j)$。</li>
+</ol>
+<h4 id="一些思考-3">一些思考</h4>
+<p>这种维护 <strong>连通性</strong> 的状压 dp，有个专门的名字叫做插头 DP。</p>
+<p>一维很小，一维很大的题要考虑这个。核心思想是只维护已处理和未处理分界的信息。</p>
+<p>鸽。</p>
+<h3 id="路径片段计数">路径片段计数</h3>
+<p><a target="_blank" rel="noopener" href="http://124.223.48.197/p/SZSY1019">路径片段计数 - 题目详情 - 深圳实验中学 OJ</a></p>
+<p>给你一个 n 点树和一个 [1,n] 排列。统计有多少个排列上的区间 [l,r] 满足：</p>
+<ul>
+<li>树上 [l,r] 形成的导出子图是 <strong>一条</strong> <strong>路径</strong>。</li>
+</ul>
+<p>$n \le 2\times 10^5$</p>
+<h4 id="思考-7">思考</h4>
+<ol>
+<li>显然我们需要钦定区间端点，用一些方法维护左端点的信息。<mark>这种模式在计数问题里非常常见。</mark></li>
+<li>于是我们钦定区间右端点，考虑维护左端信息：
+<ol>
+<li>点的度数约束：
+<ol>
+<li>由于是一条路径，所以 $d_u\le2$。</li>
+<li>显然点越多，度数越多，所以这个具有单调性，可以双指针。</li>
+<li>具体地，右端点右移时，记录超标点数量。然后左指针做删除，直到超标点为 0。</li>
+</ol>
+</li>
+<li>连通性约束：
+<ol>
+<li>只能有一个连通块。</li>
+<li>树的导出子图一定是树。<strong>有关树的连通性，要去考虑点数和边数的关系。树上连通块数量 = n - m。</strong></li>
+<li>显然只有当 $m=n-1$ 时才是一条路径。</li>
+<li>因此我们用线段树维护 [j,r] 的 $n-m$，n 通过区间加维护，m 在加边的同时区间加即可。</li>
+<li>注意到 $n-m$ 的最小值就是 1，否则的话必然存在环或重边。因此维护区间最小值及其数量即可。（注意维护区间 = x 的数量，还需要支持区间加的话是不可 n log n 的）。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>时间复杂度 $O(n \log n)$。</li>
+</ol>
+<h3 id="树林的回声">树林的回声</h3>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/T826263">T826263 树林的回声 - 洛谷</a></p>
+<p>n 个节点的树，节点有一个小写字母作为点权。</p>
+<p>对每个 $u\in[1,n]$ 统计，有多少个字符串 s，可以由至少两条从 v 出发向下的路径得到，v 需要不同。</p>
+<p>$n \le 2\times 10^5$。</p>
+<h4 id="思考-8">思考</h4>
+<ol>
+<li>首先考虑单独的 u 怎么求。
+<ol>
+<li>给每个儿子建一棵 trie，然后合并 trie 得出 u 的 trie。</li>
+<li>考察合并的过程。
+<ol>
+<li>合并当前 trie 和子 trie 时，如果子 trie 和当前 trie 都存在一个相同的节点，则说明至少有两条路径可以得到相同的结果。</li>
+<li>当时这样会重复计数，因为当前 trie 里的那个节点的贡献可能已经被算过了。所以我们用一个标记数组标记。</li>
+</ol>
+</li>
+<li>子树信息，无修改，考虑 dsu on tree。每次 u 继承重儿子的 trie，将小的合进来。</li>
+<li>trie 合并的时间复杂度是 $O(Vn)$，每一棵子树合并后大小都会翻倍，子树大小最大 $O(n)$，所以总时间复杂度 $O(Vn \log n)$。</li>
+</ol>
+</li>
+</ol>
+<h4 id="后记">后记</h4>
+<p>感觉对 trie 的掌握还是不够，有些云里雾里的。</p>
+<h1>10.4</h1>
+<h2 id="DP-专题">DP 专题</h2>
+<h3 id="子序列">子序列</h3>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1410">P1410 子序列 - 洛谷</a></p>
+<p>给定一个长度为 $N$（$N$ 为偶数）的序列，问能否将其划分为两个长度为 $N / 2$ 的严格递增子序列。</p>
+<p>$n\le 2000$</p>
+<h4 id="思考-9">思考</h4>
+<ol>
+<li>每个元素需要恰好属于一个子序列。</li>
+<li>第几个元素是阶段，长度需要作为状态，末尾元素需要用于转移。因为最后一个元素一定属于一条链，所以我们定义状态 $f[i][j]$ 表示前 i 项，末尾是 $a_i$ 的那个序列长度为 j，则另一个序列长度为 i-j，另一个序列以 $f[i][j]$ 作为结尾，要求取最小值。<mark>状态设计是一个不断尝试的过程。阶段首先设出来，再看状态需要什么，转移需要什么。</mark></li>
+<li>考虑转移：
+<ol>
+<li>$a_i$ 接在状态显性设出来的那条链里：$f[i][j]=f[i-1][j-1]$，条件是 $a[i]&gt;a[i-1]$。</li>
+<li>$a_i$ 接在没有显性设出来的那条链里：$f[i][j]=a[i-1]$，条件是 $a[i]&gt;f[i-1][i-j]$。</li>
+</ol>
+</li>
+</ol>
+<h4 id="后记-2">后记</h4>
+<p>相似题目：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P11233">CSP-S 2024] 染色 - 洛谷</a>。</p>
+<p>本质都是将序列染成红色和蓝色，所以我们沿用那题的 dp 思想，做一个可行性 dp。</p>
+<p>令 $f[i][j]$ 表示前 i 项，强制 i 点为 <strong>换色点</strong>，并且和 i 点同颜色的有 j 个的可行性。</p>
+<p>则有转移：$f[i][j]=f[k][k-j+1]$，要求 $a_i&gt;a_{k-1}$ 且 $[k,i-1]$ 这一段严格递增。</p>
+<p>暴力枚举 k 显然超时，考虑优化。注意到想要满足 [k,i-1] 这个约束，k 一定是递增的，所以用数据结构维护一下，可以做到 $O(n^2 \log n)$。</p>
+<p><strong>换色点 dp 的本质在于压缩连续相同段</strong>。</p>
+<h4 id="后后记">后后记</h4>
+<p>观点来自：<a target="_blank" rel="noopener" href="https://www.luogu.me/article/ki71nw88#%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95">dp 题方法总汇 - 洛谷保存站</a></p>
+<p>上文提到的正解和换色点 dp，本质上可以归为类两种不同类型的 dp：</p>
+<ul>
+<li>单步转移：每次只决策最小单元，在这题的例子里就是每次只决策一个元素，<strong>通常优先考虑这种。</strong></li>
+<li>断点转移：类似“跳跃”，每次决策一段，在这题的例子里就是决策一段，<strong>如果单步转移不行再想这种</strong>。</li>
+</ul>
+<h3 id="Miny">Miny</h3>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9100">PA 2020] Miny - 洛谷</a></p>
+<p>n 个炸弹，每个炸弹有位置 $a_i$ 和引爆半径 $r_i$，如果 i 爆炸了，i 半径覆盖范围内的炸弹都会爆炸。</p>
+<p>现在手动引爆一些炸弹，问有多少种不同的爆炸集合。</p>
+<p>$n\le 3\times 10^5$，$a_i,r_i \le 10^{18}$</p>
+<h4 id="思考-10">思考</h4>
+<ol>
+<li>首先要把这个爆炸关系表达出来。如果 a 炸了会引爆 b，那么就令 $a \to b$。</li>
+<li>把 SCC 缩点，现在的图变成了多个 DAG，每个 DAG 之间互相独立。</li>
+<li>考虑如何计算单个 DAG 的贡献。
+<ol>
+<li>如果选择一个点，从它出发能到达的所有点都会被消除。问最终留下的点有多少种方案。</li>
+<li>那就钦定引爆 i 点，看能造成多少种方案。好像不可做。</li>
+<li>考察 DAG 的性质：想要遍历 DAG 上的所有点，需要从所有度为 0 的点出发跑 dfs。这有什么性质吗？</li>
+</ol>
+</li>
+<li>上述转化其实是把问题转化为了：“数一个偏序集的反链数”，这个是多项式做不了的。</li>
+</ol>
+<h4 id="订正-4">订正</h4>
+<ol>
+<li>我们的直觉失败了，转而使用机械化的流程做题。</li>
+<li>推导等价条件，重新表述问题：
+<ol>
+<li>等价条件：无。</li>
+<li>重新表述：统计爆炸集合的数量，等价于统计不爆炸集合的数量。
+<ol>
+<li>爆炸集合的性质是，不能再向外扩展，极大。</li>
+<li>不爆炸集合的性质是，无法被扩展，极小。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>思考过程，考虑暴力：
+<ol>
+<li>过程就是，引爆一个炸弹，会导致一个区间的连环爆。</li>
+<li>暴力的做法，状压，钦定引爆的地方，然后统计最后的结果数量。</li>
+</ol>
+</li>
+<li>联想模型，尝试套用：
+<ol>
+<li>计数题：钦定主体，组合数学；计数 DP</li>
+<li>考虑套用 DP 模型：
+<ol>
+<li>$f_i$ 表示，前 i 个炸弹，i 强制引爆，能产生的不同方案数。
+<ol>
+<li>找到连锁反应的结尾 j，它是最后一个被引爆的，于是有转移：$f_i=\sum f[0,j-1]$。</li>
+<li>然而这个转移是错误的，因为前面引爆的点可能会波及 i 后面的点，这个状态没有考虑到。</li>
+</ol>
+</li>
+<li>失败时候，尝试使用问题的不同表述。上文是在用 “爆炸” 表述，下面就尝试 “不爆” 表述。</li>
+<li>$f_i$ 表示，前 i 个炸弹，i 强制不爆，能产生的不同方案数。
+<ol>
+<li>找到上一个不爆的位置 j，则 $f_i = \sum f_j$。</li>
+<li>现在的问题就是如何快速找到 j。有关 j 的约束是：[j+1,i-1] 强制爆，但是 i，j 不爆。</li>
+<li>定义 $l_i,r_i$ 分别表示 i 点能影响到的最左和最右区间，则 ：
+<ol>
+<li>$j &lt; \min l[j+1,i-1]$。<mark>这个是查询范围约束，非法之后还可能合法。</mark></li>
+<li>$i &gt; \max r[j+1,i-1]$。<mark>这个是生命周期约束，非法之后不可能合法。</mark></li>
+</ol>
+</li>
+<li></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="释放囚犯">释放囚犯</h3>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1622">P1622 释放囚犯 - 洛谷</a></p>
+<p>n 个牢房，要释放 m 个人。每次释放的代价是所处连通块大小 -1。问全部释放完的最小代价。</p>
+<p>$n \le 1000$，$m\le100$</p>
+<h4 id="思考-11">思考</h4>
+<ol>
+<li><mark>无论做什么题目，第一步都是把它当作无算法题或贪心题去挖掘性质，然后再换角度套算法。</mark></li>
+<li>这题直接上 dp 能不能做呢？反正我是想不出来的。</li>
+<li>于是我们就去挖掘一些性质：
+<ol>
+<li>感觉有点像货舱选址？每次都选中位数好像就是最优的。并非吧。</li>
+</ol>
+</li>
+</ol>
+<h4 id="订正-5">订正</h4>
+<ol>
+<li>关键在于观察出操作的影响：每次选了一个人之后，会将整个区间断成两半，两半互相独立。</li>
+<li>这就是 <strong>区间 dp 的结构</strong>：一个关键点+两边独立区间。</li>
+<li>所以我们考虑区间 dp。
+<ol>
+<li>$f[i][j]$ 表示，将编号 $[i,j]$ 的人全部释放，保留的最少代价。</li>
+<li>有转移：$f[i][j]=\min f[i][k-1]+f[k+1][j]+a[j+1]-a[i-1]-2$.</li>
+</ol>
+</li>
+<li>答案就是 $f[1][m]$，时间复杂度 $O(m^3)$。</li>
+</ol>
+<h4 id="后记-3">后记</h4>
+<p>区间 DP 的结构和笛卡尔树的结构很类似，不过笛卡尔树的关键点是最值。结构的相似性也是笛卡尔树优化区间 DP 的基础。</p>
+<h2 id="补题-3">补题</h2>
+<h3 id="最近恶人">最近恶人</h3>
+<p><a target="_blank" rel="noopener" href="http://124.223.48.197/p/SZSY1026">最近恶人 - 题目详情 - 深圳实验中学 OJ</a></p>
+<p>给你一个长度为 n 的字符串 s，$s_i=L$ 则表示离 i 最近的恶魔在左边，为 R 则表示在右边，？ 则表示可能在左也可能在右。</p>
+<p>每个人都有可能是恶魔，恶魔的方向随意。找出所有身份和朝向的可能。</p>
+<p>$n \le 5\times 10^5$</p>
+<h4 id="赛时思路-7">赛时思路</h4>
+<p>比赛的时候用到了某道 CF 题的经验，想着先根据这些信息来确定能确定的恶魔。但是这题不适用，确定不了什么东西，卡了 1 小时。</p>
+<p>然后打暴力的过程中，发现如果从 i 是恶魔的角度来切入会变得很简单。打了一个 $O(n^2)$ 的做法。</p>
+<p>但是因为无法将转移的条件抽象成可以维护的量（或者说没有把转移条件从过程中抽出来的意识），没做出来这题。<mark>本质是缺少用可维护的量来表达结构的意识。</mark></p>
+<h4 id="正确思路-3">正确思路</h4>
+<ol>
+<li>推导等价条件，重新表述问题：
+<ol>
+<li>等价条件：题目的约束是在人的角度上说的，在恶魔的角度上理解约束。
+<ol>
+<li>两个恶魔 $i,j$，$[i+1,mid]$ 是 L，$[mid+1,j-1]$ 是 R。</li>
+</ol>
+</li>
+<li>第一种表述：给定一些约束，在里面放恶魔，问放的方案数。</li>
+</ol>
+</li>
+<li>思考过程，考虑暴力：
+<ol>
+<li>好像没什么过程可以考虑，没有什么规律。</li>
+<li>暴力：状压枚举恶魔的出现位置，判断是否合法。</li>
+</ol>
+</li>
+<li>挖掘性质：
+<ol>
+<li>没什么性质。</li>
+</ol>
+</li>
+<li>联想模型，尝试套用：
+<ol>
+<li>计数题：组合数学，计数 DP。</li>
+<li>DP：强制选第 i 个点是恶魔的方案数。</li>
+</ol>
+</li>
+<li>套用 DP 模型。</li>
+<li>考虑哪些 j 可以转移到 i：
+<ol>
+<li>显然 [j+1,mid] 里只能有 L，[mid+1,i-1] 只能有 R</li>
+<li>但是这是一个“状态”，而不是一个具体的量，我们要把它抽象成具体的好维护的量来写条件。</li>
+<li>比如，j 右边第一个 R 的位置，i 左边第一个 L 的位置，j 需要满足：$2r_j &gt; i+j\ \and\ 2l_i \le i+j$。</li>
+<li>整理一下，把有关 j 的都放在左边得：
+<ol>
+<li>$2r_j+j &gt; i$。 <mark>这个是 j 的生命周期，一旦非法，以后就不可能合法。</mark></li>
+<li>$j \ge 2l_i-i$。 <mark>这个是查询范围，非法之后，以后还可能合法，所以不删除。</mark></li>
+</ol>
+</li>
+<li>根据这两个条件来维护转移集合。
+<ol>
+<li>i 每加 1，删掉 $2r_j+j \le i$ 的点。</li>
+<li>找到所有 $\ge 2l_i-i$ 的 j。</li>
+<li>这个可以用权值树状数组做。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1021,96 +1956,6 @@
 <p>睡下吧，在这平凡而又特殊的夜。</p>
 <p>我是多么幸运。</p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://liangdilei.github.io/2026/08/02/8-2-8-9-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="liangdl">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="liangdl 的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | liangdl 的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/08/02/8-2-8-9-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">8.2-8.9 学习记录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-08-02 22:41:11" itemprop="dateCreated datePublished" datetime="2026-08-02T22:41:11+08:00">2026-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-09-11 22:56:30" itemprop="dateModified" datetime="2026-09-11T22:56:30+08:00">2026-09-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">学习记录</span></a>
-        </span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2026/08/02/8-2-8-9-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
