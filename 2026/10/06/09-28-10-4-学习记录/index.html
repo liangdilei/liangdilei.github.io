@@ -28,7 +28,7 @@
 <meta property="og:description" content="9.28 VP CF 1124 Div.1 C 题意 给你一个长度为 $n$ 的序列，定义一个区间的价值为：  $m &#x3D; \max a[l…r]$ $val &#x3D; (m &amp; a_l) \oplus (m &amp; a_{l+1})\oplus…\oplus (m &amp; a_r)$  求最大价值。$n \le 2\times 10^5,a_i \le 2^{18}$ 赛时思路  这个数">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-10-06T08:48:47.000Z">
-<meta property="article:modified_time" content="2026-10-06T08:49:13.669Z">
+<meta property="article:modified_time" content="2026-10-06T10:19:07.484Z">
 <meta property="article:author" content="liangdl">
 <meta name="twitter:card" content="summary">
 
@@ -178,7 +178,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -246,7 +246,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-10-06 16:48:47 / 修改时间：16:49:13" itemprop="dateCreated datePublished" datetime="2026-10-06T16:48:47+08:00">2026-10-06</time>
+      <time title="创建时间：2026-10-06 16:48:47 / 修改时间：18:19:07" itemprop="dateCreated datePublished" datetime="2026-10-06T16:48:47+08:00">2026-10-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1027,7 +1027,13 @@
 <li>$i &gt; \max r[j+1,i-1]$。<mark>这个是生命周期约束，非法之后不可能合法。</mark></li>
 </ol>
 </li>
-<li></li>
+<li>这两个玩意儿具有单调性，都在不断变大。
+<ol>
+<li>第二个查询范围约束，只需要找到第一个大于等于 i 的 r ，从它开始的 j 都满足条件。所以预处理左边第一个大于我的数就是查询范围。</li>
+<li>第一个生命周期约束，找到 i 右边第一个小于等于我的就好了，在那里打删除标记。</li>
+</ol>
+</li>
+<li>上权值树状数组。</li>
 </ol>
 </li>
 </ol>
@@ -1142,6 +1148,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2026/10/06/10-6-%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/" rel="next" title="10.6 随心小记">
+                  10.6 随心小记 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>

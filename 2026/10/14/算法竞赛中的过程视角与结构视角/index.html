@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"liangdilei.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"twikoo","storage":true,"lazyload":true,"nav":null,"activeClass":"twikoo"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="前言 笔者将研究 OI 题的视角分成两类：  过程视角：研究 动态 的过程，与决策 &#x2F; 行为有关。  例子：考虑当前状态下的最优决策、考虑博弈题中某方策略、DP 的转移、构造具体解。 优点：直观具体，对于简单的题目能够快速得到题解，也能帮助理解困难的题目。   结构视角：研究 静态 的结构。  例子：刻画解结构、分析上下界、分析产生贡献的量。与某个量有关。 优点：通常能得到更强的性质，是解出难题的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法竞赛中的过程视角与结构视角">
+<meta property="og:url" content="https://liangdilei.github.io/2026/10/14/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E4%B8%AD%E7%9A%84%E8%BF%87%E7%A8%8B%E8%A7%86%E8%A7%92%E4%B8%8E%E7%BB%93%E6%9E%84%E8%A7%86%E8%A7%92/index.html">
+<meta property="og:site_name" content="liangdl 的博客">
+<meta property="og:description" content="前言 笔者将研究 OI 题的视角分成两类：  过程视角：研究 动态 的过程，与决策 &#x2F; 行为有关。  例子：考虑当前状态下的最优决策、考虑博弈题中某方策略、DP 的转移、构造具体解。 优点：直观具体，对于简单的题目能够快速得到题解，也能帮助理解困难的题目。   结构视角：研究 静态 的结构。  例子：刻画解结构、分析上下界、分析产生贡献的量。与某个量有关。 优点：通常能得到更强的性质，是解出难题的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-10-13T16:39:20.000Z">
+<meta property="article:modified_time" content="2026-10-13T16:40:01.294Z">
+<meta property="article:author" content="liangdl">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://liangdilei.github.io/2026/10/14/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E4%B8%AD%E7%9A%84%E8%BF%87%E7%A8%8B%E8%A7%86%E8%A7%92%E4%B8%8E%E7%BB%93%E6%9E%84%E8%A7%86%E8%A7%92/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://liangdilei.github.io/2026/10/14/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E4%B8%AD%E7%9A%84%E8%BF%87%E7%A8%8B%E8%A7%86%E8%A7%92%E4%B8%8E%E7%BB%93%E6%9E%84%E8%A7%86%E8%A7%92/","path":"2026/10/14/算法竞赛中的过程视角与结构视角/","title":"算法竞赛中的过程视角与结构视角"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法竞赛中的过程视角与结构视角 | liangdl 的博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">liangdl 的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录、分享与探索</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">过程视角发挥了作用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Looking-at-Towers-difficult-version"><span class="nav-number">2.1.</span> <span class="nav-text">Looking at Towers (difficult version)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fair-Elevator"><span class="nav-number">2.2.</span> <span class="nav-text">Fair Elevator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AB"><span class="nav-number">2.3.</span> <span class="nav-text">AB</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">结构视角发挥了作用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mafia"><span class="nav-number">3.1.</span> <span class="nav-text">Mafia</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%8A%E6%A1%A5%E5%88%86%E9%85%8D"><span class="nav-number">3.2.</span> <span class="nav-text">廊桥分配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Narrow-Passage"><span class="nav-number">3.3.</span> <span class="nav-text">Narrow Passage</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">本文用到的技巧汇总</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">闲话</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">liangdl</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://muyangyangli.github.io/" title="&lt;i class&#x3D;&#39;fa fa-link&#39;&gt;&lt;&#x2F;i&gt; 友情链接 → https:&#x2F;&#x2F;muyangyangli.github.io&#x2F;" rel="noopener me" target="_blank"><i class='fa fa-link'></i> 友情链接</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liangdilei.github.io/2026/10/14/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E4%B8%AD%E7%9A%84%E8%BF%87%E7%A8%8B%E8%A7%86%E8%A7%92%E4%B8%8E%E7%BB%93%E6%9E%84%E8%A7%86%E8%A7%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="liangdl">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liangdl 的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法竞赛中的过程视角与结构视角 | liangdl 的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法竞赛中的过程视角与结构视角
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-10-14 00:39:20 / 修改时间：00:40:01" itemprop="dateCreated datePublished" datetime="2026-10-14T00:39:20+08:00">2026-10-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%96%B9%E6%B3%95%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">方法论</span></a>
+        </span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1>前言</h1>
+<p>笔者将研究 OI 题的视角分成两类：</p>
+<ul>
+<li><strong>过程视角</strong>：研究 <strong>动态</strong> 的过程，与决策 / 行为有关。
+<ul>
+<li>例子：考虑当前状态下的最优决策、考虑博弈题中某方策略、DP 的转移、构造具体解。</li>
+<li>优点：直观具体，对于简单的题目能够快速得到题解，也能帮助理解困难的题目。</li>
+</ul>
+</li>
+<li><strong>结构视角</strong>：研究 <strong>静态</strong> 的结构。
+<ul>
+<li>例子：刻画解结构、分析上下界、分析产生贡献的量。与某个量有关。</li>
+<li>优点：通常能得到更强的性质，是解出难题的关键。</li>
+</ul>
+</li>
+</ul>
+<p>对过程与结构的考察往往是交替进行的。下面我们来看看这两种视角的实际应用。</p>
+<hr>
+<h1>过程视角发挥了作用</h1>
+<h2 id="Looking-at-Towers-difficult-version">Looking at Towers (difficult version)</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF2144E2">CF2144E2 Looking at Towers (difficult version) - 洛谷</a></p>
+<p>从过程视角出发，想象自己往左右“看”这一行为的过程，会发现左右端点的视线最终都会落在数列最大值那里，且左边的最大值位置 $$\le$$ 右边最大值位置。</p>
+<p>这就是过程视角的优势：可以直观快速地理解题目约束。</p>
+<p>之后就可以根据上面提到的性质做 DP 了。因为不是本文重点，所以不再赘述。</p>
+<h2 id="Fair-Elevator">Fair Elevator</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_arc104_c">AT arc104 c ARC104C Fair Elevator - 洛谷</a></p>
+<p>首先对题目做一个简单抽象：在数轴上放区间，相交的区间长度要相同。</p>
+<p>从过程视角出发，每放上一个区间，由于坐标是连续紧凑的，所以一定会形成一个一个的“块”，块的大小等于区间长度 $$\times 2 - 2$$。</p>
+<p>处理一个一个块拼接的结构，我们会考虑划分 DP。同样地不再赘述。</p>
+<h2 id="AB">AB</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_arc108_d">AT arc108 d ARC108D AB - 洛谷</a></p>
+<p>考虑生成字符串的过程。初始时是 <code>AB</code>，分类讨论：</p>
+<ol>
+<li>若 <code>AB</code> 生成 <code>A</code>：
+<ol>
+<li>若 <code>AA</code> 生成 <code>A</code>：那么只能让左边全是 <code>A</code>，右边一个 <code>B</code>。</li>
+<li>若 <code>AA</code> 生成 <code>B</code>：
+<ol>
+<li>若 <code>BA</code> 生成 <code>A</code>：观察发现只能是多个 <code>A</code> 后面跟着一个 <code>B</code>。直接枚举 <code>B</code> 的数量，插空法即可。</li>
+<li>若 <code>BA</code> 生成 <code>B</code>：发现从 <code>AAB</code> 开始的任意字符串都可生成，考虑归纳法证明。
+<ol>
+<li>最终的串结构一定是 <code>A + s + AB</code>。</li>
+<li>考虑给 <code>s</code> 加入一个 <code>A</code>：直接用 <code>AB</code> 生成 <code>A</code> 即可。</li>
+<li>考虑给 <code>s</code> 加入一个 <code>B</code>：不论 <code>s</code> 以什么结尾，都一定能和 <code>A</code> 生成 <code>B</code>。</li>
+<li>归纳法成立，答案即为 $$2^{n-3}$$。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>若 <code>AB</code> 生成 <code>B</code>：论证是对称的。</li>
+</ol>
+<p>上述分析从过程出发，省下了很多讨论量。如果直接从结构入手，可能需要做一个 $$2\times2\times2\times2$$ 的大讨论。因此过程视角往往是简化问题的关键。</p>
+<hr>
+<h1>结构视角发挥了作用</h1>
+<h2 id="Mafia">Mafia</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF348A">CF348A Mafia - 洛谷</a></p>
+<p>从过程视角出发，理解游戏如何进行：选出一个监督者，令除它以外的所有人 $$-1$$，问使得序列全不超过 $$0$$ 的最小操作次数。</p>
+<p>如果沿用过程视角分析，研究在当前状态下做什么决策最优，发现很难构造出一种方案。于是我们转化视角，从结构视角看问题。</p>
+<p>设第 $$i$$ 个人担任了 $$x_i$$ 次监督者，总共进行了 $$T$$ 轮，则有</p>
+<p>$$<br>
+\sum_i x_i=T,\qquad x_i\le T-a_i.<br>
+$$</p>
+<p>结合两个式子，有</p>
+<p>$$<br>
+T=\sum_i x_i\le \sum_i (T-a_i)=nT-\sum_i a_i<br>
+\Rightarrow (n-1)T\ge \sum_i a_i<br>
+\Rightarrow T\ge \left\lceil\frac{\sum_i a_i}{n-1}\right\rceil.<br>
+$$</p>
+<p>因为 $$x_i$$ 非负，所以 $$T\ge a_i$$，也就是 $$T\ge a_{\max}$$。所以</p>
+<p>$$<br>
+T=\max\left(a_{\max},\left\lceil\frac{\sum_i a_i}{n-1}\right\rceil\right).<br>
+$$</p>
+<p>复盘上述分析，我们首先通过研究过程，抽象 / 理解了题目；在发现继续研究过程无果后，转向了对结构的研究。</p>
+<p>在这里用到了两个研究结构的常见技巧：</p>
+<ul>
+<li>把要研究的量用符号表达；</li>
+<li>分析上下界，并证明它是紧的。</li>
+</ul>
+<h2 id="廊桥分配">廊桥分配</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P7913">P7913 CSP-S 2021 廊桥分配 - 洛谷</a></p>
+<p>一个比较自然的思路是处理出 $$f_i$$ 和 $$g_i$$，分别表示国内 / 国外分配 $$i$$ 个廊桥能停放的飞机数量。</p>
+<p>从过程视角看，我们需要基于当前的廊桥数量与飞机停放情况，对每一架飞机“分配”一个廊桥。（这种对“状态”与“决策”的考察，是经典的过程视角。）这是一个经典的区间贪心问题，对于每一个 $$i$$ 都模拟一遍分配过程即可。</p>
+<p>但是这样的时间复杂度是不优的。尝试跳出动态的分配过程，从结构视角看问题。</p>
+<p>直接考察每架飞机会停在几号廊桥，发现这可以直接预处理出来。由于“先到先得”的限制，方案的结构实际上是确定的，不受分配过程的影响。于是这题就结束了。</p>
+<p>复盘上述分析，我们首先从过程出发，找到了最优的分配策略；然后再从结构出发，发现结构是固定的，只需做一次分配即可。</p>
+<h2 id="Narrow-Passage">Narrow Passage</h2>
+<p><a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc479/tasks/abc479_f">F - Narrow Passage</a></p>
+<p>对于操作题，第一步要分析操作的影响，将影响聚焦到具体的量上：</p>
+<ul>
+<li>正常移动：将排名为 $$p$$ 的点坐标 $$\pm1$$。</li>
+<li>交换移动：将排名 $$p\pm1$$，点坐标不变。</li>
+</ul>
+<p>从过程视角出发，会发现由于“交换位置”这一特殊操作的存在，很难直接构造出一种最优方案。</p>
+<p>于是我们跳出动态的“移动过程”，转而分析静态的结构，考察答案的组成。一个自然的想法是根据操作类型划分。</p>
+<p>先来考察正常移动的次数。对于每个点，用总位移减去交换移动的位移，就能得到正常移动的次数。所以这部分贡献为</p>
+<p>$$<br>
+\sum_i \left|(t_i-s_i)-(rt_i-rs_i)\right|.<br>
+$$</p>
+<p>其中 $$rs_i$$ 表示初始排名，$$rt_i$$ 表示移动后的排名，可以通过排名的变化量反映交换移动的位移。</p>
+<p>再来考察交换移动的次数。需要注意的是，上文提到 $$rt_i-rs_i$$ 是交换移动的位移，而不是交换移动的次数，这两者是不同的。</p>
+<p>考察 $$i$$ 会和哪些 $$j$$ 发生交换：</p>
+<p>$$<br>
+\begin{cases}<br>
+s_j&lt;s_i \ \land\ t_j&gt;t_i,\<br>
+s_j&gt;s_i \ \land\ t_j&lt;t_i.<br>
+\end{cases}<br>
+$$</p>
+<p>只需要统计其中一类即可；如果两类都统计的话，每一组 $$(i,j)$$ 恰好被记 $$2$$ 次。我们选第一类统计。</p>
+<p>对于这种二维偏序的问题，我们通常在坐标轴上考虑。将 $$s$$ 当成 $$x$$ 轴，$$t$$ 当成 $$y$$ 轴，则满足条件的点数就是每个点左上方的点数。这个可以直接树状数组做。</p>
+<p>如果你的注意力足够好，会发现这本质就是将点按 $$s$$ 排序后，计算 $$t$$ 数组的逆序对个数。这是因为逆序对本质上就是二维偏序。</p>
+<p>复盘上述分析，我们首先分析操作会影响哪些量，然后尝试用过程视角构造最优解，失败后转而使用结构视角分析答案如何产生，分开计数。</p>
+<p>这里用到的结构视角的技巧有：</p>
+<ul>
+<li>在坐标轴上考虑二维偏序问题；</li>
+<li>分析答案组成。</li>
+</ul>
+<hr>
+<h1>总结</h1>
+<p>过程视角可以让我们直观快速地把握一些性质，它们往往是解题的基础。结构视角可以让我们得到更强的性质和理解，是解题的关键。通常我们都会从过程视角出发，碰壁了再考虑结构视角。</p>
+<h1>本文用到的技巧汇总</h1>
+<p>通用技巧：</p>
+<ul>
+<li>分类讨论；</li>
+<li>猜测结论然后证明；</li>
+<li>操作题考虑操作对具体量的影响；</li>
+<li>将二维偏序问题放到坐标轴上考虑；</li>
+<li>钦定一些量。</li>
+</ul>
+<p>研究结构的一些常见技巧：</p>
+<ul>
+<li>用符号表达操作量 / 研究对象；</li>
+<li>分析上下界，再证明它是紧的；</li>
+<li>刻画最优解结构；</li>
+<li>分析答案组成，拆贡献。</li>
+</ul>
+<h1>闲话</h1>
+<p>呀，虽然笔者在上文将“过程视角”和“结构视角”写得那么泾渭分明，但实际上做题过程中根本不会清晰地意识到自己处于哪种视角。</p>
+<p>上文提到的两种视角只是笔者对自己思维过程的粗略整理，实际做题过程中并不会这么完美，它们只能作为一个思维的起点。解出题目是需要题量的积累的，不会因为掌握了两种视角就有很大提升，就比如上文中提到的那么多技巧，都需要一次一次地失败才能提炼出来。</p>
+<p>如果把解题比作筑楼，那么方法论只是蓝图和施工方向；做题的经验，对技巧的整理才是真正用到的建筑材料。</p>
+<p>在我看来，OI 是一门很灵活的学问，没有什么机械的方法论能囊括它所有题目的解法，但其中有一些大方向是可以确定的。就比如，在思考题目的起步阶段，要从过程视角出发，调用自己的直觉，大刀阔斧地做简化，这一阶段重要的是“感觉”；然后再用结构视角分析问题，此时的重心就要转移到“严谨”上了。</p>
+<p>曾经读到过一本书，书里讲述了人类直觉的强大，我如今是认同的。需要相信的是，直觉的背后是经验的累积，而不是智商或天赋。还请继续保持对自己的信心，加油吧！</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/10/06/10-6-%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/" rel="prev" title="10.6 随心小记">
+                  <i class="fa fa-angle-left"></i> 10.6 随心小记
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments"><div id="twikoo-comments"></div></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">liangdl</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="twikoo" type="application/json">{"enable":true,"visitor":false,"envId":"https://api.liangdl.cn","el":"#twikoo-comments"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.twikoo.el)
+    .then(() => NexT.utils.getScript(
+      CONFIG.twikoo.jsUrl || 'https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js',
+      { condition: window.twikoo }
+    ))
+    .then(() => {
+      twikoo.init(CONFIG.twikoo);
+    });
+});
+</script>
+<style>
+.post-block, .comments {
+  overflow: visible;
+}
+.tk-owo-emotion {
+  display: inline-block;
+}
+</style>
+
+</body>
+</html>
