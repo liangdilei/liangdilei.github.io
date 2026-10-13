@@ -4690,7 +4690,7 @@ $$</p>
 <p>考察 $i$ 会和哪些 $j$ 发生交换：</p>
 <p>$$<br>
 \begin{cases}<br>
-s_j&lt;s_i \ \land\ t_j&gt;t_i,\<br>
+s_j&lt;s_i \ \land\ t_j&gt;t_i, \\<br>
 s_j&gt;s_i \ \land\ t_j&lt;t_i.<br>
 \end{cases}<br>
 $$</p>
