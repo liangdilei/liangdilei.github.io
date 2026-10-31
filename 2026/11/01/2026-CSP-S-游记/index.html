@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"liangdilei.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"twikoo","storage":true,"lazyload":true,"nav":null,"activeClass":"twikoo"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="前夜 突击了一下树剖、扫描线和斜率优化，把各种各样的模板打了一遍，学了一下对拍。 准备了一盒薄荷糖，准考证和身份证。和宝高学长约好了明天面基，考完试之后一起去附近玩。 实话说，已经紧张到胃里翻江倒海了。 该做的准备都做好了，目前来看，只要正常发挥，切掉 T2 不是问题。T3 碰运气，大概十分之一的概率能出，应该能打到一个不错的部分分，T4 随缘了。只要不考数论就行，一点也没有复习（ 这一把能打到逼">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2026 CSP-S 游记">
+<meta property="og:url" content="https://liangdilei.github.io/2026/11/01/2026-CSP-S-%E6%B8%B8%E8%AE%B0/index.html">
+<meta property="og:site_name" content="liangdl 的博客">
+<meta property="og:description" content="前夜 突击了一下树剖、扫描线和斜率优化，把各种各样的模板打了一遍，学了一下对拍。 准备了一盒薄荷糖，准考证和身份证。和宝高学长约好了明天面基，考完试之后一起去附近玩。 实话说，已经紧张到胃里翻江倒海了。 该做的准备都做好了，目前来看，只要正常发挥，切掉 T2 不是问题。T3 碰运气，大概十分之一的概率能出，应该能打到一个不错的部分分，T4 随缘了。只要不考数论就行，一点也没有复习（ 这一把能打到逼">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-10-31T16:51:01.000Z">
+<meta property="article:modified_time" content="2026-10-31T16:51:22.099Z">
+<meta property="article:author" content="liangdl">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://liangdilei.github.io/2026/11/01/2026-CSP-S-%E6%B8%B8%E8%AE%B0/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://liangdilei.github.io/2026/11/01/2026-CSP-S-%E6%B8%B8%E8%AE%B0/","path":"2026/11/01/2026-CSP-S-游记/","title":"2026 CSP-S 游记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>2026 CSP-S 游记 | liangdl 的博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">liangdl 的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录、分享与探索</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E5%A4%9C"><span class="nav-number">1.</span> <span class="nav-text">前夜</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E5%A4%A9"><span class="nav-number">2.</span> <span class="nav-text">当天</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A9%E6%99%A8"><span class="nav-number">3.</span> <span class="nav-text">早晨</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%80%83%E5%9C%BA%E7%AD%96%E7%95%A5"><span class="nav-number">3.1.</span> <span class="nav-text">考场策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%9A%E9%A2%98%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">做题方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%80%83%E8%AF%95%E4%B8%AD"><span class="nav-number">4.</span> <span class="nav-text">考试中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9C%E6%99%9A"><span class="nav-number">5.</span> <span class="nav-text">夜晚</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">liangdl</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://muyangyangli.github.io/" title="&lt;i class&#x3D;&#39;fa fa-link&#39;&gt;&lt;&#x2F;i&gt; 友情链接 → https:&#x2F;&#x2F;muyangyangli.github.io&#x2F;" rel="noopener me" target="_blank"><i class='fa fa-link'></i> 友情链接</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liangdilei.github.io/2026/11/01/2026-CSP-S-%E6%B8%B8%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="liangdl">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liangdl 的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="2026 CSP-S 游记 | liangdl 的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2026 CSP-S 游记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-11-01 00:51:01 / 修改时间：00:51:22" itemprop="dateCreated datePublished" datetime="2026-11-01T00:51:01+08:00">2026-11-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
+        </span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="前夜">前夜</h2>
+<p>突击了一下树剖、扫描线和斜率优化，把各种各样的模板打了一遍，学了一下对拍。</p>
+<p>准备了一盒薄荷糖，准考证和身份证。和宝高学长约好了明天面基，考完试之后一起去附近玩。</p>
+<p>实话说，已经紧张到胃里翻江倒海了。</p>
+<p>该做的准备都做好了，目前来看，只要正常发挥，切掉 T2 不是问题。T3 碰运气，大概十分之一的概率能出，应该能打到一个不错的部分分，T4 随缘了。只要不考数论就行，一点也没有复习（</p>
+<p>这一把能打到逼近 300 就能去 WC 了，也就是把 T1 T2 切掉，并且把 T3 T4 的暴力打满。这是最好的结局，要对自己有信心。</p>
+<p>稍微差一点的结局，T2 刚好考数论 / 数数或是由于不可抗力没有切掉，但是把 T1 切掉了，并且把 T2 T3 T4 的暴力打满，那 S 一等也是随便拿，并且还能再停课一个月打 NOIP 玩（</p>
+<p>再次的结局就有点过分了，T1 切不出来那有点离谱，感觉不用做讨论。</p>
+<p>感觉拥有光明的未来啊。今年省选之前应该能做到稳切蓝？算法都学的差不多了，思维还差一点，码力差的有点大。</p>
+<p>只要发挥好，WC 不是问题啊。注意多放空，红温了就上个厕所，卡题了就跳题，总之要相信自己，我写不出来的题目大部分人也不会做出来的。</p>
+<p>如果，我说万一，题目特别特别难，那也一定要把暴力打满。</p>
+<p>写题的时候想清楚再写，如果觉得自己想出来了，不要立刻动手写，千万千万要看看自己的思路是不是错误的。</p>
+<p>发现自己的思路假了也不要紧张，立马跳题，不要在一道题目上卡 30 分钟还没有进展，这个时间够你想一个 20 pts 的暴力了。不要被压力裹挟大脑，你不差那点时间。</p>
+<p>虽然现在说这些完全是在宣泄压力的，对考试没啥帮助，反正明天还会再总结（</p>
+<p>仔细想想，我的未来竟然如此美丽。</p>
+<p>不管怎样，我一定不会再后悔了吧。</p>
+<h2 id="当天">当天</h2>
+<h2 id="早晨">早晨</h2>
+<p>下午考试，直接睡到 9.40，精神状态良好，昨晚靠着数羊的方法硬是给大脑强制睡眠了（</p>
+<p>打了一下主席树板子，开了云斗 S 模拟赛的 T1 T2，居然很快被我秒了，我好强！</p>
+<p>然后再整理一下思绪。</p>
+<h3 id="考场策略">考场策略</h3>
+<p>先想所有题，每道题最多想半个小时，没想出来也跳，回头再想。</p>
+<p>最后 1.5h 一定要开始写代码，先写有把握的分。感觉没把握就写个暴力对拍，很快的，最多 10 分钟。</p>
+<p>如果大脑空转，就让自己停下来，上个厕所，吃点东西休息一下。</p>
+<p>千万不要因为 T1 没想出来就死磕，万一 T1 就是很难想到的神秘贪心呢。</p>
+<h3 id="做题方法">做题方法</h3>
+<p>考虑方向：从左往右 / 按位考虑 / 子树 / 深度 / 排名 / 神秘顺序 / 倒着考虑</p>
+<p>视角：过程 / 结构 视角。</p>
+<p>常见方法：考虑 dp，分析答案组成，正难则反，预处理思想，先考虑好考虑的，关注奇怪的地方。</p>
+<p>先用直觉创，直觉没用就机械式地思考，在深入之前，好好想想这一步值不值得 / 应不应该深入。万一这个前提就是假的呢？</p>
+<p>先尝试模拟过程，如果很困难就去考虑结构，或者换一种考虑方向。</p>
+<p>多放空。</p>
+<p>剩下的，听天由命吧，rp++。</p>
+<p>千万千万不要考数论啊！！！！！！！！！！！！</p>
+<h2 id="考试中">考试中</h2>
+<p>开局 T1 看错题，想了一想感觉好复杂，卡住了，开 T2 去了。</p>
+<p>结果 T2 那个题目难读程度堪比文言文，读了 15 分钟有了大概的意思之后回来写 T1。</p>
+<p>推翻了之前那个复杂思路，然后把错题的解法想出来了，写代码的时候才意识到看错题了，火速想正解，结果发现这就是个弱智题，秒掉了。此时时间已经过去了 1h。</p>
+<p>心态稍微稳了一点之后过来想 T2，顺着之前的思路理解，再读了一会儿，把玩了一下样例，终于把题目读懂了。</p>
+<p>然后被数据范围启发，5 分钟想出了正解。（读题 20 分钟，想题 5 分钟有点绷不住了），然后就是写代码，还算比较快吧。写完 T2 大概已经过去了 1.5h。</p>
+<p>然后开 T3，T3 的暴力很显然，然后继续想，这个时候有些体力不支了，去上了个厕所。</p>
+<p>回来想特殊性质，很快想出来了 AB，C 感觉是 B 进一步的推广，有大概方向，但是细节太多了，果断放弃。</p>
+<p>然后就去开 T4 了。首先指数写法很容易想到，试图 dp，从子树角度考虑，但是发现转移不了。放弃了。</p>
+<p>这个时候体力已经明显不行了，回来想 T3，但是这个 T3 刚好又是那种细节多多的题目，结果越想越晕，直接给我干红温了。</p>
+<p>此时还剩下 1h 左右，开始写代码了。想用一个统一的方法把 T3 部分分都拿下（就是红温的时候想的那个），结果发现细节太多根本调不出来（其实那个算法好像是有点错误的，非常复杂）。</p>
+<p>然后就一直磨，剩下最后 40 分钟的时候发现自己玩脱了，此时的 T3 T4 的暴力一个没打，只有 100+100+0+0=200 分。</p>
+<p>然后就火速把 T3 n^2 暴力写了，写 AB 性质的时候遇到了突发情况，一读那个样例就死机，不知道为什么，这导致我在完全没有样例辅助的情况下只能借助理论硬写。（结局是写挂了呜呜呜，细节太多了！根本考虑不过来。）。</p>
+<p>发现实在没招了，最后 20 分钟把 T4 指数暴力写了，最后 10 分钟极限检查收尾。</p>
+<p>最后预估：100+100+56+15 = 271</p>
+<h2 id="夜晚">夜晚</h2>
+<p>和几个宝高的学长拍了合照，去外面一起吃了一顿饭。本来打算玩一会儿的但发现没啥好玩的（逃。</p>
+<p>然后回来测民间数据了，T1 T2 没出锅，T3 那个样例测不出来的原因找到了——CCF把所有下发样例的测试点编号都设为 0，我还以为只有 pdf 上面的才是 0，难受了，这下痛失 16pts。</p>
+<p>T4 的指数暴力也写错了（连通块判错了，唉，只能说当时太着急了，没有留够时间吧），这下又挂掉了 15pts。</p>
+<p>最终预估：100+100+40+0=240，这下真是大众分了，合计着这场比赛只有前 2h 有得分呗（哭）。</p>
+<p>如果，我是说如果我借助样例调出了 T3 的 ABC 性质，T1 没看错题，T4 暴力没写挂，甚至还有时间把 k=2 的部分分打出来，结果会不会不一样呢？那样的话我甚至可以打到 293 吧，这个分数够去 WC 了。</p>
+<p>但懊悔没有持续太长时间，追求在赛场上的完美发挥是不可能的，并没有什么好懊恼的。就算一切顺顺利利，我的上限也只是低分飘进 WC 而已。这个分数实际上已经非常不错，1=，NOIP 参赛资格，七级钩都保住了。仔细想想，比赛还是反应出许多问题：</p>
+<ul>
+<li>开考时太紧张，看错题了</li>
+<li>对细节耐受度太低了</li>
+<li>想出复杂解法时没有及时怀疑自己，这个方向应该是错误的</li>
+<li>时间分配存在问题，实际上时间是充裕的，至少 T4 的 15 pts 是可以通过合理分配时间拿到的</li>
+<li>红温的时候没有找到合适的解决方法（比如，红温的时候就不应该想题目解法，特别是细节）。</li>
+<li>没想清楚就开始写代码了，浪费了很多时间</li>
+</ul>
+<p>这是一次非常完美的试错，我并没有什么损失，还得到了许多经验。</p>
+<p>如果按照平均水平而不是完美发挥来衡量实力，那这一次还算是正常发挥吧。</p>
+<p>这个结果还是可以接受的吧。</p>
+<p>NOIP，我来了！</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/10/18/10-18-%E9%9A%8F%E5%BF%83%E5%B0%8F%E8%AE%B0/" rel="prev" title="10.18 随心小记">
+                  <i class="fa fa-angle-left"></i> 10.18 随心小记
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments"><div id="twikoo-comments"></div></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">liangdl</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="twikoo" type="application/json">{"enable":true,"visitor":false,"envId":"https://api.liangdl.cn","el":"#twikoo-comments"}</script>
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.twikoo.el)
+    .then(() => NexT.utils.getScript(
+      CONFIG.twikoo.jsUrl || 'https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js',
+      { condition: window.twikoo }
+    ))
+    .then(() => {
+      twikoo.init(CONFIG.twikoo);
+    });
+});
+</script>
+<style>
+.post-block, .comments {
+  overflow: visible;
+}
+.tk-owo-emotion {
+  display: inline-block;
+}
+</style>
+
+</body>
+</html>
